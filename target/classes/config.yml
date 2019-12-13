@@ -1,0 +1,66 @@
+# LoginStreaks
+# Author: Munch42
+
+# LoginStreaks Commands
+# /streak. Views your current streak.
+# /topstreaks. Views the top streaks.
+
+# LoginStreaks Permissions
+# /streak command
+streakPerm: "loginstreaks.streak"
+# /topstreaks command
+streakLBPerms: "loginstreaks.streaklb"
+
+# LoginStreaks Login Rewards and Messages
+# No Permissions Message this is shown when the player does not have permissions to use the command. Set to "" to disable.
+noPermsMessage: "&4You do not have permission to use that command!"
+
+# Streak Command Message. The message shown when a player types /streak.
+# Use %days% as a placeholder for the amount of streak days.
+# Use %player% as a placeholder for the player's name.
+streakMessage: "&2%player% &2you have logged in for %days% days in a row. Login tomorrow to increase your streak."
+
+# Money Received Message. Set to "" to disable. This will be sent to a player when they receive money as a reward.
+# Use %money% as a placeholder for the amount of money received it will be formatted as $<money>.
+# Use %days% as a placeholder for the amount of days they logged in.
+rewardMoneyMessage: "&2&lYou received %money% as a reward for logging in %days% days in a row!"
+
+# Command Received Message. Set to "" to disable. This will be sent to a player when a command is run as a reward.
+# Use %command% as a placeholder for the commandExplanation of the command run.
+# Use %days% as a placeholder for the amount of days they logged in.
+rewardCommandMessage: "&2&lA command was run which %command% because you logged in for %days% days in a row!"
+
+# Item Received Message. Set to "" to disable. This will be sent to a player when they receive an Item as a reward.
+# Use %item% as a placeholder for the type of item.
+# Use %itemAmount% as a placeholder for the amount of items received.
+# Use %days% as a placeholder for the amount of days they logged in.
+rewardItemMessage: "&2&lYou received %itemAmount% %item% as a reward for logging in for %days% days!"
+
+# Format:
+# rewards: DO NOT CHANGE THIS SETTING. This is the main node of the section.
+#   dayNum: This is the amount of days needed to get this. For example, if you set this to 7 they will get this reward after logging in for 7 days in a row.
+#     rewardType: This should be set to either MONEY or ITEM or COMMAND. Set to MONEY if you want to give Money, REQUIRES: Vault. Set to ITEM if you want to give an item and set to COMMAND to run a command.
+#     reward: This should either 1. Be the amount of Money given if the type is money. 2. Be the item given in all caps ie. IRON_BLOCK. Or 3. The Command to run in "", you can use %player% as the player name.
+#     commandExplanation: This should be set to null unless the rewardType is COMMAND. If it is, set this to what the command does. Leave blank if you do not need the %command% placeholder above.
+#     commandScope: This should be set to null unless the rewardType is COMMAND. If so, you can set this to either PLAYER to run the command as the player, or CONSOLE to run as the console.
+#     rewardAmount: This should be set to 0 if the rewardType is COMMAND or MONEY. Otherwise, set this to the amount of items the player will receive.
+
+rewards:
+  7:
+    rewardType: COMMAND
+    reward: "say %player% has logged in for 7 days now!"
+    commandExplanation: "announces that you have a 7 day streak"
+    commandScope: CONSOLE
+    rewardAmount: 0
+  8:
+    rewardType: MONEY
+    reward: 5000
+    commandExplanation: null
+    commandScope: null
+    rewardAmount: 0
+  9:
+    rewardType: ITEM
+    reward: RED_WOOL
+    commandExplanation: null
+    commandScope: null
+    rewardAmount: 32

@@ -1,0 +1,11 @@
+name: LoginStreak
+version: 1.1-SNAPSHOT
+main: me.munch42.loginstreak.Main
+api-version: 1.13
+
+softdepend: [PlaceholderAPI]
+depend: [Vault]
+
+commands:
+  streak:
+    description: This command shows your current login streak.
