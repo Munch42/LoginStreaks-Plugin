@@ -97,12 +97,10 @@ public class LoginStreakExpansion extends PlaceholderExpansion {
             return "";
         }
 
-        File streaksFile = new File(plugin.getDataFolder(), "streaks.yml");
-        FileConfiguration streaksConfig = YamlConfiguration.loadConfiguration(streaksFile);
-
         // %loginstreak_playerdays%
         if(identifier.equals("playerdays")){
-            return String.valueOf(streaksConfig.getInt("players." + player.getUniqueId() + ".totalStreakDays"));
+            int daysTotal = plugin.getStreaksConfig().getInt("players." + player.getUniqueId() + ".totalStreakDays");
+            return String.valueOf(daysTotal);
         }
 
         // We return null if an invalid placeholder (f.e. %someplugin_placeholder3%)
