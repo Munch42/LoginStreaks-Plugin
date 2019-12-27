@@ -67,96 +67,138 @@ public class PlayerJoinListener implements Listener {
 
         Player p = event.getPlayer();
 
-        String rewardType = "";
+        String[] rewardType;
         int moneyAmount = 0;
-        String command = "";
-        String itemName = "";
-        int rewardAmount = 0;
+        String[] command;
+        String[] itemName;
+        int[] rewardAmount;
         String commandExplanation = "";
-        String commandScope = "";
+        String[] commandScope;
 
         for(String key : rewards.getKeys(false)){
             if(key.equals(String.valueOf(daysNow))){
-                if(plugin.getStreaksConfig().getBoolean( "players." + event.getPlayer().getUniqueId() + ".dayReward") == true){
+                if(plugin.getStreaksConfig().getBoolean( "players." + p.getUniqueId() + ".dayReward") == true){
                     break;
                 }
-                rewardType = rewards.getString(key + ".rewardType");
-                if(rewardType.equals("MONEY")) {
-                    moneyAmount = rewards.getInt(key + ".reward");
-                    EconomyResponse r = Main.getEconomy().depositPlayer(p, moneyAmount);
-                    if (r.transactionSuccess()) {
-                        // Main.getEconomy().format(r.amount)
-                        if (!plugin.getConfig().getString("rewardMoneyMessage").equals("")) {
-                            String message = plugin.getConfig().getString("rewardMoneyMessage");
-                            message = message.replace("%money%", Main.getEconomy().format(r.amount));
-                            message = message.replace("%days%", String.valueOf(daysNow));
-                            message = ChatUtils.parseColourCodes(message);
-                            p.sendMessage(message);
-                        }
+                // FIX THIS FIRST IF MULTIPLES DO NOT WORK
+                rewardType = rewards.getString(key + ".rewardType").split(";");
+                itemName = rewards.getString(key + ".reward").split(";");
+                int counter = 0;
+                for(String stringInt : rewards.getString(key + ".rewardAmount").split(";")){
+                    rewardAmount[counter] = Integer.parseInt(stringInt);
+                    counter++;
+                }
+
+                command = rewards.getString(key + ".reward").split(";");
+                commandScope = rewards.getString(key + ".commandScope").split(";");
+                for(String type : rewardType){
+                    if(type.equals("MONEY")) {
+                        rewardMoney(moneyAmount, rewards, key, daysNow,  p);
+                        continue;
+                    } else if(type.equals("ITEM")){
+                        rewardItems(itemName, rewards, key, rewardAmount, p, daysNow);
+                        continue;
+                    } else if(type.equals("COMMAND")){
+                        rewardCommands(command, rewards, key, commandExplanation, commandScope, daysNow, p);
+                        continue;
                     } else {
-                        p.sendMessage(String.format("An error occured: %s", r.errorMessage));
-                    }
-
-                    plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".dayReward", true);
-                    plugin.saveConfig();
-                    break;
-                } else if(rewardType.equals("ITEM")){
-                    itemName = rewards.getString(key + ".reward");
-                    String itemDisplayName = itemName.replace("_", " ");
-                    itemDisplayName = itemDisplayName.toLowerCase();
-                    itemDisplayName = WordUtils.capitalize(itemDisplayName);
-                    rewardAmount = rewards.getInt(key + ".rewardAmount");
-
-                    if(rewardAmount != 0){
-                        ItemStack item = new ItemStack(Material.getMaterial(itemName), rewardAmount);
-                        p.getInventory().addItem(item);
-                        if(!plugin.getConfig().getString("rewardItemMessage").equals("")){
-                            String message = plugin.getConfig().getString("rewardItemMessage");
-                            message = message.replace("%item%", itemDisplayName);
-                            message = message.replace("%itemAmount%", String.valueOf(rewardAmount));
-                            message = message.replace("%days%", String.valueOf(daysNow));
-                            message = ChatUtils.parseColourCodes(message);
-                            p.sendMessage(message);
-                        }
-                    } else {
-                        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] ERROR: Item Reward Amount was not set correctly!");
-                    }
-
-                    plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".dayReward", true);
-                    plugin.saveConfig();
-                    break;
-                } else if(rewardType.equals("COMMAND")){
-                    command = rewards.getString(key + ".reward");
-                    commandExplanation = rewards.getString(key + ".commandExplanation");
-                    commandScope = rewards.getString(key + ".commandScope");
-
-                    command = command.replace("%player%", p.getDisplayName());
-
-                    if(commandScope.equals("PLAYER")){
-                        Bukkit.getServer().dispatchCommand(p, command);
-                    } else if(commandScope.equals("CONSOLE")){
-                        Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), command);
-                    } else {
-                        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] ERROR: Command Scope was not set correctly!");
+                        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] ERROR: Reward Type was not set correctly!");
                         break;
                     }
-
-                    if(!plugin.getConfig().getString("rewardCommandMessage").equals("")){
-                        String message = plugin.getConfig().getString("rewardCommandMessage");
-                        message = message.replace("%command%", commandExplanation);
-                        message = message.replace("%days%", String.valueOf(daysNow));
-                        message = ChatUtils.parseColourCodes(message);
-                        p.sendMessage(message);
-                    }
-
-                    plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".dayReward", true);
-                    plugin.saveConfig();
-                    break;
-                } else {
-                    Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] ERROR: Reward Type was not set correctly!");
-                    break;
                 }
             }
         }
+    }
+
+    private boolean rewardMoney(int moneyAmount, ConfigurationSection rewards, String key, int daysNow, Player p){
+        moneyAmount = rewards.getInt(key + ".reward");
+        EconomyResponse r = Main.getEconomy().depositPlayer(p, moneyAmount);
+        if (r.transactionSuccess()) {
+            // Main.getEconomy().format(r.amount)
+            if (!plugin.getConfig().getString("rewardMoneyMessage").equals("")) {
+                String message = plugin.getConfig().getString("rewardMoneyMessage");
+                message = message.replace("%money%", Main.getEconomy().format(r.amount));
+                message = message.replace("%days%", String.valueOf(daysNow));
+                message = ChatUtils.parseColourCodes(message);
+                p.sendMessage(message);
+            }
+        } else {
+            p.sendMessage(String.format("An error occured: %s", r.errorMessage));
+            return false;
+        }
+
+        plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".dayReward", true);
+        plugin.saveConfig();
+        return true;
+    }
+
+    private boolean rewardItems(String[] itemName, ConfigurationSection rewards, String key, int[] rewardAmount, Player p, int daysNow){
+        String[] itemDisplayName;
+        boolean failed = false;
+
+        for(int i = 0; i < itemName.length; i++){
+            itemDisplayName[i] = itemName[i].replace("_", " ");
+            itemDisplayName[i] = itemDisplayName[i].toLowerCase();
+            itemDisplayName[i] = WordUtils.capitalize(itemDisplayName[i]);
+
+            if(rewardAmount[i] != 0){
+                ItemStack item = new ItemStack(Material.getMaterial(itemName[i]), rewardAmount[i]);
+                p.getInventory().addItem(item);
+                if(!plugin.getConfig().getString("rewardItemMessage").equals("")){
+                    String message = plugin.getConfig().getString("rewardItemMessage");
+                    message = message.replace("%item%", itemDisplayName[i]);
+                    message = message.replace("%itemAmount%", String.valueOf(rewardAmount[i]));
+                    message = message.replace("%days%", String.valueOf(daysNow));
+                    message = ChatUtils.parseColourCodes(message);
+                    p.sendMessage(message);
+                }
+            } else {
+                Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] ERROR: Item Reward Amount was not set correctly!");
+                failed = true;
+                break;
+            }
+        }
+
+        if(failed == true){
+            return false;
+        }
+
+        plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".dayReward", true);
+        plugin.saveConfig();
+        return true;
+    }
+    private boolean rewardCommands(String[] command, ConfigurationSection rewards, String key, String commandExplanation, String[] commandScope, int daysNow, Player p){
+        commandExplanation = rewards.getString(key + ".commandExplanation");
+        boolean failed = false;
+
+        for(int i = 0; i < command.length; i++){
+            command[i] = command[i].replace("%player%", p.getDisplayName());
+
+            if(commandScope[i].equals("PLAYER")){
+                Bukkit.getServer().dispatchCommand(p, command[i]);
+            } else if(commandScope[i].equals("CONSOLE")){
+                Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), command[i]);
+            } else {
+                Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] ERROR: Command Scope was not set correctly!");
+                failed = true;
+                break;
+            }
+        }
+
+        if(failed == true){
+            return false;
+        }
+
+        if(!plugin.getConfig().getString("rewardCommandMessage").equals("")){
+            String message = plugin.getConfig().getString("rewardCommandMessage");
+            message = message.replace("%command%", commandExplanation);
+            message = message.replace("%days%", String.valueOf(daysNow));
+            message = ChatUtils.parseColourCodes(message);
+            p.sendMessage(message);
+        }
+
+        plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".dayReward", true);
+        plugin.saveConfig();
+        return true;
     }
 }

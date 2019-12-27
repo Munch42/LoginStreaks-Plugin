@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo>ANT TASK - copying files....</echo>
+  <copy flatten="true" todir="C:\Users\ayden\Desktop\IntelliJ Plugins\LoginStreak\LoginStreaks-Plugin/server/plugins" overwrite="true">
+    <fileset includes="*.bat" dir="C:\Users\ayden\Desktop\IntelliJ Plugins\LoginStreak\LoginStreaks-Plugin">
+      <include name="*.bat"/>
+      <include name="ReadME.*"/>
+      <include name="target/LoginStreak-1.1-RELEASE.jar"/>
+    </fileset>
+  </copy>
+</target>
+</project>
