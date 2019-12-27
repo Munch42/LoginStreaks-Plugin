@@ -71,7 +71,7 @@ public class PlayerJoinListener implements Listener {
         int moneyAmount = 0;
         String[] command;
         String[] itemName;
-        int[] rewardAmount;
+        int[] rewardAmount = new int[0];
         String commandExplanation = "";
         String[] commandScope;
 
@@ -133,7 +133,7 @@ public class PlayerJoinListener implements Listener {
     }
 
     private boolean rewardItems(String[] itemName, ConfigurationSection rewards, String key, int[] rewardAmount, Player p, int daysNow){
-        String[] itemDisplayName;
+        String[] itemDisplayName = new String[0];
         boolean failed = false;
 
         for(int i = 0; i < itemName.length; i++){
