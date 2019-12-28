@@ -23,6 +23,57 @@
     },
     "done": true
   },
+  "minecraft:recipes/misc/coal_from_smelting": {
+    "criteria": {
+      "has_coal_ore": "2019-12-28 11:35:37 -0700"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/diamond_shovel": {
+    "criteria": {
+      "has_diamond": "2019-12-27 21:49:28 -0700"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/iron_ingot": {
+    "criteria": {
+      "has_iron_ore": "2019-12-27 21:52:54 -0700"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/diamond_chestplate": {
+    "criteria": {
+      "has_diamond": "2019-12-27 21:49:28 -0700"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/diamond_axe": {
+    "criteria": {
+      "has_diamond": "2019-12-27 21:49:28 -0700"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/red_banner": {
+    "criteria": {
+      "has_red_wool": "2019-12-27 12:12:31 -0700"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:desert_hills": "2019-12-24 15:41:52 -0700",
+      "minecraft:desert": "2019-12-24 15:39:55 -0700",
+      "minecraft:river": "2019-12-27 14:50:49 -0700",
+      "minecraft:savanna": "2019-12-27 14:51:30 -0700"
+    },
+    "done": false
+  },
+  "minecraft:recipes/combat/diamond_leggings": {
+    "criteria": {
+      "has_diamond": "2019-12-27 21:49:28 -0700"
+    },
+    "done": true
+  },
   "minecraft:recipes/misc/diamond": {
     "criteria": {
       "has_at_least_9_diamond": "2019-12-27 21:49:28 -0700"
@@ -47,12 +98,6 @@
     },
     "done": true
   },
-  "minecraft:recipes/tools/diamond_shovel": {
-    "criteria": {
-      "has_diamond": "2019-12-27 21:49:28 -0700"
-    },
-    "done": true
-  },
   "minecraft:story/mine_diamond": {
     "criteria": {
       "diamond": "2019-12-27 21:49:28 -0700"
@@ -62,12 +107,6 @@
   "minecraft:recipes/decorations/red_carpet": {
     "criteria": {
       "has_red_wool": "2019-12-27 12:12:31 -0700"
-    },
-    "done": true
-  },
-  "minecraft:recipes/misc/iron_ingot": {
-    "criteria": {
-      "has_iron_ore": "2019-12-27 21:52:54 -0700"
     },
     "done": true
   },
@@ -89,27 +128,15 @@
     },
     "done": true
   },
-  "minecraft:recipes/combat/diamond_chestplate": {
-    "criteria": {
-      "has_diamond": "2019-12-27 21:49:28 -0700"
-    },
-    "done": true
-  },
   "minecraft:recipes/decorations/anvil": {
     "criteria": {
       "has_iron_block": "2019-12-27 12:12:31 -0700"
     },
     "done": true
   },
-  "minecraft:recipes/tools/diamond_axe": {
+  "minecraft:recipes/misc/coal_from_blasting": {
     "criteria": {
-      "has_diamond": "2019-12-27 21:49:28 -0700"
-    },
-    "done": true
-  },
-  "minecraft:recipes/decorations/red_banner": {
-    "criteria": {
-      "has_red_wool": "2019-12-27 12:12:31 -0700"
+      "has_coal_ore": "2019-12-28 11:35:37 -0700"
     },
     "done": true
   },
@@ -128,21 +155,6 @@
   "minecraft:recipes/misc/diamond_from_smelting": {
     "criteria": {
       "has_diamond_ore": "2019-12-27 21:51:57 -0700"
-    },
-    "done": true
-  },
-  "minecraft:adventure/adventuring_time": {
-    "criteria": {
-      "minecraft:desert_hills": "2019-12-24 15:41:52 -0700",
-      "minecraft:desert": "2019-12-24 15:39:55 -0700",
-      "minecraft:river": "2019-12-27 14:50:49 -0700",
-      "minecraft:savanna": "2019-12-27 14:51:30 -0700"
-    },
-    "done": false
-  },
-  "minecraft:recipes/combat/diamond_leggings": {
-    "criteria": {
-      "has_diamond": "2019-12-27 21:49:28 -0700"
     },
     "done": true
   },

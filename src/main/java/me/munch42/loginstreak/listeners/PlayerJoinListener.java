@@ -19,7 +19,7 @@ public class PlayerJoinListener implements Listener {
     // NOTE: System.currentTimeMillis() returns The time in milliseconds. There are 1000 milliseconds in 1 second. So to turn it into 24 hours the math is 1000 x 60 x 60 x 24 = 86400000
 
     private Main plugin;
-    private int arraySize;
+    private int arraySize = 100;
 
     public PlayerJoinListener(Main plugin){
         this.plugin = plugin;

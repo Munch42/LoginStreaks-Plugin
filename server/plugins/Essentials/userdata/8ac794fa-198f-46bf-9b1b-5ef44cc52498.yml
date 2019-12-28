@@ -1,13 +1,13 @@
 lastAccountName: Munch42
 timestamps:
-  login: 1577508794965
-  logout: 1577508803752
+  login: 1577558137551
+  logout: 1577558154947
 ipAddress: 127.0.0.1
 afk: false
 logoutlocation:
   world: world
-  x: 82.51763642263778
-  y: 94.19293171793835
-  z: 35.216662613250804
-  yaw: 73.89013
-  pitch: 64.64993
+  x: 64.5507787010442
+  y: 92.15814676123665
+  z: 11.609478894456604
+  yaw: 217.5904
+  pitch: 25.049965

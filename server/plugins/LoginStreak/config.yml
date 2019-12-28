@@ -84,8 +84,8 @@ rewards:
     rewardAmount: 0
   9:
     rewardType: ITEM
-    reward: RED_WOOL;IRON_ORE;IRON_BLOCK
+    reward: RED_WOOL;IRON_ORE;IRON_BLOCK;DIAMOND;DIAMOND_ORE;COAL_ORE
     commandExplanation: null
     commandScope: null
-    rewardAmount: "5;5;5"
+    rewardAmount: "5;5;5;5;5;5"
 
