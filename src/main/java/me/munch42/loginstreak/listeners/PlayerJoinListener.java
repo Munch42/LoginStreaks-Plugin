@@ -67,44 +67,30 @@ public class PlayerJoinListener implements Listener {
 
         Player p = event.getPlayer();
 
-        String[] rewardType;
+        String rewardType;
         int moneyAmount = 0;
-        String[] command;
-        String[] itemName;
-        int[] rewardAmount = new int[0];
+        int[] rewardAmount = new int[15];
         String commandExplanation = "";
-        String[] commandScope;
 
         for(String key : rewards.getKeys(false)){
             if(key.equals(String.valueOf(daysNow))){
                 if(plugin.getStreaksConfig().getBoolean( "players." + p.getUniqueId() + ".dayReward") == true){
                     break;
                 }
-                // FIX THIS FIRST IF MULTIPLES DO NOT WORK
-                rewardType = rewards.getString(key + ".rewardType").split(";");
-                itemName = rewards.getString(key + ".reward").split(";");
-                int counter = 0;
-                for(String stringInt : rewards.getString(key + ".rewardAmount").split(";")){
-                    rewardAmount[counter] = Integer.parseInt(stringInt);
-                    counter++;
-                }
+                rewardType = rewards.getString(key + ".rewardType");
 
-                command = rewards.getString(key + ".reward").split(";");
-                commandScope = rewards.getString(key + ".commandScope").split(";");
-                for(String type : rewardType){
-                    if(type.equals("MONEY")) {
-                        rewardMoney(moneyAmount, rewards, key, daysNow,  p);
-                        continue;
-                    } else if(type.equals("ITEM")){
-                        rewardItems(itemName, rewards, key, rewardAmount, p, daysNow);
-                        continue;
-                    } else if(type.equals("COMMAND")){
-                        rewardCommands(command, rewards, key, commandExplanation, commandScope, daysNow, p);
-                        continue;
-                    } else {
-                        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] ERROR: Reward Type was not set correctly!");
-                        break;
-                    }
+                if(rewardType.equals("MONEY")) {
+                    rewardMoney(moneyAmount, rewards, key, daysNow,  p);
+                    continue;
+                } else if(rewardType.equals("ITEM")){
+                    rewardItems(rewards, key, rewardAmount, p, daysNow);
+                    continue;
+                } else if(rewardType.equals("COMMAND")){
+                    rewardCommands(rewards, key, commandExplanation, daysNow, p);
+                    continue;
+                } else {
+                    Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] ERROR: Reward Type was not set correctly!");
+                    break;
                 }
             }
         }
@@ -132,9 +118,15 @@ public class PlayerJoinListener implements Listener {
         return true;
     }
 
-    private boolean rewardItems(String[] itemName, ConfigurationSection rewards, String key, int[] rewardAmount, Player p, int daysNow){
-        String[] itemDisplayName = new String[0];
+    private boolean rewardItems(ConfigurationSection rewards, String key, int[] rewardAmount, Player p, int daysNow){
+        String[] itemDisplayName = new String[15];
         boolean failed = false;
+        String[] itemName = rewards.getString(key + ".reward").split(";");
+        int counter = 0;
+        for(String stringInt : rewards.getString(key + ".rewardAmount").split(";")){
+            rewardAmount[counter] = Integer.parseInt(stringInt);
+            counter++;
+        }
 
         for(int i = 0; i < itemName.length; i++){
             itemDisplayName[i] = itemName[i].replace("_", " ");
@@ -167,12 +159,19 @@ public class PlayerJoinListener implements Listener {
         plugin.saveConfig();
         return true;
     }
-    private boolean rewardCommands(String[] command, ConfigurationSection rewards, String key, String commandExplanation, String[] commandScope, int daysNow, Player p){
+    private boolean rewardCommands(ConfigurationSection rewards, String key, String commandExplanation, int daysNow, Player p){
+        String[] command = rewards.getString(key + ".reward").split(";");
+        String[] commandScope = rewards.getString(key + ".commandScope").split(";");
         commandExplanation = rewards.getString(key + ".commandExplanation");
         boolean failed = false;
 
         for(int i = 0; i < command.length; i++){
             command[i] = command[i].replace("%player%", p.getDisplayName());
+
+            if(commandScope.length < command.length){
+                Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] ERROR: Command Scope did not have enough arguments for the supplied command rewards!");
+                return false;
+            }
 
             if(commandScope[i].equals("PLAYER")){
                 Bukkit.getServer().dispatchCommand(p, command[i]);

@@ -6,7 +6,7 @@
     <fileset includes="*.bat" dir="C:\Users\ayden\Desktop\IntelliJ Plugins\LoginStreak\LoginStreaks-Plugin">
       <include name="*.bat"/>
       <include name="ReadME.*"/>
-      <include name="target/LoginStreak-1.1-RELEASE.jar"/>
+      <include name="target/LoginStreak-2.1.0-RELEASE.jar"/>
     </fileset>
   </copy>
 </target>

@@ -1,14 +1,32 @@
 # LoginStreaks
 # Author: Munch42
+#
+#_      ____   _____ _____ _   _    _____ _______ _____  ______          _  __ _____
+#| |    / __ \ / ____|_   _| \ | |  / ____|__   __|  __ \|  ____|   /\   | |/ // ____|
+#| |   | |  | | |  __  | | |  \| | | (___    | |  | |__) | |__     /  \  | ' /| (___
+#| |   | |  | | | |_ | | | | . ` |  \___ \   | |  |  _  /|  __|   / /\ \ |  <  \___ \
+#| |___| |__| | |__| |_| |_| |\  |  ____) |  | |  | | \ \| |____ / ____ \| . \ ____) |
+#|______\____/ \_____|_____|_| \_| |_____/   |_|  |_|  \_\______/_/    \_\_|\_\_____/
+#
+#
+#____            __  __                  _    _  _ ___
+#|  _ \       _  |  \/  |                | |  | || |__ \
+#| |_) |_   _(_) | \  / |_   _ _ __   ___| |__| || |_ ) |
+#|  _ <| | | |   | |\/| | | | | '_ \ / __| '_ \__   _/ /
+#| |_) | |_| |_  | |  | | |_| | | | | (__| | | | | |/ /_
+#|____/ \__, (_) |_|  |_|\__,_|_| |_|\___|_| |_| |_|____|
+#      __/ |
+#     |___/
+#
 
 # LoginStreaks Commands
 # /streak. Views your current streak.
-# /topstreaks. Views the top streaks.
+# /topstreaks. Views the top streaks. ** CURRENTLY UNUSED**
 
 # LoginStreaks Permissions
 # /streak command
 streakPerm: "loginstreaks.streak"
-# /topstreaks command
+# /topstreaks command **CURRENTLY UNUSED**
 streakLBPerms: "loginstreaks.streaklb"
 
 # LoginStreaks Login Rewards and Messages
@@ -40,27 +58,39 @@ rewardItemMessage: "&2&lYou received %itemAmount% %item% as a reward for logging
 # rewards: DO NOT CHANGE THIS SETTING. This is the main node of the section.
 #   dayNum: This is the amount of days needed to get this. For example, if you set this to 7 they will get this reward after logging in for 7 days in a row.
 #     rewardType: This should be set to either MONEY or ITEM or COMMAND. Set to MONEY if you want to give Money, REQUIRES: Vault. Set to ITEM if you want to give an item and set to COMMAND to run a command.
-#     reward: This should either 1. Be the amount of Money given if the type is money. 2. Be the item given in all caps ie. IRON_BLOCK. Use ; to seperate multiple items to give ie. IRON_LO. Or 3. The Command to run in "", you can use %player% as the player name.
+#     reward: This should either 1. Be the amount of Money given if the type is money. 2. Be the item given in all caps ie. IRON_BLOCK. Use ; to separate multiple items to give ie. IRON_BLOCK ; COAL_ORE. Or 3. The Command to run in "", you can use %player% as the player name. Separate multiple commands with ; as with items.
 #     commandExplanation: This should be set to null unless the rewardType is COMMAND. If it is, set this to what the command does. Leave blank if you do not need the %command% placeholder above.
-#     commandScope: This should be set to null unless the rewardType is COMMAND. If so, you can set this to either PLAYER to run the command as the player, or CONSOLE to run as the console.
-#     rewardAmount: This should be set to 0 if the rewardType is COMMAND or MONEY. Otherwise, set this to the amount of items the player will receive.
+#     commandScope: This should be set to null unless the rewardType is COMMAND. If so, you can set this to either PLAYER to run the command as the player, or CONSOLE to run as the console. Set this for each command in rewards. Separate each one with a ; ie. CONSOLE ; PLAYER.
+#     rewardAmount: This should be set to 0 if the rewardType is COMMAND or MONEY. Otherwise, set this to the amount of items the player will receive for each item. Separate the amounts with a ; for each item ie. 5 ; 10.
 
 rewards:
+  5:
+    rewardType: ITEM
+    reward: RED_WOOL;IRON_BLOCK
+    commandExplanation: null
+    commandScope: null
+    rewardAmount: "15;5"
+  6:
+    rewardType: COMMAND
+    reward: "say %player% has logged in for 6 days now!;say If you also log in for 6 days like me you will receive this message."
+    commandExplanation: "announces that you have a 6 day streak"
+    commandScope: CONSOLE;PLAYER
+    rewardAmount: "0"
   7:
     rewardType: COMMAND
     reward: "say %player% has logged in for 7 days now!"
     commandExplanation: "announces that you have a 7 day streak"
     commandScope: CONSOLE
-    rewardAmount: 0
+    rewardAmount: "0"
   8:
     rewardType: MONEY
     reward: 5000
     commandExplanation: null
     commandScope: null
-    rewardAmount: 0
+    rewardAmount: "0"
   9:
     rewardType: ITEM
     reward: RED_WOOL
     commandExplanation: null
     commandScope: null
-    rewardAmount: 32
+    rewardAmount: "32"

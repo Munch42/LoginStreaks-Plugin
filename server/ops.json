@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "uuid": "8ac794fa-198f-46bf-9b1b-5ef44cc52498",
+    "name": "Munch42",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  }
+]
