@@ -19,6 +19,7 @@ public class PlayerJoinListener implements Listener {
     // NOTE: System.currentTimeMillis() returns The time in milliseconds. There are 1000 milliseconds in 1 second. So to turn it into 24 hours the math is 1000 x 60 x 60 x 24 = 86400000
 
     private Main plugin;
+    private int arraySize;
 
     public PlayerJoinListener(Main plugin){
         this.plugin = plugin;
@@ -69,7 +70,7 @@ public class PlayerJoinListener implements Listener {
 
         String rewardType;
         int moneyAmount = 0;
-        int[] rewardAmount = new int[15];
+        int[] rewardAmount = new int[arraySize];
         String commandExplanation = "";
 
         for(String key : rewards.getKeys(false)){
@@ -119,7 +120,7 @@ public class PlayerJoinListener implements Listener {
     }
 
     private boolean rewardItems(ConfigurationSection rewards, String key, int[] rewardAmount, Player p, int daysNow){
-        String[] itemDisplayName = new String[15];
+        String[] itemDisplayName = new String[arraySize];
         boolean failed = false;
         String[] itemName = rewards.getString(key + ".reward").split(";");
         int counter = 0;

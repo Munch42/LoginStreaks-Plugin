@@ -4,6 +4,7 @@ import me.munch42.loginstreak.commands.StreakCommand;
 import me.munch42.loginstreak.listeners.PlayerJoinListener;
 import me.munch42.loginstreak.papi.LoginStreakExpansion;
 import net.milkbowl.vault.economy.Economy;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -27,6 +28,8 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        Metrics metrics = new Metrics(this);
+
         if (!setupEconomy() ) {
             log.severe(String.format("[%s] - Disabled due to no Vault dependency found!", getDescription().getName()));
             getServer().getPluginManager().disablePlugin(this);
