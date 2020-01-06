@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="" />
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -17,6 +25,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1VfyBn84ehEZ8qySrUTKX19gOmF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -24,6 +33,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
@@ -78,6 +88,9 @@
       <option name="presentableId" value="Default" />
       <updated>1577658310136</updated>
       <workItem from="1577658314807" duration="439000" />
+      <workItem from="1577660558463" duration="573000" />
+      <workItem from="1577748612257" duration="196000" />
+      <workItem from="1578352471148" duration="2087000" />
     </task>
     <servers />
   </component>
@@ -85,6 +98,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="739" y="280" key="FileChooserDialogImpl" timestamp="1577748773317">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="739" y="280" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1577748773317" />
     <state width="1877" height="219" key="GridCell.Tab.0.bottom" timestamp="1577658754119">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -101,9 +118,17 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="219" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1577658754119" />
-    <state x="656" y="363" key="com.intellij.ide.util.TipDialog" timestamp="1577660558321">
+    <state x="656" y="363" key="com.intellij.ide.util.TipDialog" timestamp="1577748638064">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="656" y="363" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1577660558321" />
+    <state x="656" y="363" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1577748638064" />
+    <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578353363166">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1578353363166" />
+    <state x="342" y="209" key="new project wizard" timestamp="1577748806164">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="342" y="209" key="new project wizard/0.0.1920.1080@0.0.1920.1080" timestamp="1577748806164" />
   </component>
 </project>

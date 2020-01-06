@@ -14,6 +14,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import static java.util.stream.Collectors.toMap;
+
 public class PlayerJoinListener implements Listener {
 
     // NOTE: System.currentTimeMillis() returns The time in milliseconds. There are 1000 milliseconds in 1 second. So to turn it into 24 hours the math is 1000 x 60 x 60 x 24 = 86400000
@@ -35,10 +42,17 @@ public class PlayerJoinListener implements Listener {
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".lastStreakTime", System.currentTimeMillis());
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".totalStreakDays", 1);
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".dayReward", false);
+            plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".rank", 0);
             plugin.saveConfig();
         }
 
         // Save New Display Name if name changed
+        if(plugin.getStreaksConfig().getString("players." + event.getPlayer().getUniqueId() + ".rank") == null){
+            plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".rank", 0);
+            plugin.saveConfig();
+        }
+
+        // Save New Rank if no rank node is present
         if(!plugin.getStreaksConfig().getString("players." + event.getPlayer().getUniqueId() + ".name").equals(event.getPlayer().getDisplayName())){
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".name", event.getPlayer().getDisplayName());
             plugin.saveConfig();
@@ -61,6 +75,9 @@ public class PlayerJoinListener implements Listener {
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".dayReward", false);
             plugin.saveConfig();
         }
+
+        // Update Rankings in Config
+        checkAndUpdateRankings();
 
         // Check for rewards for total streak
         int daysNow = plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays");
@@ -200,5 +217,31 @@ public class PlayerJoinListener implements Listener {
         plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".dayReward", true);
         plugin.saveConfig();
         return true;
+    }
+
+    private void checkAndUpdateRankings(){
+        ConfigurationSection streaks = plugin.getStreaksConfig().getConfigurationSection("players");
+
+        Map<String, Integer> streakMap = new HashMap<>();
+
+        for(String key : streaks.getKeys(false)){
+            streakMap.put(key, streaks.getInt(key + ".totalStreakDays", 1));
+        }
+
+        Map<String, Integer> sorted = streakMap
+                .entrySet()
+                .stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .collect(
+                        toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
+                                LinkedHashMap::new));
+
+        int rank = 1;
+        for(String player : sorted.keySet()){
+            plugin.getStreaksConfig().set("players." + player + ".rank", rank);
+            plugin.saveConfig();
+            rank++;
+        }
+
     }
 }
