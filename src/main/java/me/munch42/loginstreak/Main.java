@@ -74,7 +74,7 @@ public final class Main extends JavaPlugin {
 
     public String getRankMessage(int rank){
         if(top10Players.size() < rank){
-            String message = placeholderColourCodes + rank + ". " + plugin + getConfig().getString("blankRankPlaceholder");
+            String message = placeholderColourCodes + rank + ". " + getConfig().getString("blankRankPlaceholder");
             message = ChatUtils.parseColourCodes(message);
             return message;
         }
