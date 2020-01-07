@@ -14,10 +14,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.stream.Collectors.toMap;
 
@@ -99,13 +96,10 @@ public class PlayerJoinListener implements Listener {
 
                 if(rewardType.equals("MONEY")) {
                     rewardMoney(moneyAmount, rewards, key, daysNow,  p);
-                    continue;
                 } else if(rewardType.equals("ITEM")){
                     rewardItems(rewards, key, rewardAmount, p, daysNow);
-                    continue;
                 } else if(rewardType.equals("COMMAND")){
                     rewardCommands(rewards, key, commandExplanation, daysNow, p);
-                    continue;
                 } else {
                     Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] ERROR: Reward Type was not set correctly!");
                     break;
@@ -236,10 +230,16 @@ public class PlayerJoinListener implements Listener {
                         toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
                                 LinkedHashMap::new));
 
+
         int rank = 1;
         for(String player : sorted.keySet()){
             plugin.getStreaksConfig().set("players." + player + ".rank", rank);
             plugin.saveConfig();
+
+            if(rank <= 10){
+                plugin.top10Players.add(player);
+            }
+
             rank++;
         }
 

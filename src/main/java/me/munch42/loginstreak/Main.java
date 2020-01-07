@@ -1,6 +1,7 @@
 package me.munch42.loginstreak;
 
 import me.munch42.loginstreak.commands.StreakCommand;
+import me.munch42.loginstreak.commands.TopStreaksCommand;
 import me.munch42.loginstreak.listeners.PlayerJoinListener;
 import me.munch42.loginstreak.papi.LoginStreakExpansion;
 import net.milkbowl.vault.economy.Economy;
@@ -13,6 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 public final class Main extends JavaPlugin {
@@ -24,6 +26,8 @@ public final class Main extends JavaPlugin {
     private Main plugin;
     private File streaksFile = new File(getDataFolder(), "streaks.yml");
     private FileConfiguration streaksConfig = YamlConfiguration.loadConfiguration(streaksFile);
+
+    public ArrayList<String> top10Players = new ArrayList<>();
 
     @Override
     public void onEnable() {
@@ -46,6 +50,7 @@ public final class Main extends JavaPlugin {
 
         new PlayerJoinListener(this);
         new StreakCommand(this);
+        new TopStreaksCommand(this);
 
         plugin = this;
     }

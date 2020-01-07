@@ -21,13 +21,13 @@
 
 # LoginStreaks Commands
 # /streak. Views your current streak.
-# /topstreaks. Views the top streaks. ** CURRENTLY UNUSED**
+# /topstreaks. Views the top streaks.
 
 # LoginStreaks Permissions
 # /streak command
 streakPerm: "loginstreaks.streak"
-# /topstreaks command **CURRENTLY UNUSED**
-streakLBPerms: "loginstreaks.streaklb"
+# /topstreaks command
+streakLBPerm: "loginstreaks.streaklb"
 
 # LoginStreaks Login Rewards and Messages
 # No Permissions Message this is shown when the player does not have permissions to use the command. Set to "" to disable.
@@ -37,6 +37,12 @@ noPermsMessage: "&4You do not have permission to use that command!"
 # Use %days% as a placeholder for the amount of streak days.
 # Use %player% as a placeholder for the player's name.
 streakMessage: "&2%player% &2you have logged in for %days% days in a row. Login tomorrow to increase your streak."
+
+# TopStreak Command Message. This will be the first message shown when a player types /topstreaks. ie. Set to "" to just send the standings.
+# <Your Message Here>
+# 1. <Player Name>: <Streak>
+# 2. <Player Name>: <Streak>
+streakTopMessage: "&2This server's top streaks are: "
 
 # Money Received Message. Set to "" to disable. This will be sent to a player when they receive money as a reward.
 # Use %money% as a placeholder for the amount of money received it will be formatted as $<money>.

@@ -6,7 +6,7 @@
 
     <groupId>me.munch42</groupId>
     <artifactId>LoginStreak</artifactId>
-    <version>2.1.1-RELEASE</version>
+    <version>2.2.1-RELEASE</version>
     <packaging>jar</packaging>
 
     <name>LoginStreak</name>

@@ -1,5 +1,5 @@
 name: LoginStreak
-version: 2.1.1-RELEASE
+version: 2.2.1-RELEASE
 main: me.munch42.loginstreak.Main
 api-version: 1.13
 
@@ -9,3 +9,5 @@ depend: [Vault]
 commands:
   streak:
     description: This command shows your current login streak.
+  topstreaks:
+    description: This command shows you the current streak leaderboard on the server.
