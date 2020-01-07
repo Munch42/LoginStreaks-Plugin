@@ -103,6 +103,56 @@ public class LoginStreakExpansion extends PlaceholderExpansion {
             return String.valueOf(daysTotal);
         }
 
+        // %loginstreak_top1%
+        if(identifier.equals("top1")){
+            return plugin.getRankMessage(1);
+        }
+
+        // %loginstreak_top2%
+        if(identifier.equals("top2")){
+            return plugin.getRankMessage(2);
+        }
+
+        // %loginstreak_top3%
+        if(identifier.equals("top3")){
+            return plugin.getRankMessage(3);
+        }
+
+        // %loginstreak_top4%
+        if(identifier.equals("top4")){
+            return plugin.getRankMessage(4);
+        }
+
+        // %loginstreak_top5%
+        if(identifier.equals("top5")){
+            return plugin.getRankMessage(5);
+        }
+
+        // %loginstreak_top6%
+        if(identifier.equals("top6")){
+            return plugin.getRankMessage(6);
+        }
+
+        // %loginstreak_top7%
+        if(identifier.equals("top7")){
+            return plugin.getRankMessage(7);
+        }
+
+        // %loginstreak_top8%
+        if(identifier.equals("top8")){
+            return plugin.getRankMessage(8);
+        }
+
+        // %loginstreak_top9%
+        if(identifier.equals("top9")){
+            return plugin.getRankMessage(9);
+        }
+
+        // %loginstreak_top10%
+        if(identifier.equals("top10")){
+            return plugin.getRankMessage(10);
+        }
+
         // We return null if an invalid placeholder (f.e. %someplugin_placeholder3%)
         // was provided
         return null;

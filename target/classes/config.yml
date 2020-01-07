@@ -44,6 +44,10 @@ streakMessage: "&2%player% &2you have logged in for %days% days in a row. Login 
 # 2. <Player Name>: <Streak>
 streakTopMessage: "&2This server's top streaks are: "
 
+# This will be the colour code combination to set all placeholders. ie.
+# If this is set to "&c&l" the message 1. <Name>: <Streak> would become "&2 1. <Name>: <Streak>"
+streakTopEntriesColourCode: "&2"
+
 # Money Received Message. Set to "" to disable. This will be sent to a player when they receive money as a reward.
 # Use %money% as a placeholder for the amount of money received it will be formatted as $<money>.
 # Use %days% as a placeholder for the amount of days they logged in.
@@ -59,6 +63,16 @@ rewardCommandMessage: "&2&lA command was run which %command% because you logged 
 # Use %itemAmount% as a placeholder for the amount of items received.
 # Use %days% as a placeholder for the amount of days they logged in.
 rewardItemMessage: "&2&lYou received %itemAmount% %item% as a reward for logging in for %days% days!"
+
+# Optional Dependency Options:
+# PlaceholderAPI Options:
+# This will be the colour code combination to set all placeholders. ie.
+# If this is set to "&c&l" the message %loginstreak_top1% would be &c&l <Top 1 Message>.
+placeholderColourCodes: "&c"
+
+# This will be the message shown beside the number in the placeholder if there are not enough players for that rank. ie.
+# %loginstreak_top9% with only 8 total players with ranks would be: 9. <Your Message Below>
+blankRankPlaceholder: "---------"
 
 # Format:
 # rewards: DO NOT CHANGE THIS SETTING. This is the main node of the section.

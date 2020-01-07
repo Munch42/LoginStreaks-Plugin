@@ -4,6 +4,7 @@ import me.munch42.loginstreak.commands.StreakCommand;
 import me.munch42.loginstreak.commands.TopStreaksCommand;
 import me.munch42.loginstreak.listeners.PlayerJoinListener;
 import me.munch42.loginstreak.papi.LoginStreakExpansion;
+import me.munch42.loginstreak.utils.ChatUtils;
 import net.milkbowl.vault.economy.Economy;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
@@ -28,10 +29,13 @@ public final class Main extends JavaPlugin {
     private FileConfiguration streaksConfig = YamlConfiguration.loadConfiguration(streaksFile);
 
     public ArrayList<String> top10Players = new ArrayList<>();
+    public String placeholderColourCodes;
+    public String topColourCodes;
 
     @Override
     public void onEnable() {
         Metrics metrics = new Metrics(this);
+        plugin = this;
 
         if (!setupEconomy() ) {
             log.severe(String.format("[%s] - Disabled due to no Vault dependency found!", getDescription().getName()));
@@ -52,7 +56,8 @@ public final class Main extends JavaPlugin {
         new StreakCommand(this);
         new TopStreaksCommand(this);
 
-        plugin = this;
+        placeholderColourCodes = getConfig().getString("placeholderColourCodes");
+        topColourCodes = getConfig().getString("streakTopEntriesColourCode");
     }
 
     @Override
@@ -65,6 +70,21 @@ public final class Main extends JavaPlugin {
         } catch(IOException e){
             e.printStackTrace();
         }
+    }
+
+    public String getRankMessage(int rank){
+        if(top10Players.size() < rank){
+            String message = placeholderColourCodes + rank + ". " + plugin + getConfig().getString("blankRankPlaceholder");
+            message = ChatUtils.parseColourCodes(message);
+            return message;
+        }
+
+        String id = top10Players.get(rank - 1);
+        String name = plugin.getStreaksConfig().getString("players." + id + ".name");
+        String streak = plugin.getStreaksConfig().getString("players." + id + ".totalStreakDays");
+        String message = placeholderColourCodes + rank + ". " + name + ": " + streak;
+        message = ChatUtils.parseColourCodes(message);
+        return message;
     }
 
     private boolean setupEconomy() {

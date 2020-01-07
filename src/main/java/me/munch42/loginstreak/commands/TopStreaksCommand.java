@@ -27,7 +27,7 @@ public class TopStreaksCommand implements CommandExecutor {
             for(String player : plugin.top10Players){
                 String name = plugin.getStreaksConfig().getString("players." + player + ".name");
                 int streak = plugin.getStreaksConfig().getInt("players." + player + ".totalStreakDays");
-                sender.sendMessage(counter + ". " + name + ": " + streak);
+                sender.sendMessage(ChatUtils.parseColourCodes(plugin.topColourCodes + counter + ". " + name + ": " + streak));
 
                 counter++;
             }
