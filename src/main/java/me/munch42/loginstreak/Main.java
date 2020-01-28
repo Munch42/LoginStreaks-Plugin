@@ -8,6 +8,7 @@ import me.munch42.loginstreak.utils.ChatUtils;
 import net.milkbowl.vault.economy.Economy;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -15,8 +16,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.logging.Logger;
+
+import static java.util.stream.Collectors.toMap;
 
 public final class Main extends JavaPlugin {
 
@@ -31,6 +34,10 @@ public final class Main extends JavaPlugin {
     public ArrayList<String> top10Players = new ArrayList<>();
     public String placeholderColourCodes;
     public String topColourCodes;
+
+    public ConfigurationSection streaks = getStreaksConfig().getConfigurationSection("players");
+
+    public Map<String, Integer> streakMap = new HashMap<>();
 
     @Override
     public void onEnable() {
@@ -55,6 +62,15 @@ public final class Main extends JavaPlugin {
         new PlayerJoinListener(this);
         new StreakCommand(this);
         new TopStreaksCommand(this);
+
+        for(String key : streaks.getKeys(false)){
+            if(streaks.getInt(key + ".rank") <= 10 && streaks.getInt(key + ".rank") != 0){
+                streakMap.put(key, streaks.getInt(key + ".totalStreakDays"));
+            }
+        }
+
+        // Update Rankings in Config
+        checkAndUpdateRankings();
 
         placeholderColourCodes = getConfig().getString("placeholderColourCodes");
         topColourCodes = getConfig().getString("streakTopEntriesColourCode");
@@ -97,6 +113,29 @@ public final class Main extends JavaPlugin {
         }
         econ = rsp.getProvider();
         return econ != null;
+    }
+
+    public void checkAndUpdateRankings(){
+        Map<String, Integer> sorted = streakMap
+                .entrySet()
+                .stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .collect(
+                        toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
+                                LinkedHashMap::new));
+
+
+        int rank = 1;
+        for(String player : sorted.keySet()){
+            if(rank <= 10){
+                getStreaksConfig().set("players." + player + ".rank", rank);
+                saveConfig();
+                top10Players.add(player);
+            }
+
+            rank++;
+        }
+
     }
 
     public static Economy getEconomy() {

@@ -43,13 +43,13 @@ public class PlayerJoinListener implements Listener {
             plugin.saveConfig();
         }
 
-        // Save New Display Name if name changed
+        // Save New Rank if no rank node is present
         if(plugin.getStreaksConfig().getString("players." + event.getPlayer().getUniqueId() + ".rank") == null){
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".rank", 0);
             plugin.saveConfig();
         }
 
-        // Save New Rank if no rank node is present
+        // Save New Display Name if name changed
         if(!plugin.getStreaksConfig().getString("players." + event.getPlayer().getUniqueId() + ".name").equals(event.getPlayer().getDisplayName())){
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".name", event.getPlayer().getDisplayName());
             plugin.saveConfig();
@@ -73,8 +73,13 @@ public class PlayerJoinListener implements Listener {
             plugin.saveConfig();
         }
 
-        // Update Rankings in Config
-        checkAndUpdateRankings();
+        for(String player : plugin.streakMap.keySet()){
+            if(plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays") >= plugin.streakMap.get(player)){
+                plugin.streakMap.remove(player);
+                plugin.streakMap.put(event.getPlayer().getUniqueId().toString(), plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays"));
+                plugin.checkAndUpdateRankings();
+            }
+        }
 
         // Check for rewards for total streak
         int daysNow = plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays");
@@ -211,37 +216,5 @@ public class PlayerJoinListener implements Listener {
         plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".dayReward", true);
         plugin.saveConfig();
         return true;
-    }
-
-    private void checkAndUpdateRankings(){
-        ConfigurationSection streaks = plugin.getStreaksConfig().getConfigurationSection("players");
-
-        Map<String, Integer> streakMap = new HashMap<>();
-
-        for(String key : streaks.getKeys(false)){
-            streakMap.put(key, streaks.getInt(key + ".totalStreakDays", 1));
-        }
-
-        Map<String, Integer> sorted = streakMap
-                .entrySet()
-                .stream()
-                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
-                .collect(
-                        toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
-                                LinkedHashMap::new));
-
-
-        int rank = 1;
-        for(String player : sorted.keySet()){
-            plugin.getStreaksConfig().set("players." + player + ".rank", rank);
-            plugin.saveConfig();
-
-            if(rank <= 10){
-                plugin.top10Players.add(player);
-            }
-
-            rank++;
-        }
-
     }
 }
