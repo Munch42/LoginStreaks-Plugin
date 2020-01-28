@@ -73,9 +73,9 @@ public class PlayerJoinListener implements Listener {
             plugin.saveConfig();
         }
 
+        // Update Ranking Performance Friendly
         for(String player : plugin.streakMap.keySet()){
             if(plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays") >= plugin.streakMap.get(player)){
-                plugin.streakMap.remove(player);
                 plugin.streakMap.put(event.getPlayer().getUniqueId().toString(), plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays"));
                 plugin.checkAndUpdateRankings();
             }

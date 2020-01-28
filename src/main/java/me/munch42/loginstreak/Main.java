@@ -125,6 +125,7 @@ public final class Main extends JavaPlugin {
                                 LinkedHashMap::new));
 
 
+        top10Players.clear();
         int rank = 1;
         for(String player : sorted.keySet()){
             if(rank <= 10){
@@ -134,6 +135,14 @@ public final class Main extends JavaPlugin {
             }
 
             rank++;
+        }
+
+        for(String player : streakMap.keySet()){
+            if(!top10Players.contains(player)){
+                streakMap.remove(player);
+                getStreaksConfig().set("players." + player + ".rank", 0);
+                saveConfig();
+            }
         }
 
     }
