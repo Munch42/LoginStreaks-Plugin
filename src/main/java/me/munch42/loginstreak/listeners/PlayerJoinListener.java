@@ -39,13 +39,6 @@ public class PlayerJoinListener implements Listener {
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".lastStreakTime", System.currentTimeMillis());
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".totalStreakDays", 1);
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".dayReward", false);
-            plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".rank", 0);
-            plugin.saveConfig();
-        }
-
-        // Save New Rank if no rank node is present
-        if(plugin.getStreaksConfig().getString("players." + event.getPlayer().getUniqueId() + ".rank") == null){
-            plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".rank", 0);
             plugin.saveConfig();
         }
 
@@ -73,19 +66,30 @@ public class PlayerJoinListener implements Listener {
             plugin.saveConfig();
         }
 
+        int daysNow = plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays");
+        Player p = event.getPlayer();
+
         // Update Ranking Performance Friendly
-        for(String player : plugin.streakMap.keySet()){
-            if(plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays") >= plugin.streakMap.get(player)){
-                plugin.streakMap.put(event.getPlayer().getUniqueId().toString(), plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays"));
-                plugin.checkAndUpdateRankings();
+        plugin.getRanksConfig().set("topPlayers." + p.getUniqueId() + ".rank", 1);
+        plugin.saveRanksConfig();
+        plugin.streakMap.put(p.getUniqueId().toString(), daysNow);
+
+        ConfigurationSection ranks = plugin.getRanksConfig().getConfigurationSection("topPlayers");
+
+        for(String key : ranks.getKeys(false)){
+            if(key.equals(p.getUniqueId().toString())){
+                continue;
             }
+
+            int theirDays = plugin.getStreaksConfig().getInt("players." + key + ".totalStreakDays");
+
+            plugin.streakMap.put(key, theirDays);
         }
 
-        // Check for rewards for total streak
-        int daysNow = plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays");
-        ConfigurationSection rewards = plugin.getConfig().getConfigurationSection("rewards");
+        plugin.checkAndUpdateRankings();
 
-        Player p = event.getPlayer();
+        // Check for rewards for total streak
+        ConfigurationSection rewards = plugin.getConfig().getConfigurationSection("rewards");
 
         String rewardType;
         int moneyAmount = 0;

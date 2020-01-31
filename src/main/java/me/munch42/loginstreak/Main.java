@@ -30,14 +30,14 @@ public final class Main extends JavaPlugin {
     private Main plugin;
     private File streaksFile = new File(getDataFolder(), "streaks.yml");
     private FileConfiguration streaksConfig = YamlConfiguration.loadConfiguration(streaksFile);
+    private File ranksFile = new File(getDataFolder(), "ranks.yml");
+    private FileConfiguration ranksConfig = YamlConfiguration.loadConfiguration(ranksFile);
 
+    //              Player UUID, Total Streak Days
+    public HashMap<String, Integer> streakMap = new HashMap<>();
     public ArrayList<String> top10Players = new ArrayList<>();
     public String placeholderColourCodes;
     public String topColourCodes;
-
-    public ConfigurationSection streaks = getStreaksConfig().getConfigurationSection("players");
-
-    public Map<String, Integer> streakMap = new HashMap<>();
 
     @Override
     public void onEnable() {
@@ -55,6 +55,11 @@ public final class Main extends JavaPlugin {
             saveResource("streaks.yml", false);
         }
 
+        if(!ranksFile.exists()){
+            saveResource("ranks.yml", false);
+        }
+
+
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
             new LoginStreakExpansion(this).register();
         }
@@ -62,15 +67,6 @@ public final class Main extends JavaPlugin {
         new PlayerJoinListener(this);
         new StreakCommand(this);
         new TopStreaksCommand(this);
-
-        for(String key : streaks.getKeys(false)){
-            if(streaks.getInt(key + ".rank") <= 10 && streaks.getInt(key + ".rank") != 0){
-                streakMap.put(key, streaks.getInt(key + ".totalStreakDays"));
-            }
-        }
-
-        // Update Rankings in Config
-        checkAndUpdateRankings();
 
         placeholderColourCodes = getConfig().getString("placeholderColourCodes");
         topColourCodes = getConfig().getString("streakTopEntriesColourCode");
@@ -83,6 +79,14 @@ public final class Main extends JavaPlugin {
     public void saveConfig(){
         try{
             getStreaksConfig().save(getStreaksFile());
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void saveRanksConfig(){
+        try{
+            getRanksConfig().save(getRanksFile());
         } catch(IOException e){
             e.printStackTrace();
         }
@@ -129,22 +133,23 @@ public final class Main extends JavaPlugin {
         int rank = 1;
         for(String player : sorted.keySet()){
             if(rank <= 10){
-                getStreaksConfig().set("players." + player + ".rank", rank);
-                saveConfig();
+                getRanksConfig().set("topPlayers." + player + ".rank", rank);
+                saveRanksConfig();
                 top10Players.add(player);
             }
 
             rank++;
         }
 
-        for(String player : streakMap.keySet()){
-            if(!top10Players.contains(player)){
-                streakMap.remove(player);
-                getStreaksConfig().set("players." + player + ".rank", 0);
-                saveConfig();
+        streakMap.clear();
+        ConfigurationSection ranks = getRanksConfig().getConfigurationSection("topPlayers");
+
+        for(String key : ranks.getKeys(false)){
+            if(!top10Players.contains(key)){
+                getRanksConfig().set("topPlayers." + key, null);
+                saveRanksConfig();
             }
         }
-
     }
 
     public static Economy getEconomy() {
@@ -157,6 +162,14 @@ public final class Main extends JavaPlugin {
 
     public File getStreaksFile(){
         return streaksFile;
+    }
+
+    public FileConfiguration getRanksConfig() {
+        return ranksConfig;
+    }
+
+    public File getRanksFile(){
+        return ranksFile;
     }
 
     public Main getPlugin(){
