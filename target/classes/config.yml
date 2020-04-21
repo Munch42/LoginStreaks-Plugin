@@ -82,6 +82,7 @@ blankRankPlaceholder: "---------"
 #     commandExplanation: This should be set to null unless the rewardType is COMMAND. If it is, set this to what the command does. Leave blank if you do not need the %command% placeholder above.
 #     commandScope: This should be set to null unless the rewardType is COMMAND. If so, you can set this to either PLAYER to run the command as the player, or CONSOLE to run as the console. Set this for each command in rewards. Separate each one with a ; ie. CONSOLE ; PLAYER.
 #     rewardAmount: This should be set to 0 if the rewardType is COMMAND or MONEY. Otherwise, set this to the amount of items the player will receive for each item. Separate the amounts with a ; for each item ie. 5 ; 10.
+#     reset: (Optional) This should be set to either true or false. You do not need this field for a day as if it is not included it will be false. Once a player reaches this day, their streak will be reset to 1 if it is true.
 
 rewards:
   5:
@@ -114,3 +115,4 @@ rewards:
     commandExplanation: null
     commandScope: null
     rewardAmount: "32"
+    reset: true
