@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ranks.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_14_4_R0_1_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_14_4_R0_1_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,11 +53,16 @@
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="usePluginRegistry" value="true" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="downloadDocsAutomatically" value="true" />
         <option name="downloadSourcesAutomatically" value="true" />
-        <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
   </component>
@@ -42,14 +70,18 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunManager">
     <configuration name="LoginStreaks-Plugin build" type="MavenRunConfiguration" factoryName="Maven">
@@ -79,18 +111,6 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -114,6 +134,11 @@
       <workItem from="1580173163938" duration="36000" />
       <workItem from="1580222352603" duration="633000" />
       <workItem from="1580429264374" duration="3789000" />
+      <workItem from="1587081351008" duration="57000" />
+      <workItem from="1587081427077" duration="313000" />
+      <workItem from="1587436313480" duration="1819000" />
+      <workItem from="1587481001340" duration="577000" />
+      <workItem from="1587485002256" duration="395000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -161,7 +186,19 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Rank Node" />
@@ -173,30 +210,38 @@
     <option name="LAST_COMMIT_MESSAGE" value="Performance Boost Code Update Before Test" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="440" y="114" key="#Project_Structure" timestamp="1587436436097">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="440" y="114" key="#Project_Structure/0.0.1920.1080@0.0.1920.1080" timestamp="1587436436097" />
     <state x="518" y="134" key="CommitChangelistDialog2" timestamp="1580222857732">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="518" y="134" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1580222857732" />
-    <state x="739" y="280" key="FileChooserDialogImpl" timestamp="1577748773317">
+    <state width="1877" height="85" key="GridCell.Tab.0.bottom" timestamp="1587481578058">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="739" y="280" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1577748773317" />
-    <state width="1877" height="193" key="GridCell.Tab.0.bottom" timestamp="1580433051526">
+    <state width="1877" height="85" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587481578058" />
+    <state width="1877" height="85" key="GridCell.Tab.0.center" timestamp="1587481578058">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="193" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1580433051526" />
-    <state width="1877" height="193" key="GridCell.Tab.0.center" timestamp="1580433051525">
+    <state width="1877" height="85" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587481578058" />
+    <state width="1877" height="85" key="GridCell.Tab.0.left" timestamp="1587481578058">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="193" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1580433051525" />
-    <state width="1877" height="193" key="GridCell.Tab.0.left" timestamp="1580433051525">
+    <state width="1877" height="85" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587481578058" />
+    <state width="1877" height="85" key="GridCell.Tab.0.right" timestamp="1587481578058">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="193" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1580433051525" />
-    <state width="1877" height="193" key="GridCell.Tab.0.right" timestamp="1580433051525">
+    <state width="1877" height="85" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587481578058" />
+    <state x="490" y="195" key="Maven.ArtifactSearchDialog" timestamp="1587436450546">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="193" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1580433051525" />
+    <state x="490" y="195" key="Maven.ArtifactSearchDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587436450546" />
+    <state x="440" y="114" key="SettingsEditor" timestamp="1587436665090">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="440" y="114" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1587436665090" />
     <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1580222861067">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -209,13 +254,5 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1580171336397" />
-    <state x="342" y="209" key="new project wizard" timestamp="1577748806164">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="342" y="209" key="new project wizard/0.0.1920.1080@0.0.1920.1080" timestamp="1577748806164" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1578358139166">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1578358139166" />
   </component>
 </project>

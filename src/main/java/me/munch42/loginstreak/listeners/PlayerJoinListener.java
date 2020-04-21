@@ -95,6 +95,7 @@ public class PlayerJoinListener implements Listener {
         int moneyAmount = 0;
         int[] rewardAmount = new int[arraySize];
         String commandExplanation = "";
+        boolean reset = false;
 
         for(String key : rewards.getKeys(false)){
             if(key.equals(String.valueOf(daysNow))){
@@ -102,6 +103,14 @@ public class PlayerJoinListener implements Listener {
                     break;
                 }
                 rewardType = rewards.getString(key + ".rewardType");
+
+                reset = rewards.getBoolean(key + ".reset");
+
+                if(reset){
+                    plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".totalStreakDays", 1);
+                    plugin.saveConfig();
+                    p.sendMessage("Reset your streak!");
+                }
 
                 if(rewardType.equals("MONEY")) {
                     rewardMoney(moneyAmount, rewards, key, daysNow,  p);
@@ -187,7 +196,7 @@ public class PlayerJoinListener implements Listener {
         boolean failed = false;
 
         for(int i = 0; i < command.length; i++){
-            command[i] = command[i].replace("%player%", p.getDisplayName());
+            command[i] = command[i].replace("%player%", p.getName());
 
             if(commandScope.length < command.length){
                 Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] ERROR: Command Scope did not have enough arguments for the supplied command rewards!");
