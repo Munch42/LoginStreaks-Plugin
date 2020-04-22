@@ -19,17 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_14_4_R0_1_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_14_4_R0_1_SNAPSHOT.xml" afterDir="false" />
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Update 2.3.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +130,9 @@
       <workItem from="1587081427077" duration="313000" />
       <workItem from="1587436313480" duration="1819000" />
       <workItem from="1587481001340" duration="577000" />
-      <workItem from="1587485002256" duration="395000" />
+      <workItem from="1587485002256" duration="747000" />
+      <workItem from="1587486608279" duration="62000" />
+      <workItem from="1587565263861" duration="132000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -182,7 +176,21 @@
       <option name="project" value="LOCAL" />
       <updated>1580222859206</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Update 2.3.3">
+      <created>1587485504696</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587485504696</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Update 2.3.3">
+      <created>1587485612384</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587485612384</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,7 +215,8 @@
     <MESSAGE value="Fixed 2.2.1 Bug" />
     <MESSAGE value="Performance Boost Test 1" />
     <MESSAGE value="Performance Boost Code Update Before Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Performance Boost Code Update Before Test" />
+    <MESSAGE value="Update 2.3.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update 2.3.3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="114" key="#Project_Structure" timestamp="1587436436097">
@@ -218,22 +227,26 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="518" y="134" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1580222857732" />
-    <state width="1877" height="85" key="GridCell.Tab.0.bottom" timestamp="1587481578058">
+    <state x="813" y="440" key="GitRewordDialog" timestamp="1587485709281">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="85" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587481578058" />
-    <state width="1877" height="85" key="GridCell.Tab.0.center" timestamp="1587481578058">
+    <state x="813" y="440" key="GitRewordDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587485709281" />
+    <state width="1877" height="85" key="GridCell.Tab.0.bottom" timestamp="1587485749472">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="85" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587481578058" />
-    <state width="1877" height="85" key="GridCell.Tab.0.left" timestamp="1587481578058">
+    <state width="1877" height="85" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587485749472" />
+    <state width="1877" height="85" key="GridCell.Tab.0.center" timestamp="1587485749472">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="85" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587481578058" />
-    <state width="1877" height="85" key="GridCell.Tab.0.right" timestamp="1587481578058">
+    <state width="1877" height="85" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587485749472" />
+    <state width="1877" height="85" key="GridCell.Tab.0.left" timestamp="1587485749472">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="85" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587481578058" />
+    <state width="1877" height="85" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587485749472" />
+    <state width="1877" height="85" key="GridCell.Tab.0.right" timestamp="1587485749472">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="85" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587485749472" />
     <state x="490" y="195" key="Maven.ArtifactSearchDialog" timestamp="1587436450546">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -242,17 +255,17 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="440" y="114" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1587436665090" />
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1580222861067">
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1587485509795">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1580222861067" />
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1587485509795" />
     <state x="656" y="363" key="com.intellij.ide.util.TipDialog" timestamp="1580429264976">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="656" y="363" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1580429264976" />
-    <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580171336397">
+    <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587485591607">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1580171336397" />
+    <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1587485591607" />
   </component>
 </project>

@@ -109,7 +109,6 @@ public class PlayerJoinListener implements Listener {
                 if(reset){
                     plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".totalStreakDays", 1);
                     plugin.saveConfig();
-                    p.sendMessage("Reset your streak!");
                 }
 
                 if(rewardType.equals("MONEY")) {
