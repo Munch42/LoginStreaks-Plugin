@@ -108,6 +108,7 @@ public class PlayerJoinListener implements Listener {
 
                 if(reset){
                     plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".totalStreakDays", 1);
+                    plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".dayReward", false);
                     plugin.saveConfig();
                 }
 
