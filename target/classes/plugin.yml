@@ -1,5 +1,5 @@
 name: LoginStreak
-version: 2.3.4-RELEASE
+version: 3.0.0-SNAPSHOT
 main: me.munch42.loginstreak.Main
 api-version: 1.13
 

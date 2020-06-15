@@ -44,10 +44,20 @@ public final class Main extends JavaPlugin {
         Metrics metrics = new Metrics(this);
         plugin = this;
 
+        // Possibly not needed as Vault is a hard dependency so crashes the plugin when not found.
         if (!setupEconomy() ) {
             log.severe(String.format("[%s] - Disabled due to no Vault dependency found!", getDescription().getName()));
             getServer().getPluginManager().disablePlugin(this);
             return;
+        }
+
+        if(setupEconomy()){
+            if(!checkEconomy() && getConfig().getBoolean("economy")){
+                // In here this will be run if they have vault but no economy plugin. Can add && to the check to see if a option in the plugin.yml is set.
+                log.severe(String.format("[%s] - Disabled due to no Economy plugin found! If you do not require the plugin's economy features, change the 'economy' section in the config.yml to false", getDescription().getName()));
+                getServer().getPluginManager().disablePlugin(this);
+                return;
+            }
         }
 
         saveDefaultConfig();
@@ -111,6 +121,10 @@ public final class Main extends JavaPlugin {
         if (getServer().getPluginManager().getPlugin("Vault") == null) {
             return false;
         }
+        return true;
+    }
+
+    private boolean checkEconomy(){
         RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
         if (rsp == null) {
             return false;
