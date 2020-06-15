@@ -29,6 +29,11 @@ streakPerm: "loginstreaks.streak"
 # /topstreaks command
 streakLBPerm: "loginstreaks.streaklb"
 
+# Economy Features
+# An economy plugin such as EssentialsX is required to use LoginStreaks' built in economy features.
+# If you do not need these features and do not want to install an economy plugin, please set this to false otherwise, leave this as true.
+economy: true
+
 # LoginStreaks Login Rewards and Messages
 # No Permissions Message this is shown when the player does not have permissions to use the command. Set to "" to disable.
 noPermsMessage: "&4You do not have permission to use that command!"
