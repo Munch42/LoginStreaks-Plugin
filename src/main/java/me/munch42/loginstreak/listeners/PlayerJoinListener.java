@@ -88,14 +88,54 @@ public class PlayerJoinListener implements Listener {
 
         plugin.checkAndUpdateRankings();
 
-        // Check for rewards for total streak
-        ConfigurationSection rewards = plugin.getConfig().getConfigurationSection("rewards");
+        // Check for rewards with permissions
+        ConfigurationSection permRewards = plugin.getConfig().getConfigurationSection("permissionRewards");
 
         String rewardType;
         int moneyAmount = 0;
         int[] rewardAmount = new int[arraySize];
         String commandExplanation = "";
         boolean reset = false;
+
+        for(String key : permRewards.getKeys(false)) {
+            if(event.getPlayer().hasPermission(key)) {
+                ConfigurationSection permDayRewards = plugin.getConfig().getConfigurationSection("permissionRewards");
+
+                for (String rewardKey : permDayRewards.getKeys(false)) {
+                    // In here, this means they have the given permission and now we need to do the same logic as below, checking if they get a rewards and giving it.
+                    if (rewardKey.equals(String.valueOf(daysNow))) {
+                        if (plugin.getStreaksConfig().getBoolean("players." + p.getUniqueId() + ".dayReward") == true) {
+                            break;
+                        }
+                        rewardType = permRewards.getString(rewardKey + ".rewardType");
+
+                        reset = permRewards.getBoolean(rewardKey + ".reset");
+
+                        if (reset) {
+                            plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".totalStreakDays", 1);
+                            plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".dayReward", false);
+                            plugin.saveConfig();
+                        }
+
+                        if (rewardType.equals("MONEY")) {
+                            rewardMoney(moneyAmount, permRewards, rewardKey, daysNow, p);
+                            return;
+                        } else if (rewardType.equals("ITEM")) {
+                            rewardItems(permRewards, rewardKey, rewardAmount, p, daysNow);
+                            return;
+                        } else if (rewardType.equals("COMMAND")) {
+                            rewardCommands(permRewards, rewardKey, commandExplanation, daysNow, p);
+                            return;
+                        } else {
+                            Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] ERROR: Reward Type was not set correctly!");
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        // Check for rewards for total streak in basic rewards
+        ConfigurationSection rewards = plugin.getConfig().getConfigurationSection("rewards");
 
         for(String key : rewards.getKeys(false)){
             if(key.equals(String.valueOf(daysNow))){
