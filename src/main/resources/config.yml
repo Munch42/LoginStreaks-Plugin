@@ -124,7 +124,7 @@ rewards:
 
 # Format:
 # permissionRewards: DO NOT CHANGE THIS SETTING. This is the main node of the section.
-#   permission: This is the permission node needed to redeem the rewards within this tree on the days specified. For example, if you set this to "vip.special" they would need the vip.special node.
+#   permission: This is the permission node needed to redeem the rewards within this tree on the days specified. For example, if you set this to "vip;special" they would need the vip.special node. You must change the "." between node sections to a ; for this to work. vip.special would become vip;special
 #     dayNum: This is the amount of days needed to get this when they have the permission node. For example, if you set this to 7 they will get this reward after logging in for 7 days in a row.
 #       rewardType: This should be set to either MONEY or ITEM or COMMAND. Set to MONEY if you want to give Money, REQUIRES: Vault and an Economy plugin. Set to ITEM if you want to give an item and set to COMMAND to run a command.
 #       reward: This should either 1. Be the amount of Money given if the type is money. 2. Be the item given in all caps ie. IRON_BLOCK. Use ; to separate multiple items to give ie. IRON_BLOCK ; COAL_ORE. Or 3. The Command to run in "", you can use %player% as the player name. Separate multiple commands with ; as with items.
@@ -134,7 +134,7 @@ rewards:
 #       reset: (Optional) This should be set to either true or false. You do not need this field for a day as if it is not included it will be false. Once a player reaches this day, their streak will be reset to 1 if it is true.
 
 permissionRewards:
-  loginstreak.special:
+  loginstreak;special:
     5:
       rewardType: ITEM
       reward: RED_WOOL;IRON_BLOCK
@@ -147,7 +147,7 @@ permissionRewards:
       commandExplanation: "announces that you have a 6 day streak and have a special permission node"
       commandScope: CONSOLE
       rewardAmount: "0"
-  cool.permission.node:
+  cool;permission;node:
     5:
       rewardType: ITEM
       reward: IRON_BLOCK;DIAMOND_BLOCK

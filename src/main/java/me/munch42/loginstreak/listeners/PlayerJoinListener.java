@@ -96,35 +96,45 @@ public class PlayerJoinListener implements Listener {
         int[] rewardAmount = new int[arraySize];
         String commandExplanation = "";
         boolean reset = false;
-
+        // TODO: For the permission system add a permission weight option meaning that the highest weight they have is the one they get
+        // TODO: Or make it so that they get them all or add an option for either of these (Best option)
         for(String key : permRewards.getKeys(false)) {
-            if(event.getPlayer().hasPermission(key)) {
-                ConfigurationSection permDayRewards = plugin.getConfig().getConfigurationSection("permissionRewards");
+            Bukkit.getConsoleSender().sendMessage(key.replace(";", "."));
+            String keyPermission = key.replace(";", ".");
+
+            if(event.getPlayer().hasPermission(keyPermission)) {
+                ConfigurationSection permDayRewards = plugin.getConfig().getConfigurationSection("permissionRewards." + key);
 
                 for (String rewardKey : permDayRewards.getKeys(false)) {
+                    Bukkit.getServer().getConsoleSender().sendMessage("Second one: " + rewardKey);
                     // In here, this means they have the given permission and now we need to do the same logic as below, checking if they get a rewards and giving it.
                     if (rewardKey.equals(String.valueOf(daysNow))) {
                         if (plugin.getStreaksConfig().getBoolean("players." + p.getUniqueId() + ".dayReward") == true) {
                             break;
                         }
-                        rewardType = permRewards.getString(rewardKey + ".rewardType");
+                        Bukkit.getServer().getConsoleSender().sendMessage(String.valueOf(event.getPlayer().hasPermission(keyPermission)));
+                        rewardType = permDayRewards.getString(rewardKey + ".rewardType");
 
-                        reset = permRewards.getBoolean(rewardKey + ".reset");
+                        reset = permDayRewards.getBoolean(rewardKey + ".reset");
 
                         if (reset) {
+                            Bukkit.getServer().getConsoleSender().sendMessage("Reset?");
                             plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".totalStreakDays", 1);
                             plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".dayReward", false);
                             plugin.saveConfig();
                         }
 
                         if (rewardType.equals("MONEY")) {
-                            rewardMoney(moneyAmount, permRewards, rewardKey, daysNow, p);
+                            Bukkit.getServer().getConsoleSender().sendMessage("Money");
+                            rewardMoney(moneyAmount, permDayRewards, rewardKey, daysNow, p);
                             return;
                         } else if (rewardType.equals("ITEM")) {
-                            rewardItems(permRewards, rewardKey, rewardAmount, p, daysNow);
+                            Bukkit.getServer().getConsoleSender().sendMessage("Item");
+                            rewardItems(permDayRewards, rewardKey, rewardAmount, p, daysNow);
                             return;
                         } else if (rewardType.equals("COMMAND")) {
-                            rewardCommands(permRewards, rewardKey, commandExplanation, daysNow, p);
+                            Bukkit.getServer().getConsoleSender().sendMessage("Command");
+                            rewardCommands(permDayRewards, rewardKey, commandExplanation, daysNow, p);
                             return;
                         } else {
                             Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] ERROR: Reward Type was not set correctly!");

@@ -19,9 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Added permission based rewards section to config.yml">
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Added untested permission rewards functionality.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +145,8 @@
       <workItem from="1592186354035" duration="16000" />
       <workItem from="1592236285616" duration="828000" />
       <workItem from="1592267520655" duration="1012000" />
-      <workItem from="1592272015655" duration="541000" />
+      <workItem from="1592272015655" duration="572000" />
+      <workItem from="1592276979597" duration="1926000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -230,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592237100978</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added untested permission rewards functionality.">
+      <created>1592272579659</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1592272579659</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +269,8 @@
     <MESSAGE value="Patch 2.3.5" />
     <MESSAGE value="Fixed issue with requiring an economy plugin such as EssentialsX, now customizable." />
     <MESSAGE value="Added permission based rewards section to config.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added permission based rewards section to config.yml" />
+    <MESSAGE value="Added untested permission rewards functionality." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added untested permission rewards functionality." />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="114" key="#Project_Structure" timestamp="1587436436097">
@@ -275,22 +285,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="813" y="440" key="GitRewordDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587485709281" />
-    <state width="1877" height="29" key="GridCell.Tab.0.bottom" timestamp="1592186260831">
+    <state width="1877" height="29" key="GridCell.Tab.0.bottom" timestamp="1592278628170">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="29" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592186260831" />
-    <state width="1877" height="29" key="GridCell.Tab.0.center" timestamp="1592186260831">
+    <state width="1877" height="29" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592278628170" />
+    <state width="1877" height="29" key="GridCell.Tab.0.center" timestamp="1592278628169">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="29" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592186260831" />
-    <state width="1877" height="29" key="GridCell.Tab.0.left" timestamp="1592186260831">
+    <state width="1877" height="29" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592278628169" />
+    <state width="1877" height="29" key="GridCell.Tab.0.left" timestamp="1592278628169">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="29" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592186260831" />
-    <state width="1877" height="29" key="GridCell.Tab.0.right" timestamp="1592186260831">
+    <state width="1877" height="29" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592278628169" />
+    <state width="1877" height="29" key="GridCell.Tab.0.right" timestamp="1592278628170">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="29" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592186260831" />
+    <state width="1877" height="29" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592278628170" />
     <state x="490" y="195" key="Maven.ArtifactSearchDialog" timestamp="1587436450546">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -299,10 +309,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="440" y="114" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1592186368221" />
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1592237103628">
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1592272581114">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1592237103628" />
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1592272581114" />
     <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591416948606">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
