@@ -1,5 +1,6 @@
 package me.munch42.loginstreak;
 
+import me.munch42.loginstreak.commands.LoginStreakCommand;
 import me.munch42.loginstreak.commands.StreakCommand;
 import me.munch42.loginstreak.commands.TopStreaksCommand;
 import me.munch42.loginstreak.listeners.PlayerJoinListener;
@@ -77,6 +78,7 @@ public final class Main extends JavaPlugin {
         new PlayerJoinListener(this);
         new StreakCommand(this);
         new TopStreaksCommand(this);
+        new LoginStreakCommand(this);
 
         placeholderColourCodes = getConfig().getString("placeholderColourCodes");
         topColourCodes = getConfig().getString("streakTopEntriesColourCode");
@@ -164,6 +166,12 @@ public final class Main extends JavaPlugin {
                 saveRanksConfig();
             }
         }
+    }
+
+    public void reloadAllConfigs(){
+        reloadConfig();
+        streaksConfig = YamlConfiguration.loadConfiguration(new File(getDataFolder(), "streaks.yml"));
+        ranksConfig = YamlConfiguration.loadConfiguration(new File(getDataFolder(), "ranks.yml"));
     }
 
     public static Economy getEconomy() {

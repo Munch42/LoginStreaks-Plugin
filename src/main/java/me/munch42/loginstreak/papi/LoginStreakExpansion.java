@@ -2,11 +2,7 @@ package me.munch42.loginstreak.papi;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.munch42.loginstreak.Main;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-
-import java.io.File;
 
 public class LoginStreakExpansion extends PlaceholderExpansion {
 
