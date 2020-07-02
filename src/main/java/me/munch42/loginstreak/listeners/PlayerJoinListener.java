@@ -107,6 +107,10 @@ public class PlayerJoinListener implements Listener {
         // TODO: For the permission system add a permission weight option meaning that the highest weight they have is the one they get
         // TODO: Or make it so that they get them all or add an option for either of these (Best option)
 
+        if (plugin.getStreaksConfig().getBoolean("players." + p.getUniqueId() + ".dayReward") == true) {
+            return;
+        }
+
         for(String key : permRewards.getKeys(false)) {
             String keyPermission = key.replace(";", ".");
 
@@ -114,15 +118,12 @@ public class PlayerJoinListener implements Listener {
                 ConfigurationSection permDayRewards = plugin.getConfig().getConfigurationSection("permissionRewards." + key);
 
                 if(useWeights){
-                    permissionWeights.put(keyPermission, plugin.getConfig().getInt("permissionRewards." + key + ".weight"));
+                    permissionWeights.put(key, plugin.getConfig().getInt("permissionRewards." + key + ".weight"));
                 } else {
                     for (String rewardKey : permDayRewards.getKeys(false)) {
                         // In here, this means they have the given permission and now we need to do the same logic as below, checking if they get a rewards and giving it.
 
                         if (rewardKey.equals(String.valueOf(daysNow))) {
-                            if (plugin.getStreaksConfig().getBoolean("players." + p.getUniqueId() + ".dayReward") == true) {
-                                break;
-                            }
 
                             rewardType = permDayRewards.getString(rewardKey + ".rewardType");
 
@@ -196,9 +197,6 @@ public class PlayerJoinListener implements Listener {
                         // In here, this means they have the given permission and now we need to do the same logic as below, checking if they get a rewards and giving it.
 
                         if (rewardKey.equals(String.valueOf(daysNow))) {
-                            if (plugin.getStreaksConfig().getBoolean("players." + p.getUniqueId() + ".dayReward") == true) {
-                                break;
-                            }
 
                             rewardType = permissionSection.getString(rewardKey + ".rewardType");
 
@@ -233,9 +231,6 @@ public class PlayerJoinListener implements Listener {
                     // In here, this means they have the given permission and now we need to do the same logic as below, checking if they get a rewards and giving it.
 
                     if (rewardKey.equals(String.valueOf(daysNow))) {
-                        if (plugin.getStreaksConfig().getBoolean("players." + p.getUniqueId() + ".dayReward") == true) {
-                            break;
-                        }
 
                         rewardType = permissionSection.getString(rewardKey + ".rewardType");
 

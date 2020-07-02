@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Permission rewards functionality added and almost complete.">
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Permission Reward Weighting System added, untested">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
@@ -155,7 +154,9 @@
       <workItem from="1593483567907" duration="336000" />
       <workItem from="1593483915609" duration="37000" />
       <workItem from="1593532226813" duration="65000" />
-      <workItem from="1593655407425" duration="2362000" />
+      <workItem from="1593655407425" duration="2424000" />
+      <workItem from="1593661368243" duration="720000" />
+      <workItem from="1593664919025" duration="324000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -255,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592278924683</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Permission Reward Weighting System added, untested">
+      <created>1593657801410</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1593657801410</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +295,8 @@
     <MESSAGE value="Added permission based rewards section to config.yml" />
     <MESSAGE value="Added untested permission rewards functionality." />
     <MESSAGE value="Permission rewards functionality added and almost complete." />
-    <option name="LAST_COMMIT_MESSAGE" value="Permission rewards functionality added and almost complete." />
+    <MESSAGE value="Permission Reward Weighting System added, untested" />
+    <option name="LAST_COMMIT_MESSAGE" value="Permission Reward Weighting System added, untested" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="181" key="#Plugins" timestamp="1593483945079">
@@ -306,22 +315,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="813" y="440" key="GitRewordDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587485709281" />
-    <state width="1877" height="29" key="GridCell.Tab.0.bottom" timestamp="1592337522490">
+    <state width="1877" height="41" key="GridCell.Tab.0.bottom" timestamp="1593662087741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="29" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592337522490" />
-    <state width="1877" height="29" key="GridCell.Tab.0.center" timestamp="1592337522490">
+    <state width="1877" height="41" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1593662087741" />
+    <state width="1877" height="41" key="GridCell.Tab.0.center" timestamp="1593662087741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="29" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592337522490" />
-    <state width="1877" height="29" key="GridCell.Tab.0.left" timestamp="1592337522489">
+    <state width="1877" height="41" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1593662087741" />
+    <state width="1877" height="41" key="GridCell.Tab.0.left" timestamp="1593662087741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="29" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592337522489" />
-    <state width="1877" height="29" key="GridCell.Tab.0.right" timestamp="1592337522490">
+    <state width="1877" height="41" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1593662087741" />
+    <state width="1877" height="41" key="GridCell.Tab.0.right" timestamp="1593662087741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="29" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592337522490" />
+    <state width="1877" height="41" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1593662087741" />
     <state x="490" y="195" key="Maven.ArtifactSearchDialog" timestamp="1587436450546">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -330,10 +339,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="440" y="114" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1592186368221" />
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1592278927641">
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1593657803183">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1592278927641" />
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1593657803183" />
     <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593655414175">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
