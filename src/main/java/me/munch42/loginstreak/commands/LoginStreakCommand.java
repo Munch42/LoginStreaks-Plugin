@@ -20,8 +20,13 @@ public class LoginStreakCommand implements CommandExecutor {
         if(sender.hasPermission(plugin.getConfig().getString("loginstreakPerm"))){
             if(args.length > 0){
                 if(args[0].equalsIgnoreCase("reload")){
-                    plugin.reloadAllConfigs();
-                    sender.sendMessage(ChatColor.GREEN + "LoginStreaks Successfully Reloaded!");
+                    if(sender.hasPermission(plugin.getConfig().getString("loginstreakReloadPerm"))) {
+                        plugin.reloadAllConfigs();
+                        sender.sendMessage(ChatColor.GREEN + "LoginStreaks Successfully Reloaded!");
+                    } else {
+                        sender.sendMessage(ChatColor.DARK_RED + "You do not have permission to run the reload command!");
+                        return true;
+                    }
                     return true;
                 } else {
                     sender.sendMessage(ChatColor.RED + "Unknown Argument: " + args[0]);
