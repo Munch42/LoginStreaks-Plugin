@@ -28,6 +28,10 @@
 streakPerm: "loginstreaks.streak"
 # /topstreaks command
 streakLBPerm: "loginstreaks.streaklb"
+# /loginstreak base command
+loginstreakPerm: "loginstreaks.loginstreak"
+# /loginstreak reload command
+loginstreakReloadPerm: "loginstreaks.loginstreak.reload"
 
 # Economy Features
 # An economy plugin such as EssentialsX is required to use LoginStreaks' built in economy features.
