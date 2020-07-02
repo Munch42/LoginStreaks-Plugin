@@ -1,5 +1,6 @@
 me\munch42\loginstreak\commands\TopStreaksCommand.class
 me\munch42\loginstreak\papi\LoginStreakExpansion.class
+me\munch42\loginstreak\utils\PermissionWeight.class
 me\munch42\loginstreak\commands\StreakCommand.class
 me\munch42\loginstreak\listeners\PlayerJoinListener.class
 me\munch42\loginstreak\Main.class

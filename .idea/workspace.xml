@@ -19,10 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Added untested permission rewards functionality.">
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Permission rewards functionality added and almost complete.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +148,14 @@
       <workItem from="1592236285616" duration="828000" />
       <workItem from="1592267520655" duration="1012000" />
       <workItem from="1592272015655" duration="572000" />
-      <workItem from="1592276979597" duration="1926000" />
+      <workItem from="1592276979597" duration="1955000" />
+      <workItem from="1592333714969" duration="3806000" />
+      <workItem from="1592347680454" duration="794000" />
+      <workItem from="1592494157772" duration="1562000" />
+      <workItem from="1593483567907" duration="336000" />
+      <workItem from="1593483915609" duration="37000" />
+      <workItem from="1593532226813" duration="65000" />
+      <workItem from="1593655407425" duration="2362000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -239,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592272579659</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Permission rewards functionality added and almost complete.">
+      <created>1592278924683</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1592278924683</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,9 +286,14 @@
     <MESSAGE value="Fixed issue with requiring an economy plugin such as EssentialsX, now customizable." />
     <MESSAGE value="Added permission based rewards section to config.yml" />
     <MESSAGE value="Added untested permission rewards functionality." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added untested permission rewards functionality." />
+    <MESSAGE value="Permission rewards functionality added and almost complete." />
+    <option name="LAST_COMMIT_MESSAGE" value="Permission rewards functionality added and almost complete." />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="181" key="#Plugins" timestamp="1593483945079">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="552" y="181" key="#Plugins/0.0.1920.1080@0.0.1920.1080" timestamp="1593483945079" />
     <state x="440" y="114" key="#Project_Structure" timestamp="1587436436097">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -285,22 +306,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="813" y="440" key="GitRewordDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587485709281" />
-    <state width="1877" height="29" key="GridCell.Tab.0.bottom" timestamp="1592278628170">
+    <state width="1877" height="29" key="GridCell.Tab.0.bottom" timestamp="1592337522490">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="29" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592278628170" />
-    <state width="1877" height="29" key="GridCell.Tab.0.center" timestamp="1592278628169">
+    <state width="1877" height="29" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592337522490" />
+    <state width="1877" height="29" key="GridCell.Tab.0.center" timestamp="1592337522490">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="29" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592278628169" />
-    <state width="1877" height="29" key="GridCell.Tab.0.left" timestamp="1592278628169">
+    <state width="1877" height="29" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592337522490" />
+    <state width="1877" height="29" key="GridCell.Tab.0.left" timestamp="1592337522489">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="29" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592278628169" />
-    <state width="1877" height="29" key="GridCell.Tab.0.right" timestamp="1592278628170">
+    <state width="1877" height="29" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592337522489" />
+    <state width="1877" height="29" key="GridCell.Tab.0.right" timestamp="1592337522490">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="29" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592278628170" />
+    <state width="1877" height="29" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592337522490" />
     <state x="490" y="195" key="Maven.ArtifactSearchDialog" timestamp="1587436450546">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -309,21 +330,25 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="440" y="114" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1592186368221" />
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1592272581114">
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1592278927641">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1592272581114" />
-    <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591416948606">
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1592278927641" />
+    <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593655414175">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1591416948606" />
-    <state x="690" y="295" key="extract.method.dialog" timestamp="1592268088403">
+    <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1593655414175" />
+    <state x="690" y="295" key="extract.method.dialog" timestamp="1593657704877">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="690" y="295" key="extract.method.dialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592268088403" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1592185292064">
+    <state x="690" y="295" key="extract.method.dialog/0.0.1920.1080@0.0.1920.1080" timestamp="1593657704877" />
+    <state x="342" y="160" key="new project wizard" timestamp="1592497613755">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1592185292064" />
+    <state x="342" y="160" key="new project wizard/0.0.1920.1080@0.0.1920.1080" timestamp="1592497613755" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1592334610594">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1592334610594" />
   </component>
 </project>

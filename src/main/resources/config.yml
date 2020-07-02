@@ -43,6 +43,12 @@ noPermsMessage: "&4You do not have permission to use that command!"
 # Use %player% as a placeholder for the player's name.
 streakMessage: "&2%player% &2you have logged in for %days% days in a row. Login tomorrow to increase your streak."
 
+# Permission rewards options
+# Weight option, if this is set to true, players will receive the highest weighted permission they have.
+# If it is set to true, additionally you must make sure that all permission rewards have the "weight" section with an integer number. Decimal numbers (floats) will cause an error
+# If this is set to false, the player will receive all of the rewards for all of the permissions they have.
+weights: false
+
 # TopStreak Command Message. This will be the first message shown when a player types /topstreaks. ie. Set to "" to just send the standings.
 # <Your Message Here>
 # 1. <Player Name>: <Streak>
@@ -125,6 +131,7 @@ rewards:
 # Format:
 # permissionRewards: DO NOT CHANGE THIS SETTING. This is the main node of the section.
 #   permission: This is the permission node needed to redeem the rewards within this tree on the days specified. For example, if you set this to "vip;special" they would need the vip.special node. You must change the "." between node sections to a ; for this to work. vip.special would become vip;special
+#     weight: This should be set to an integer number representing the priority of the reward. Only use this once per permission. The higher the number, the higher the reward priority. If one is a 2 and the other is a 3 a player with both perms will receive the 3 weighted reward if "weights" above is true.
 #     dayNum: This is the amount of days needed to get this when they have the permission node. For example, if you set this to 7 they will get this reward after logging in for 7 days in a row.
 #       rewardType: This should be set to either MONEY or ITEM or COMMAND. Set to MONEY if you want to give Money, REQUIRES: Vault and an Economy plugin. Set to ITEM if you want to give an item and set to COMMAND to run a command.
 #       reward: This should either 1. Be the amount of Money given if the type is money. 2. Be the item given in all caps ie. IRON_BLOCK. Use ; to separate multiple items to give ie. IRON_BLOCK ; COAL_ORE. Or 3. The Command to run in "", you can use %player% as the player name. Separate multiple commands with ; as with items.
@@ -135,12 +142,14 @@ rewards:
 
 permissionRewards:
   loginstreak;special:
+    weight: 0
     5:
       rewardType: ITEM
       reward: RED_WOOL;IRON_BLOCK
       commandExplanation: null
       commandScope: null
       rewardAmount: "30;10"
+      weight: 1
     6:
       rewardType: COMMAND
       reward: "say %player% has donated to earn this special message on their 6th day of logging in!"
@@ -148,12 +157,14 @@ permissionRewards:
       commandScope: CONSOLE
       rewardAmount: "0"
   cool;permission;node:
+    weight: 3
     5:
       rewardType: ITEM
       reward: IRON_BLOCK;DIAMOND_BLOCK
       commandExplanation: null
       commandScope: null
       rewardAmount: "45;15"
+      weight: 2
     6:
       rewardType: COMMAND
       reward: "say %player% has logged in for 6 days and has the coolest permission node!;say This is from %player% as they have a special permission."
