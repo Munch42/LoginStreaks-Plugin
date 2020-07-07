@@ -24,6 +24,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.logging.Logger;
 
@@ -186,8 +187,14 @@ public final class Main extends JavaPlugin {
         long lastStreakTime = getStreaksConfig().getLong("players." + p.getUniqueId() + ".lastStreakTime");
         long nextStreakTime;
 
+        LocalDate nextStreakLocal;
+
         if(getConfig().getBoolean("defaultStreakSystem")){
+            // Add 1 day from the last streak.
             nextStreakTime = lastStreakTime + 86400000;
+
+            // Convert to LocalDate
+            nextStreakLocal = new Timestamp(nextStreakTime).toLocalDateTime().toLocalDate();
         } else if(!getConfig().getBoolean("defaultStreakSystem")){
             LocalDate lastStreakLocal = new Timestamp(lastStreakTime).toLocalDateTime().toLocalDate();
 
@@ -242,10 +249,27 @@ public final class Main extends JavaPlugin {
 
             LocalDate nextDateLocal = dateNextDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             LocalDate originalDateLocal = dateSelectedFrom.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+            nextStreakLocal = nextDateLocal;
         } else {
             plugin.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreaks] Streak Counting System was set incorrectly. Please set it to either \"true\" or \"false\"");
             return "";
         }
+
+        long hoursLeft = ChronoUnit.HOURS.between(LocalDate.now(), nextStreakLocal);
+        long minutesLeft = ChronoUnit.MINUTES.between(LocalDate.now(), nextStreakLocal);
+
+        String baseMessage = getConfig().getString("timeLeftMessage");
+
+        if(baseMessage == ""){
+            return "";
+        }
+
+        baseMessage = baseMessage.replace("%hoursLeft%", String.valueOf(hoursLeft));
+        baseMessage = baseMessage.replace("%minutesLeft%", String.valueOf(minutesLeft));
+        baseMessage = ChatUtils.parseColourCodes(baseMessage);
+
+        return baseMessage;
     }
 
     public static Economy getEconomy() {
