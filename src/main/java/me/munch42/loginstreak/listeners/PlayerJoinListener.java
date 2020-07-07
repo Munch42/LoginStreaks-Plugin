@@ -128,6 +128,22 @@ public class PlayerJoinListener implements Listener {
             {
                 e.printStackTrace();
             }
+
+            LocalDate nextDateLocal = dateNextDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate originalDateLocal = dateSelectedFrom.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+            if(LocalDate.now().isEqual(nextDateLocal)){
+                giveReward = true;
+                System.out.println("[Login] Equal");
+            } else if(LocalDate.now().isEqual(originalDateLocal)){
+                giveReward = false;
+                moreThanTwoDays = false;
+                System.out.println("[Login] Original");
+            } else {
+                giveReward = false;
+                moreThanTwoDays = true;
+                System.out.println("[Login] Two Days");
+            }
         } else {
             plugin.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreaks] Streak Counting System was set incorrectly. Please set it to either \"true\" or \"false\"");
             return;

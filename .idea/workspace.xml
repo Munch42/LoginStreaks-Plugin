@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Reload Command Tested">
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Working on adding new streak calculation system">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +157,8 @@
       <workItem from="1593664919025" duration="734000" />
       <workItem from="1593707410394" duration="1145000" />
       <workItem from="1593708594300" duration="483000" />
-      <workItem from="1594078641083" duration="2335000" />
+      <workItem from="1594078641083" duration="2368000" />
+      <workItem from="1594084443387" duration="654000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -293,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593709067381</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Working on adding new streak calculation system">
+      <created>1594081000832</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1594081000832</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,7 +338,8 @@
     <MESSAGE value="Added Reload Command" />
     <MESSAGE value="Fixed reload command in plugin.yml" />
     <MESSAGE value="Reload Command Tested" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reload Command Tested" />
+    <MESSAGE value="Working on adding new streak calculation system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on adding new streak calculation system" />
   </component>
   <component name="WindowStateProjectService">
     <state x="726" y="83" key="#Auto_Import" timestamp="1593707648088">
@@ -378,10 +386,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="440" y="114" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1592186368221" />
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1593709068616">
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1594081002115">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1593709068616" />
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1594081002115" />
     <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594078647428">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
