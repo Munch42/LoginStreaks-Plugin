@@ -31,6 +31,10 @@ public class TopStreaksCommand implements CommandExecutor {
 
                 counter++;
             }
+        } else {
+            String message = plugin.getConfig().getString("noPermsMessage");
+            message = ChatUtils.parseColourCodes(message);
+            sender.sendMessage(message);
         }
 
         return true;

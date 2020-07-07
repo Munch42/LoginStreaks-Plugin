@@ -19,9 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Added untested streak system">
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Streak System Tested">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/TimeLeftCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/LoginStreakCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/LoginStreakCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/TopStreaksCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/TopStreaksCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/utils/ChatUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/utils/ChatUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,6 +171,7 @@
       <workItem from="1594085680508" duration="614000" />
       <workItem from="1594086547920" duration="189000" />
       <workItem from="1594089430392" duration="46000" />
+      <workItem from="1594138863039" duration="1842000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -312,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594085115259</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Streak System Tested">
+      <created>1594138903332</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1594138903332</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +367,8 @@
     <MESSAGE value="Reload Command Tested" />
     <MESSAGE value="Working on adding new streak calculation system" />
     <MESSAGE value="Added untested streak system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added untested streak system" />
+    <MESSAGE value="Streak System Tested" />
+    <option name="LAST_COMMIT_MESSAGE" value="Streak System Tested" />
   </component>
   <component name="WindowStateProjectService">
     <state x="726" y="83" key="#Auto_Import" timestamp="1593707648088">
@@ -403,10 +419,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="440" y="114" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1592186368221" />
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1594085116762">
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1594138905242">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1594085116762" />
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1594138905242" />
     <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594078647428">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

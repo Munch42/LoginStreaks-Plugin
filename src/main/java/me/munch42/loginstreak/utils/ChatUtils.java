@@ -1,7 +1,9 @@
 package me.munch42.loginstreak.utils;
 
+import me.munch42.loginstreak.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class ChatUtils {
@@ -16,5 +18,4 @@ public class ChatUtils {
         msg = ChatColor.translateAlternateColorCodes('&', msg);
         return msg;
     }
-
 }

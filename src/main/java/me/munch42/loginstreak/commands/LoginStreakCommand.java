@@ -1,6 +1,7 @@
 package me.munch42.loginstreak.commands;
 
 import me.munch42.loginstreak.Main;
+import me.munch42.loginstreak.utils.ChatUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -24,7 +25,9 @@ public class LoginStreakCommand implements CommandExecutor {
                         plugin.reloadAllConfigs();
                         sender.sendMessage(ChatColor.GREEN + "LoginStreaks Successfully Reloaded!");
                     } else {
-                        sender.sendMessage(ChatColor.DARK_RED + "You do not have permission to run the reload command!");
+                        String message = plugin.getConfig().getString("noPermsMessage");
+                        message = ChatUtils.parseColourCodes(message);
+                        sender.sendMessage(message);
                         return true;
                     }
                     return true;
@@ -37,7 +40,9 @@ public class LoginStreakCommand implements CommandExecutor {
                 return true;
             }
         } else {
-            sender.sendMessage(ChatColor.DARK_RED + "You do not have permission to run the LoginStreak command!");
+            String message = plugin.getConfig().getString("noPermsMessage");
+            message = ChatUtils.parseColourCodes(message);
+            sender.sendMessage(message);
             return true;
         }
     }

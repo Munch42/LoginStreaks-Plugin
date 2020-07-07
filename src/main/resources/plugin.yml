@@ -1,7 +1,7 @@
 name: LoginStreak
 version: ${project.version}
 main: me.munch42.loginstreak.Main
-api-version: 1.13
+api-version: "1.13"
 
 softdepend: [PlaceholderAPI]
 depend: [Vault]
@@ -13,3 +13,5 @@ commands:
     description: This command shows you the current streak leaderboard on the server.
   loginstreak:
     description: This is the base command to run multiple administrative commands such as reloading the plugin.
+  timeleft:
+    description: This command shows players how much time is left until they earn the next day in their streak, similar to the placeholder.
