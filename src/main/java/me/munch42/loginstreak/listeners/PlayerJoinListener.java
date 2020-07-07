@@ -14,7 +14,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,15 +59,86 @@ public class PlayerJoinListener implements Listener {
         // See if it is has been less than a day, more than a day, or 1 day since last login.
         long lastStreakTime = plugin.getStreaksConfig().getLong("players." + event.getPlayer().getUniqueId() + ".lastStreakTime");
         int totalDays = plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays");
-        long oneDay = 1000 * 60 * 60 * 24;
-        long twoDays = 1000 * 60 * 60 * 24 * 2;
+        final long oneDay = 1000 * 60 * 60 * 24;
+        final long twoDays = 1000 * 60 * 60 * 24 * 2;
 
-        if(System.currentTimeMillis() > lastStreakTime + oneDay && System.currentTimeMillis() < lastStreakTime + twoDays){
+        // To convert from System.currentTimeMillis() use this:
+        // LocalDate localDate = new Timestamp(timeInMillis).toLocalDateTime().toLocalDate();
+        // https://www.concretepage.com/java/java-8/convert-between-java-localdate-epoch#Epoch
+        // https://beginnersbook.com/2013/04/get-the-previous-day-date-and-next-day-date-from-the-given-date/
+
+        LocalDate localDateLastStreak = new Timestamp(lastStreakTime).toLocalDateTime().toLocalDate();
+
+        boolean giveReward = false;
+        boolean moreThanTwoDays = false;
+
+        if(plugin.getConfig().getBoolean("defaultStreakSystem")) {
+            if(System.currentTimeMillis() > lastStreakTime + oneDay && System.currentTimeMillis() < lastStreakTime + twoDays){
+                giveReward = true;
+            } else if(System.currentTimeMillis() > lastStreakTime + twoDays){
+                giveReward = false;
+                moreThanTwoDays = true;
+            }
+        } else if(!plugin.getConfig().getBoolean("defaultStreakSystem")) {
+            StringBuffer sBuffer = new StringBuffer(localDateLastStreak.toString());
+            String year = sBuffer.substring(2,4);
+            String mon = sBuffer.substring(5,7);
+            String dd = sBuffer.substring(8,10);
+
+            String modifiedFromDate = dd +'/'+mon+'/'+year;
+            final int MILLIS_IN_DAY = 1000 * 60 * 60 * 24;
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
+            Date dateSelectedFrom = null;
+            Date dateNextDate = null;
+            Date datePreviousDate = null;
+
+            // convert date present in the String to java.util.Date.
+            try
+            {
+                dateSelectedFrom = dateFormat.parse(modifiedFromDate);
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+
+            //get the next date in String.
+            String nextDate = dateFormat.format(dateSelectedFrom.getTime() + MILLIS_IN_DAY);
+
+            //get the previous date in String.
+            String previousDate = dateFormat.format(dateSelectedFrom.getTime() - MILLIS_IN_DAY);
+
+            //get the next date in java.util.Date.
+            try
+            {
+                dateNextDate = dateFormat.parse(nextDate);
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+
+            //get the previous date in java.util.Date.
+            try
+            {
+                datePreviousDate = dateFormat.parse(previousDate);
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        } else {
+            plugin.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreaks] Streak Counting System was set incorrectly. Please set it to either \"true\" or \"false\"");
+            return;
+        }
+
+        if(giveReward){
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".totalStreakDays", totalDays + 1);
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".lastStreakTime", System.currentTimeMillis());
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".dayReward", false);
             plugin.saveConfig();
-        } else if(System.currentTimeMillis() > lastStreakTime + twoDays) {
+        } else if(moreThanTwoDays) {
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".totalStreakDays", 1);
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".lastStreakTime", System.currentTimeMillis());
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".dayReward", false);
@@ -104,8 +181,8 @@ public class PlayerJoinListener implements Listener {
         //      Permission, Weight
         HashMap<String, Integer> permissionWeights = new HashMap<>();
 
-        // TODO: For the permission system add a permission weight option meaning that the highest weight they have is the one they get
-        // TODO: Or make it so that they get them all or add an option for either of these (Best option)
+        // Done: For the permission system add a permission weight option meaning that the highest weight they have is the one they get
+        // Done: Or make it so that they get them all or add an option for either of these (Best option)
 
         if (plugin.getStreaksConfig().getBoolean("players." + p.getUniqueId() + ".dayReward") == true) {
             return;
