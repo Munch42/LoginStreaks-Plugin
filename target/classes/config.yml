@@ -32,6 +32,10 @@ streakLBPerm: "loginstreaks.streaklb"
 loginstreakPerm: "loginstreaks.loginstreak"
 # /loginstreak reload command
 loginstreakReloadPerm: "loginstreaks.loginstreak.reload"
+# /loginstreak setstreak command
+loginstreakSetStreakPerm: "loginstreaks.loginstreak.setstreak"
+# /loginstreak resetstreak command
+loginstreakResetStreakPerm: "loginstreaks.loginstreak.resetstreak"
 # /timeleft command
 timeleftPerm: "loginstreaks.timeleft"
 
