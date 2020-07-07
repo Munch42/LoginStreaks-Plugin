@@ -32,6 +32,8 @@ streakLBPerm: "loginstreaks.streaklb"
 loginstreakPerm: "loginstreaks.loginstreak"
 # /loginstreak reload command
 loginstreakReloadPerm: "loginstreaks.loginstreak.reload"
+# /timeleft command
+timeleftPerm: "loginstreaks.timeleft"
 
 # Economy Features
 # An economy plugin such as EssentialsX is required to use LoginStreaks' built in economy features.
@@ -70,6 +72,10 @@ streakTopMessage: "&2This server's top streaks are: "
 # This will be the colour code combination to set all placeholders. ie.
 # If this is set to "&c&l" the message 1. <Name>: <Streak> would become "&2 1. <Name>: <Streak>"
 streakTopEntriesColourCode: "&2"
+
+# Time Left Command Message. This will be the message that is sent when a player runs /timeleft. Set to "" to disable this message, basically disabling the command.
+# Use the placeholders %hoursLeft% for the amount of hours left and %minutesLeft% for the amount of minutes left.
+timeLeftMessage: "&2There is/are %hoursLeft% hours and %minutesLeft% minutes left until you can claim your next streak day!"
 
 # Money Received Message. Set to "" to disable. This will be sent to a player when they receive money as a reward.
 # Use %money% as a placeholder for the amount of money received it will be formatted as $<money>.
