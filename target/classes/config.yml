@@ -38,6 +38,14 @@ loginstreakReloadPerm: "loginstreaks.loginstreak.reload"
 # If you do not need these features and do not want to install an economy plugin, please set this to false otherwise, leave this as true.
 economy: true
 
+# LoginStreaks Login Settings
+# The default streak system is the original streak counting method used by LoginStreaks which counts up a player's streak every time they login more than 24 hours after they first logged in but less than 48 hours.
+# E.G. If player A logged in at 3pm on the 22nd, the earliest they could get their next streak day would be at 3pm on the 23rd but they would need to claim it before 3pm on the 24th or it would reset.
+# The new system introduced in version 3.0.0 will count a player's streak if they login anytime the next day as long as it is before midnight (As that would be the next next day)
+# E.G. If a player logged in at anytime on the 12th, they could login at between 12am and 12pm on the 13th to claim their streak. If it was anytime after that (I.E. the 14th) it would reset.
+# If you leave this as true, the default system will be used. If this is set to false, the system introduced in update 3.0.0 will be used.
+defaultStreakSystem: true
+
 # LoginStreaks Login Rewards and Messages
 # No Permissions Message this is shown when the player does not have permissions to use the command. Set to "" to disable.
 noPermsMessage: "&4You do not have permission to use that command!"
