@@ -99,6 +99,11 @@ public class LoginStreakExpansion extends PlaceholderExpansion {
             return String.valueOf(daysTotal);
         }
 
+        // %loginstreak_timeleft%
+        if(identifier.equals("timeleft")){
+            return plugin.getTimeLeft(player);
+        }
+
         // %loginstreak_top1%
         if(identifier.equals("top1")){
             return plugin.getRankMessage(1);

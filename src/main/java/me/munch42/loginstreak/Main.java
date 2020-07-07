@@ -20,9 +20,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
@@ -185,7 +187,7 @@ public final class Main extends JavaPlugin {
 
     public String getTimeLeft(Player p){
         long lastStreakTime = getStreaksConfig().getLong("players." + p.getUniqueId() + ".lastStreakTime");
-        long nextStreakTime;
+        long nextStreakTime = lastStreakTime;
 
         LocalDate nextStreakLocal;
 
@@ -256,8 +258,20 @@ public final class Main extends JavaPlugin {
             return "";
         }
 
-        long hoursLeft = ChronoUnit.HOURS.between(LocalDate.now(), nextStreakLocal);
-        long minutesLeft = ChronoUnit.MINUTES.between(LocalDate.now(), nextStreakLocal);
+        long hoursLeft;
+        long minutesLeft;
+
+        // https://mkyong.com/java8/java-8-difference-between-two-localdate-or-localdatetime/
+
+        if(!getConfig().getBoolean("defaultStreakSystem")) {
+            hoursLeft = ChronoUnit.HOURS.between(LocalDateTime.now(), nextStreakLocal.atStartOfDay());
+            minutesLeft = ChronoUnit.MINUTES.between(LocalDateTime.now(), nextStreakLocal.atStartOfDay());
+        } else {
+            hoursLeft = ChronoUnit.HOURS.between(LocalDateTime.now(), new Timestamp(nextStreakTime).toLocalDateTime());
+            minutesLeft = ChronoUnit.MINUTES.between(LocalDateTime.now(), new Timestamp(nextStreakTime).toLocalDateTime());
+        }
+
+        minutesLeft = minutesLeft - (hoursLeft * 60);
 
         String baseMessage = getConfig().getString("timeLeftMessage");
 
