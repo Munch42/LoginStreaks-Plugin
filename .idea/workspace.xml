@@ -22,19 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Actually Registered Backup Command for Testing as I forgot :)">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Added Backup Command Untested to /Loginstreak rather than separate command">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/BackupCommand.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/LoginStreakCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/LoginStreakCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,19 +83,6 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LoginStreaks-Plugin build" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -201,7 +180,8 @@
       <workItem from="1604725931494" duration="47000" />
       <workItem from="1604726015821" duration="78000" />
       <workItem from="1605069682433" duration="1233000" />
-      <workItem from="1605071127551" duration="398000" />
+      <workItem from="1605071127551" duration="463000" />
+      <workItem from="1605112636205" duration="871000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -406,7 +386,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605070814310</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Added Backup Command Untested to /Loginstreak rather than separate command">
+      <created>1605071563664</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1605071563664</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,7 +412,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Performance Boost Test 1" />
     <MESSAGE value="Performance Boost Code Update Before Test" />
     <MESSAGE value="Update 2.3.3" />
     <MESSAGE value="Patch 2.3.4" />
@@ -450,32 +436,33 @@
     <MESSAGE value="3.0.0 Release!" />
     <MESSAGE value="Started Work on BackupCommand and Backups" />
     <MESSAGE value="Actually Registered Backup Command for Testing as I forgot :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actually Registered Backup Command for Testing as I forgot :)" />
+    <MESSAGE value="Added Backup Command Untested to /Loginstreak rather than separate command" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Backup Command Untested to /Loginstreak rather than separate command" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605071491068">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1605071491068" />
-    <state width="1877" height="86" key="GridCell.Tab.0.bottom" timestamp="1605070916846">
+    <state width="1877" height="86" key="GridCell.Tab.0.bottom" timestamp="1605113372476">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1605070916846" />
-    <state width="1877" height="86" key="GridCell.Tab.0.center" timestamp="1605070916846">
+    <state width="1877" height="86" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1605113372476" />
+    <state width="1877" height="86" key="GridCell.Tab.0.center" timestamp="1605113372476">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1605070916846" />
-    <state width="1877" height="86" key="GridCell.Tab.0.left" timestamp="1605070916846">
+    <state width="1877" height="86" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1605113372476" />
+    <state width="1877" height="86" key="GridCell.Tab.0.left" timestamp="1605113372476">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1605070916846" />
-    <state width="1877" height="86" key="GridCell.Tab.0.right" timestamp="1605070916846">
+    <state width="1877" height="86" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1605113372476" />
+    <state width="1877" height="86" key="GridCell.Tab.0.right" timestamp="1605113372476">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1605070916846" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1605070815600">
+    <state width="1877" height="86" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1605113372476" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1605071566749">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1605070815600" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1605071566749" />
   </component>
 </project>

@@ -1,9 +1,8 @@
-me\munch42\loginstreak\papi\LoginStreakExpansion.class
-me\munch42\loginstreak\Main.class
-me\munch42\loginstreak\commands\LoginStreakCommand.class
-me\munch42\loginstreak\commands\BackupCommand.class
 me\munch42\loginstreak\commands\TopStreaksCommand.class
+me\munch42\loginstreak\papi\LoginStreakExpansion.class
 me\munch42\loginstreak\commands\StreakCommand.class
 me\munch42\loginstreak\commands\TimeLeftCommand.class
 me\munch42\loginstreak\listeners\PlayerJoinListener.class
+me\munch42\loginstreak\Main.class
 me\munch42\loginstreak\utils\ChatUtils.class
+me\munch42\loginstreak\commands\LoginStreakCommand.class
