@@ -17,7 +17,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -87,7 +86,6 @@ public final class Main extends JavaPlugin {
         new TopStreaksCommand(this);
         new LoginStreakCommand(this);
         new TimeLeftCommand(this);
-        new BackupCommand(this);
 
         placeholderColourCodes = getConfig().getString("placeholderColourCodes");
         topColourCodes = getConfig().getString("streakTopEntriesColourCode");

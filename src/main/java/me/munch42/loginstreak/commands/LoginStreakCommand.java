@@ -9,6 +9,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+
 public class LoginStreakCommand implements CommandExecutor {
     private Main plugin;
 
@@ -33,6 +38,37 @@ public class LoginStreakCommand implements CommandExecutor {
                         return true;
                     }
                     return true;
+                } else if(args[0].equalsIgnoreCase("backup")){
+                    String permission = "loginstreaks.loginstreak.backup";
+
+                    if(plugin.getConfig().getString("loginstreakBackupPerm") != null){
+                        permission = plugin.getConfig().getString("loginstreakBackupPerm");
+                    }
+
+                    if(sender.hasPermission(permission)) {
+                        File streakFile = plugin.getStreaksFile();
+                        File rankFile = plugin.getRanksFile();
+                        File dest = new File("backups/streaks.yml");
+                        File dest2 = new File("backups/ranks.yml");
+
+                        try {
+                            Files.copy(streakFile.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                            Files.copy(rankFile.toPath(), dest2.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                            return true;
+                        } catch (IOException err) {
+                            sender.sendMessage(ChatColor.DARK_RED + "There was an error backing up your files!");
+                            return false;
+                        }
+                    } else {
+                        if(!plugin.getConfig().getString("noPermsMessage").equals("")) {
+                            String message = plugin.getConfig().getString("noPermsMessage");
+                            message = ChatUtils.parseColourCodes(message);
+
+                            sender.sendMessage(message);
+                        }
+
+                        return true;
+                    }
                 } else if(args[0].equalsIgnoreCase("setstreak")) {
                     if (sender.hasPermission(plugin.getConfig().getString("loginstreakSetStreakPerm"))) {
                         if (args.length >= 3) {
@@ -111,6 +147,7 @@ public class LoginStreakCommand implements CommandExecutor {
                 sender.sendMessage(ChatColor.RED + "Did you mean " + ChatColor.BOLD + "/loginstreak reload" + ChatColor.RED + "?");
                 sender.sendMessage(ChatColor.RED + "Did you mean " + ChatColor.BOLD + "/loginstreak resetstreak" + ChatColor.RED + "?");
                 sender.sendMessage(ChatColor.RED + "Did you mean " + ChatColor.BOLD + "/loginstreak setstreak" + ChatColor.RED + "?");
+                sender.sendMessage(ChatColor.RED + "Did you mean " + ChatColor.BOLD + "/loginstreak backup" + ChatColor.RED + "?");
                 return true;
             }
         } else {
