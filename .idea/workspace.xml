@@ -22,12 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="3.0.0 Release!">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/BackupCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Started Work on BackupCommand and Backups">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +188,7 @@
       <workItem from="1604725404007" duration="51000" />
       <workItem from="1604725931494" duration="47000" />
       <workItem from="1604726015821" duration="78000" />
-      <workItem from="1605069682433" duration="993000" />
+      <workItem from="1605069682433" duration="1101000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -382,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594152852208</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Started Work on BackupCommand and Backups">
+      <created>1605070697696</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1605070697696</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,7 +405,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update 2.2.1" />
     <MESSAGE value="Fixed 2.2.1 Bug" />
     <MESSAGE value="Performance Boost Test 1" />
     <MESSAGE value="Performance Boost Code Update Before Test" />
@@ -426,76 +429,13 @@
     <MESSAGE value="Tested and fixed TimeLeftCommand and added time left placeholder." />
     <MESSAGE value="Added setstreak and resetstreak commands for easy administration" />
     <MESSAGE value="3.0.0 Release!" />
-    <option name="LAST_COMMIT_MESSAGE" value="3.0.0 Release!" />
+    <MESSAGE value="Started Work on BackupCommand and Backups" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started Work on BackupCommand and Backups" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="726" y="83" key="#Auto_Import" timestamp="1593707648088">
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1605070699827">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="726" y="83" key="#Auto_Import/0.0.1920.1080@0.0.1920.1080" timestamp="1593707648088" />
-    <state x="552" y="181" key="#Plugins" timestamp="1593483945079">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="552" y="181" key="#Plugins/0.0.1920.1080@0.0.1920.1080" timestamp="1593483945079" />
-    <state x="440" y="114" key="#Project_Structure" timestamp="1587436436097">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="440" y="114" key="#Project_Structure/0.0.1920.1080@0.0.1920.1080" timestamp="1587436436097" />
-    <state x="640" y="276" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591415874029">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="640" y="276" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591415874029" />
-    <state x="740" y="295" key="FileChooserDialogImpl" timestamp="1594161212605">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="740" y="295" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1594161212605" />
-    <state x="813" y="440" key="GitRewordDialog" timestamp="1587485709281">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="813" y="440" key="GitRewordDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587485709281" />
-    <state width="1877" height="86" key="GridCell.Tab.0.bottom" timestamp="1594152862126">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1594152862126" />
-    <state width="1877" height="86" key="GridCell.Tab.0.center" timestamp="1594152862126">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1594152862126" />
-    <state width="1877" height="86" key="GridCell.Tab.0.left" timestamp="1594152862126">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1594152862126" />
-    <state width="1877" height="86" key="GridCell.Tab.0.right" timestamp="1594152862126">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1594152862126" />
-    <state x="490" y="195" key="Maven.ArtifactSearchDialog" timestamp="1587436450546">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="490" y="195" key="Maven.ArtifactSearchDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587436450546" />
-    <state x="440" y="114" key="SettingsEditor" timestamp="1592186368221">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="440" y="114" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1592186368221" />
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1594152853710">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1594152853710" />
-    <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594078647428">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1594078647428" />
-    <state x="690" y="295" key="extract.method.dialog" timestamp="1593657704877">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="690" y="295" key="extract.method.dialog/0.0.1920.1080@0.0.1920.1080" timestamp="1593657704877" />
-    <state x="342" y="160" key="new project wizard" timestamp="1592497613755">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="342" y="160" key="new project wizard/0.0.1920.1080@0.0.1920.1080" timestamp="1592497613755" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1594080362707">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1594080362707" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1605070699827" />
   </component>
 </project>

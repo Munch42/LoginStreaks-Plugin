@@ -1,9 +1,6 @@
 package me.munch42.loginstreak;
 
-import me.munch42.loginstreak.commands.LoginStreakCommand;
-import me.munch42.loginstreak.commands.StreakCommand;
-import me.munch42.loginstreak.commands.TimeLeftCommand;
-import me.munch42.loginstreak.commands.TopStreaksCommand;
+import me.munch42.loginstreak.commands.*;
 import me.munch42.loginstreak.listeners.PlayerJoinListener;
 import me.munch42.loginstreak.papi.LoginStreakExpansion;
 import me.munch42.loginstreak.utils.ChatUtils;
@@ -90,6 +87,7 @@ public final class Main extends JavaPlugin {
         new TopStreaksCommand(this);
         new LoginStreakCommand(this);
         new TimeLeftCommand(this);
+        new BackupCommand(this);
 
         placeholderColourCodes = getConfig().getString("placeholderColourCodes");
         topColourCodes = getConfig().getString("streakTopEntriesColourCode");
