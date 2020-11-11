@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,11 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Added setstreak and resetstreak commands for easy administration">
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="3.0.0 Release!">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/BackupCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/LoginStreakCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/LoginStreakCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +53,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
+        <option name="mavenHome" value="E:\Ayden\Jetbrains\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3" />
         <option name="usePluginRegistry" value="true" />
       </MavenGeneralSettings>
     </option>
@@ -72,13 +77,24 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java And MC Mods/First 1.15.2 Mod/build.gradle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java And MC Mods/1.15.2 Tutorial Mod/build.gradle" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LoginStreaks-Plugin build" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -106,6 +122,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -168,7 +185,13 @@
       <workItem from="1594089430392" duration="46000" />
       <workItem from="1594138863039" duration="2094000" />
       <workItem from="1594145714170" duration="2378000" />
-      <workItem from="1594150664185" duration="2140000" />
+      <workItem from="1594150664185" duration="2197000" />
+      <workItem from="1594161202645" duration="13000" />
+      <workItem from="1604072344851" duration="697000" />
+      <workItem from="1604725404007" duration="51000" />
+      <workItem from="1604725931494" duration="47000" />
+      <workItem from="1604726015821" duration="78000" />
+      <workItem from="1605069682433" duration="993000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -352,11 +375,18 @@
       <option name="project" value="LOCAL" />
       <updated>1594151729383</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="3.0.0 Release!">
+      <created>1594152852208</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1594152852208</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -371,7 +401,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added /topstreaks Command" />
     <MESSAGE value="Update 2.2.1" />
     <MESSAGE value="Fixed 2.2.1 Bug" />
     <MESSAGE value="Performance Boost Test 1" />
@@ -396,7 +425,8 @@
     <MESSAGE value="Untested TimeLeftCommand Added" />
     <MESSAGE value="Tested and fixed TimeLeftCommand and added time left placeholder." />
     <MESSAGE value="Added setstreak and resetstreak commands for easy administration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added setstreak and resetstreak commands for easy administration" />
+    <MESSAGE value="3.0.0 Release!" />
+    <option name="LAST_COMMIT_MESSAGE" value="3.0.0 Release!" />
   </component>
   <component name="WindowStateProjectService">
     <state x="726" y="83" key="#Auto_Import" timestamp="1593707648088">
@@ -415,30 +445,30 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="640" y="276" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591415874029" />
-    <state x="740" y="295" key="FileChooserDialogImpl" timestamp="1594089470840">
+    <state x="740" y="295" key="FileChooserDialogImpl" timestamp="1594161212605">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="740" y="295" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1594089470840" />
+    <state x="740" y="295" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1594161212605" />
     <state x="813" y="440" key="GitRewordDialog" timestamp="1587485709281">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="813" y="440" key="GitRewordDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587485709281" />
-    <state width="1877" height="86" key="GridCell.Tab.0.bottom" timestamp="1594152699467">
+    <state width="1877" height="86" key="GridCell.Tab.0.bottom" timestamp="1594152862126">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1594152699467" />
-    <state width="1877" height="86" key="GridCell.Tab.0.center" timestamp="1594152699467">
+    <state width="1877" height="86" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1594152862126" />
+    <state width="1877" height="86" key="GridCell.Tab.0.center" timestamp="1594152862126">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1594152699467" />
-    <state width="1877" height="86" key="GridCell.Tab.0.left" timestamp="1594152699467">
+    <state width="1877" height="86" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1594152862126" />
+    <state width="1877" height="86" key="GridCell.Tab.0.left" timestamp="1594152862126">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1594152699467" />
-    <state width="1877" height="86" key="GridCell.Tab.0.right" timestamp="1594152699467">
+    <state width="1877" height="86" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1594152862126" />
+    <state width="1877" height="86" key="GridCell.Tab.0.right" timestamp="1594152862126">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1594152699467" />
+    <state width="1877" height="86" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1594152862126" />
     <state x="490" y="195" key="Maven.ArtifactSearchDialog" timestamp="1587436450546">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -447,10 +477,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="440" y="114" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1592186368221" />
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1594151730997">
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1594152853710">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1594151730997" />
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1594152853710" />
     <state x="769" y="456" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594078647428">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
