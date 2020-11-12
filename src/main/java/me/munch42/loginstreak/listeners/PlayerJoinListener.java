@@ -14,6 +14,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -199,6 +203,30 @@ public class PlayerJoinListener implements Listener {
 
         if (plugin.getStreaksConfig().getBoolean("players." + p.getUniqueId() + ".dayReward") == true) {
             return;
+        }
+
+        // Here we add to the backup count or backup the files if the threshold has been reached.
+        // We do it here because we have checked to see if this is a unique (unique as it was defined in config.yml) login.
+        // TODO: Will have to add another file for the backup information such as backupcount as when it is in the main config file it saves weirdly removing all comments when it saves which isn't what we want.
+
+        if(plugin.getConfig().getBoolean("backup")){
+            int backupCount = plugin.getConfig().getInt("backupCount");
+            int backupThreshold = plugin.getConfig().getInt("backupThreshold");
+
+            // If we have reached or exceeded the backup threshold then we want to back up the files.
+            if (backupCount >= backupThreshold){
+                // Here we want to complete a back up.
+                boolean backedUp = backupFiles(plugin);
+
+                if(backedUp){
+                    Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "[LoginStreak] Files Backed Up!");
+                } else {
+                    Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] File Backup Failed!");
+                }
+            } else {
+                int newCount = backupCount + 1;
+                plugin.getConfig().set("backupCount", newCount);
+            }
         }
 
         for(String key : permRewards.getKeys(false)) {
@@ -490,5 +518,27 @@ public class PlayerJoinListener implements Listener {
         plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".dayReward", true);
         plugin.saveConfig();
         return true;
+    }
+
+    private boolean backupFiles(Main plugin){
+        File streakFile = plugin.getStreaksFile();
+        File rankFile = plugin.getRanksFile();
+        File dest = new File(plugin.getDataFolder(), "backups/streaks.yml");
+        File dest2 = new File(plugin.getDataFolder(), "backups/ranks.yml");
+
+        if(!dest.exists()) {
+            dest.mkdirs();
+        }
+        if(!dest2.exists()){
+            dest2.mkdirs();
+        }
+
+        try {
+            Files.copy(streakFile.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(rankFile.toPath(), dest2.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            return true;
+        } catch (IOException err) {
+            return false;
+        }
     }
 }

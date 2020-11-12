@@ -46,6 +46,16 @@ timeleftPerm: "loginstreaks.timeleft"
 # If you do not need these features and do not want to install an economy plugin, please set this to false otherwise, leave this as true.
 economy: true
 
+# Backup Settings
+# If you would like automatic backups of the ranks.yml and streaks.yml file to be completed, set this value to true otherwise leave it as false.
+backup: false
+# If the above setting is set to true, please set this to the INTEGER number of unique (as in if 1 person logs in twice in 1 day it will only be counted once) logins before the files will auto backup.
+# E.G. If you have this set to 5 then when either 5 different players log in and increase their streak or when 1 player logs in for 5 days, or any combination of both
+# then the plugin would automatically backup the files and reset its backup counter.
+backupThreshold: 5
+# PLEASE DO NOT CHANGE THIS VALUE!! THIS IS AUTOMATICALLY CHANGED BY THE PLUGIN AND IF TAMPERED WITH MAY CAUSE AN ERROR!
+backupCount: 0
+
 # LoginStreaks Login Settings
 # The default streak system is the original streak counting method used by LoginStreaks which counts up a player's streak every time they login more than 24 hours after they first logged in but less than 48 hours.
 # E.G. If player A logged in at 3pm on the 22nd, the earliest they could get their next streak day would be at 3pm on the 23rd but they would need to claim it before 3pm on the 24th or it would reset.
