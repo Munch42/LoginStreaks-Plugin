@@ -46,6 +46,20 @@ timeleftPerm: "loginstreaks.timeleft"
 # If you do not need these features and do not want to install an economy plugin, please set this to false otherwise, leave this as true.
 economy: true
 
+# Backup Settings
+# If you would like automatic backups of the ranks.yml and streaks.yml file to be completed, set this value to true otherwise leave it as false.
+backup: false
+# If the above setting is set to true, please set this to the INTEGER number of unique (as in if 1 person logs in twice in 1 day it will only be counted once) logins before the files will auto backup.
+# E.G. If you have this set to 5 then when either 5 different players log in and increase their streak or when 1 player logs in for 5 days, or any combination of both
+# then the plugin would automatically backup the files and reset its backup counter.
+backupThreshold: 5
+# Files to Backup:
+# Enter true if you want to back up the file or false if you do not want it backed up.
+configBackup: true
+continuityBackup: true
+ranksBackup: true
+streaksBackup: true
+
 # LoginStreaks Login Settings
 # The default streak system is the original streak counting method used by LoginStreaks which counts up a player's streak every time they login more than 24 hours after they first logged in but less than 48 hours.
 # E.G. If player A logged in at 3pm on the 22nd, the earliest they could get their next streak day would be at 3pm on the 23rd but they would need to claim it before 3pm on the 24th or it would reset.
@@ -114,7 +128,7 @@ blankRankPlaceholder: "---------"
 #   dayNum: This is the amount of days needed to get this. For example, if you set this to 7 they will get this reward after logging in for 7 days in a row.
 #     rewardType: This should be set to either MONEY or ITEM or COMMAND. Set to MONEY if you want to give Money, REQUIRES: Vault. Set to ITEM if you want to give an item and set to COMMAND to run a command.
 #     reward: This should either 1. Be the amount of Money given if the type is money. 2. Be the item given in all caps ie. IRON_BLOCK. Use ; to separate multiple items to give ie. IRON_BLOCK ; COAL_ORE. Or 3. The Command to run in "", you can use %player% as the player name. Separate multiple commands with ; as with items.
-#     commandExplanation: This should be set to null unless the rewardType is COMMAND. If it is, set this to what the command does. Leave blank if you do not need the %command% placeholder above.
+#     commandExplanation: This should be set to null unless the rewardType is COMMAND. If it is set to command, set this to what the command does. Leave empty quotes, e.g. "", if you do not need the %command% placeholder above.
 #     commandScope: This should be set to null unless the rewardType is COMMAND. If so, you can set this to either PLAYER to run the command as the player, or CONSOLE to run as the console. Set this for each command in rewards. Separate each one with a ; ie. CONSOLE ; PLAYER.
 #     rewardAmount: This should be set to 0 if the rewardType is COMMAND or MONEY. Otherwise, set this to the amount of items the player will receive for each item. Separate the amounts with a ; for each item ie. 5 ; 10.
 #     reset: (Optional) This should be set to either true or false. You do not need this field for a day as if it is not included it will be false. Once a player reaches this day, their streak will be reset to 1 if it is true.
@@ -159,7 +173,7 @@ rewards:
 #     dayNum: This is the amount of days needed to get this when they have the permission node. For example, if you set this to 7 they will get this reward after logging in for 7 days in a row.
 #       rewardType: This should be set to either MONEY or ITEM or COMMAND. Set to MONEY if you want to give Money, REQUIRES: Vault and an Economy plugin. Set to ITEM if you want to give an item and set to COMMAND to run a command.
 #       reward: This should either 1. Be the amount of Money given if the type is money. 2. Be the item given in all caps ie. IRON_BLOCK. Use ; to separate multiple items to give ie. IRON_BLOCK ; COAL_ORE. Or 3. The Command to run in "", you can use %player% as the player name. Separate multiple commands with ; as with items.
-#       commandExplanation: This should be set to null unless the rewardType is COMMAND. If it is, set this to what the command does. Leave blank if you do not need the %command% placeholder above.
+#       commandExplanation: This should be set to null unless the rewardType is COMMAND. If it is set to command, set this to what the command does. Leave empty quotes, e.g. "", if you do not need the %command% placeholder above.
 #       commandScope: This should be set to null unless the rewardType is COMMAND. If so, you can set this to either PLAYER to run the command as the player, or CONSOLE to run as the console. Set this for each command in rewards. Separate each one with a ; ie. CONSOLE ; PLAYER.
 #       rewardAmount: This should be set to 0 if the rewardType is COMMAND or MONEY. Otherwise, set this to the amount of items the player will receive for each item. Separate the amounts with a ; for each item ie. 5 ; 10.
 #       reset: (Optional) This should be set to either true or false. You do not need this field for a day as if it is not included it will be false. Once a player reaches this day, their streak will be reset to 1 if it is true.

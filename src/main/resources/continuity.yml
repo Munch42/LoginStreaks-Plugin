@@ -1,0 +1,3 @@
+# This file is used to store data that is needed between restarts of the server including the backup counter.
+# Please DO NOT change anything in this file unless you know what you are doing!
+backupCount: 0

@@ -46,24 +46,12 @@ public class LoginStreakCommand implements CommandExecutor {
                     }
 
                     if(sender.hasPermission(permission)) {
-                        File streakFile = plugin.getStreaksFile();
-                        File rankFile = plugin.getRanksFile();
-                        File dest = new File(plugin.getDataFolder(), "backups/streaks.yml");
-                        File dest2 = new File(plugin.getDataFolder(), "backups/ranks.yml");
+                        boolean backedUp = plugin.backupFiles();
 
-                        if(!dest.exists()) {
-                            dest.mkdirs();
-                        }
-                        if(!dest2.exists()){
-                            dest2.mkdirs();
-                        }
-
-                        try {
-                            Files.copy(streakFile.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                            Files.copy(rankFile.toPath(), dest2.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                        if(backedUp){
                             sender.sendMessage(ChatColor.GREEN + "Files successfully backed up!");
                             return true;
-                        } catch (IOException err) {
+                        } else {
                             sender.sendMessage(ChatColor.DARK_RED + "There was an error backing up your files!");
                             return false;
                         }

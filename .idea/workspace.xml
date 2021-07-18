@@ -22,10 +22,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Tested Backup LoginStreak Command and Fixed Bugs Now Working">
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Added Auto-Backup System. Currently destroys config.yml when used so not ready.">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/continuity.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/LoginStreakCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/LoginStreakCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +81,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java And MC Mods/1.15.2 Tutorial Mod/build.gradle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java And MC Mods/1.12.2 CivMod/build.gradle" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -193,7 +199,16 @@
       <workItem from="1605071127551" duration="463000" />
       <workItem from="1605112636205" duration="946000" />
       <workItem from="1605152716211" duration="97000" />
-      <workItem from="1605152967332" duration="2107000" />
+      <workItem from="1605152967332" duration="2197000" />
+      <workItem from="1606522564066" duration="691000" />
+      <workItem from="1612828694143" duration="78000" />
+      <workItem from="1612999503352" duration="437000" />
+      <workItem from="1613431651722" duration="22000" />
+      <workItem from="1615336640596" duration="94000" />
+      <workItem from="1615388768314" duration="215000" />
+      <workItem from="1615521095828" duration="159000" />
+      <workItem from="1620099699579" duration="253000" />
+      <workItem from="1626636345051" duration="5026000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -412,7 +427,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605113566817</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Added Auto-Backup System. Currently destroys config.yml when used so not ready.">
+      <created>1605155160980</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1605155160980</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,7 +453,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update 2.3.3" />
     <MESSAGE value="Patch 2.3.4" />
     <MESSAGE value="Patch 2.3.5" />
     <MESSAGE value="Fixed issue with requiring an economy plugin such as EssentialsX, now customizable." />
@@ -456,36 +477,33 @@
     <MESSAGE value="Actually Registered Backup Command for Testing as I forgot :)" />
     <MESSAGE value="Added Backup Command Untested to /Loginstreak rather than separate command" />
     <MESSAGE value="Tested Backup LoginStreak Command and Fixed Bugs Now Working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tested Backup LoginStreak Command and Fixed Bugs Now Working" />
+    <MESSAGE value="Added Auto-Backup System. Currently destroys config.yml when used so not ready." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Auto-Backup System. Currently destroys config.yml when used so not ready." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605071491068">
+    <state x="722" y="257" key="FileChooserDialogImpl" timestamp="1620099941270">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1605071491068" />
-    <state width="1877" height="86" key="GridCell.Tab.0.bottom" timestamp="1605154937983">
+    <state x="722" y="257" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1620099941270" />
+    <state width="1877" height="86" key="GridCell.Tab.0.bottom" timestamp="1626641362229">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1605154937983" />
-    <state width="1877" height="86" key="GridCell.Tab.0.center" timestamp="1605154937983">
+    <state width="1877" height="86" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1626641362229" />
+    <state width="1877" height="86" key="GridCell.Tab.0.center" timestamp="1626641362229">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1605154937983" />
-    <state width="1877" height="86" key="GridCell.Tab.0.left" timestamp="1605154937983">
+    <state width="1877" height="86" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1626641362229" />
+    <state width="1877" height="86" key="GridCell.Tab.0.left" timestamp="1626641362229">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1605154937983" />
-    <state width="1877" height="86" key="GridCell.Tab.0.right" timestamp="1605154937983">
+    <state width="1877" height="86" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1626641362229" />
+    <state width="1877" height="86" key="GridCell.Tab.0.right" timestamp="1626641362229">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1605154937983" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1605113568410">
+    <state width="1877" height="86" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1626641362229" />
+    <state x="542" y="198" key="new project wizard" timestamp="1620099950074">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1605113568410" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1605154876528">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1605154876528" />
+    <state x="542" y="198" key="new project wizard/0.0.1920.1080@0.0.1920.1080" timestamp="1620099950074" />
   </component>
 </project>

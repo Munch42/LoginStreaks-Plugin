@@ -17,6 +17,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -39,6 +41,8 @@ public final class Main extends JavaPlugin {
     private FileConfiguration streaksConfig = YamlConfiguration.loadConfiguration(streaksFile);
     private File ranksFile = new File(getDataFolder(), "ranks.yml");
     private FileConfiguration ranksConfig = YamlConfiguration.loadConfiguration(ranksFile);
+    private File continuityFile = new File(getDataFolder(), "continuity.yml");
+    private FileConfiguration continuityConfig = YamlConfiguration.loadConfiguration(continuityFile);
 
     //              Player UUID, Total Streak Days
     public HashMap<String, Integer> streakMap = new HashMap<>();
@@ -58,6 +62,8 @@ public final class Main extends JavaPlugin {
             return;
         }
 
+        saveDefaultConfig();
+
         if(setupEconomy()){
             if(!checkEconomy() && getConfig().getBoolean("economy")){
                 // In here this will be run if they have vault but no economy plugin. Can add && to the check to see if a option in the plugin.yml is set.
@@ -67,7 +73,6 @@ public final class Main extends JavaPlugin {
             }
         }
 
-        saveDefaultConfig();
         if(!streaksFile.exists()){
             saveResource("streaks.yml", false);
         }
@@ -76,6 +81,9 @@ public final class Main extends JavaPlugin {
             saveResource("ranks.yml", false);
         }
 
+        if(!continuityFile.exists()){
+            saveResource("continuity.yml", false);
+        }
 
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
             new LoginStreakExpansion(this).register();
@@ -106,6 +114,15 @@ public final class Main extends JavaPlugin {
     public void saveRanksConfig(){
         try{
             getRanksConfig().save(getRanksFile());
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void saveContinuity(){
+        // This should save the updated config.yml file from anywhere into the actual yml file.
+        try{
+            getContinuityConfig().save(getContinuityFile());
         } catch(IOException e){
             e.printStackTrace();
         }
@@ -179,6 +196,56 @@ public final class Main extends JavaPlugin {
         reloadConfig();
         streaksConfig = YamlConfiguration.loadConfiguration(new File(getDataFolder(), "streaks.yml"));
         ranksConfig = YamlConfiguration.loadConfiguration(new File(getDataFolder(), "ranks.yml"));
+        continuityConfig = YamlConfiguration.loadConfiguration(new File(getDataFolder(), "continuity.yml"));
+    }
+
+    public boolean backupFiles(){
+        File streakFile = getStreaksFile();
+        File rankFile = getRanksFile();
+        File configFile = new File(getDataFolder(), "config.yml");;
+        File continuityFile = getContinuityFile();
+
+        File dest = new File(getDataFolder(), "backups/streaks.yml");
+        File dest2 = new File(getDataFolder(), "backups/ranks.yml");
+        File dest3 = new File(getDataFolder(), "backups/config.yml");
+        File dest4 = new File(getDataFolder(), "backups/continuity.yml");
+
+        // If the backup location doesn't exist, we create it.
+        if(!dest.exists() && backupCheck(streakFile)) {
+            dest.mkdirs();
+        }
+        if(!dest2.exists() && backupCheck(rankFile)){
+            dest2.mkdirs();
+        }
+        if(!dest3.exists() && backupCheck(configFile)) {
+            dest3.mkdirs();
+        }
+        if(!dest4.exists() && backupCheck(continuityFile)){
+            dest4.mkdirs();
+        }
+
+        // We then copy the files over to the backup location.
+        try {
+            if (backupCheck(streakFile)) Files.copy(streakFile.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            if (backupCheck(rankFile)) Files.copy(rankFile.toPath(), dest2.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            if (backupCheck(configFile)) Files.copy(configFile.toPath(), dest3.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            if (backupCheck(continuityFile)) Files.copy(continuityFile.toPath(), dest4.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            return true;
+        } catch (IOException err) {
+            return false;
+        }
+    }
+
+    private boolean backupCheck(File fileToCheck){
+        String filename = fileToCheck.getName().replace(".yml", "");
+        //Bukkit.getConsoleSender().sendMessage(filename);
+
+        // This is the name of the node we need to check in the config file.
+        // The nodes are named for example: streaksBackup so we add the streaks.yml name stripped of the .yml to Backup to get the node.
+        String configVarName = filename + "Backup";
+
+        // We return the value of the boolean for that file to see if we back it up or not.
+        return getConfig().getBoolean(configVarName);
     }
 
     public String getTimeLeft(Player p){
@@ -300,6 +367,12 @@ public final class Main extends JavaPlugin {
 
     public File getRanksFile(){
         return ranksFile;
+    }
+
+    public FileConfiguration getContinuityConfig() { return continuityConfig; }
+
+    public File getContinuityFile() {
+        return continuityFile;
     }
 
     public Main getPlugin(){

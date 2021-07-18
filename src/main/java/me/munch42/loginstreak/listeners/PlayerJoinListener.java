@@ -207,25 +207,31 @@ public class PlayerJoinListener implements Listener {
 
         // Here we add to the backup count or backup the files if the threshold has been reached.
         // We do it here because we have checked to see if this is a unique (unique as it was defined in config.yml) login.
-        // TODO: Will have to add another file for the backup information such as backupcount as when it is in the main config file it saves weirdly removing all comments when it saves which isn't what we want.
+        // Done: Will have to add another file for the backup information such as backupcount as when it is in the main config file it saves weirdly removing all comments when it saves which isn't what we want.
 
         if(plugin.getConfig().getBoolean("backup")){
-            int backupCount = plugin.getConfig().getInt("backupCount");
+            int backupCount = plugin.getContinuityConfig().getInt("backupCount");
             int backupThreshold = plugin.getConfig().getInt("backupThreshold");
 
             // If we have reached or exceeded the backup threshold then we want to back up the files.
             if (backupCount >= backupThreshold){
                 // Here we want to complete a back up.
-                boolean backedUp = backupFiles(plugin);
+                boolean backedUp = plugin.backupFiles();
 
                 if(backedUp){
                     Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "[LoginStreak] Files Backed Up!");
+
+                    // We reset to 0 to reset so we don't keep backing up.
+                    plugin.getContinuityConfig().set("backupCount", 0);
+                    plugin.saveContinuity();
                 } else {
+                    // Because it failed we won't reset count to 0 so that it will try again on next player join.
                     Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_RED + "[LoginStreak] File Backup Failed!");
                 }
             } else {
                 int newCount = backupCount + 1;
-                plugin.getConfig().set("backupCount", newCount);
+                plugin.getContinuityConfig().set("backupCount", newCount);
+                plugin.saveContinuity();
             }
         }
 
@@ -518,27 +524,5 @@ public class PlayerJoinListener implements Listener {
         plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".dayReward", true);
         plugin.saveConfig();
         return true;
-    }
-
-    private boolean backupFiles(Main plugin){
-        File streakFile = plugin.getStreaksFile();
-        File rankFile = plugin.getRanksFile();
-        File dest = new File(plugin.getDataFolder(), "backups/streaks.yml");
-        File dest2 = new File(plugin.getDataFolder(), "backups/ranks.yml");
-
-        if(!dest.exists()) {
-            dest.mkdirs();
-        }
-        if(!dest2.exists()){
-            dest2.mkdirs();
-        }
-
-        try {
-            Files.copy(streakFile.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            Files.copy(rankFile.toPath(), dest2.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            return true;
-        } catch (IOException err) {
-            return false;
-        }
     }
 }
