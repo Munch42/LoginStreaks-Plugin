@@ -2,6 +2,7 @@ package me.munch42.loginstreak.listeners;
 
 import me.munch42.loginstreak.Main;
 import me.munch42.loginstreak.utils.ChatUtils;
+import me.munch42.loginstreak.utils.StringUtils;
 import net.milkbowl.vault.economy.EconomyResponse;
 import org.apache.commons.lang.WordUtils;
 import org.bukkit.Bukkit;
@@ -487,6 +488,7 @@ public class PlayerJoinListener implements Listener {
     private boolean rewardCommands(ConfigurationSection rewards, String key, String commandExplanation, int daysNow, Player p){
         String[] command = rewards.getString(key + ".reward").split(";");
         String[] commandScope = rewards.getString(key + ".commandScope").split(";");
+        commandScope = StringUtils.trimSpacesFromStringArray(commandScope);
         commandExplanation = rewards.getString(key + ".commandExplanation");
         boolean failed = false;
 
@@ -515,7 +517,12 @@ public class PlayerJoinListener implements Listener {
 
         if(!plugin.getConfig().getString("rewardCommandMessage").equals("")){
             String message = plugin.getConfig().getString("rewardCommandMessage");
-            message = message.replace("%command%", commandExplanation);
+            if(commandExplanation != null) {
+                message = message.replace("%command%", commandExplanation);
+            } else {
+                message = message.replace("%command%", "");
+                ChatUtils.sendError("[LoginStreak] ERROR: Command Explanation Not Set in Config File! If not in use, set it to \"\"");
+            }
             message = message.replace("%days%", String.valueOf(daysNow));
             message = ChatUtils.parseColourCodes(message);
             p.sendMessage(message);

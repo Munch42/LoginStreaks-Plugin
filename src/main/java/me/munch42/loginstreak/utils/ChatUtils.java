@@ -18,4 +18,8 @@ public class ChatUtils {
         msg = ChatColor.translateAlternateColorCodes('&', msg);
         return msg;
     }
+
+    public static void sendError(String error){
+        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_RED + error);
+    }
 }

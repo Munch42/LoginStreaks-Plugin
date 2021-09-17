@@ -22,16 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Added Auto-Backup System. Currently destroys config.yml when used so not ready.">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/continuity.yml" afterDir="false" />
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Release 3.1.0!&#10;Reworked and Added Auto-Backup System&#10;Fixed Issues with Config Not Generating on 1.17&#10;Tested on 1.17">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/utils/StringUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/LoginStreakCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/LoginStreakCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/utils/ChatUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/utils/ChatUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +58,6 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="E:\Ayden\Jetbrains\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3" />
         <option name="usePluginRegistry" value="true" />
       </MavenGeneralSettings>
     </option>
@@ -88,17 +88,6 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LoginStreaks-Plugin build" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -208,7 +197,10 @@
       <workItem from="1615388768314" duration="215000" />
       <workItem from="1615521095828" duration="159000" />
       <workItem from="1620099699579" duration="253000" />
-      <workItem from="1626636345051" duration="5026000" />
+      <workItem from="1626636345051" duration="5757000" />
+      <workItem from="1626648388641" duration="981000" />
+      <workItem from="1627505952614" duration="30000" />
+      <workItem from="1631917120587" duration="1133000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -434,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605155160980</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Release 3.1.0!&#10;Reworked and Added Auto-Backup System&#10;Fixed Issues with Config Not Generating on 1.17&#10;Tested on 1.17">
+      <created>1626641482868</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1626641482868</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,7 +452,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Patch 2.3.4" />
     <MESSAGE value="Patch 2.3.5" />
     <MESSAGE value="Fixed issue with requiring an economy plugin such as EssentialsX, now customizable." />
     <MESSAGE value="Added permission based rewards section to config.yml" />
@@ -478,32 +476,7 @@
     <MESSAGE value="Added Backup Command Untested to /Loginstreak rather than separate command" />
     <MESSAGE value="Tested Backup LoginStreak Command and Fixed Bugs Now Working" />
     <MESSAGE value="Added Auto-Backup System. Currently destroys config.yml when used so not ready." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Auto-Backup System. Currently destroys config.yml when used so not ready." />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="722" y="257" key="FileChooserDialogImpl" timestamp="1620099941270">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="722" y="257" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1620099941270" />
-    <state width="1877" height="86" key="GridCell.Tab.0.bottom" timestamp="1626641362229">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1626641362229" />
-    <state width="1877" height="86" key="GridCell.Tab.0.center" timestamp="1626641362229">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1626641362229" />
-    <state width="1877" height="86" key="GridCell.Tab.0.left" timestamp="1626641362229">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1626641362229" />
-    <state width="1877" height="86" key="GridCell.Tab.0.right" timestamp="1626641362229">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1877" height="86" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1626641362229" />
-    <state x="542" y="198" key="new project wizard" timestamp="1620099950074">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="542" y="198" key="new project wizard/0.0.1920.1080@0.0.1920.1080" timestamp="1620099950074" />
+    <MESSAGE value="Release 3.1.0!&#10;Reworked and Added Auto-Backup System&#10;Fixed Issues with Config Not Generating on 1.17&#10;Tested on 1.17" />
+    <option name="LAST_COMMIT_MESSAGE" value="Release 3.1.0!&#10;Reworked and Added Auto-Backup System&#10;Fixed Issues with Config Not Generating on 1.17&#10;Tested on 1.17" />
   </component>
 </project>

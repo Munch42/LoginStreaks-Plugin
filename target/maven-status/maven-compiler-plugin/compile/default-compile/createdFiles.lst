@@ -1,4 +1,5 @@
 me\munch42\loginstreak\papi\LoginStreakExpansion.class
+me\munch42\loginstreak\utils\StringUtils.class
 me\munch42\loginstreak\Main.class
 me\munch42\loginstreak\commands\LoginStreakCommand.class
 me\munch42\loginstreak\commands\TopStreaksCommand.class
