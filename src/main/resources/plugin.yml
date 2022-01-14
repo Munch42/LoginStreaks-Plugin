@@ -8,10 +8,12 @@ depend: [Vault]
 
 commands:
   streak:
-    description: This command shows your current login streak.
+    description: This command shows your current login streak and has multiple other functions such as manually claiming your reward.
+    aliases: [stk]
   topstreaks:
     description: This command shows you the current streak leaderboard on the server.
   loginstreak:
     description: This is the base command to run multiple administrative commands such as reloading the plugin.
+    aliases: [ls]
   timeleft:
     description: This command shows players how much time is left until they earn the next day in their streak, similar to the placeholder.

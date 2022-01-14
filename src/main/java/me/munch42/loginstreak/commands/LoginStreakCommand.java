@@ -2,17 +2,13 @@ package me.munch42.loginstreak.commands;
 
 import me.munch42.loginstreak.Main;
 import me.munch42.loginstreak.utils.ChatUtils;
+import me.munch42.loginstreak.tabcompleters.LoginStreakTabCompleter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 
 public class LoginStreakCommand implements CommandExecutor {
     private Main plugin;
@@ -21,6 +17,7 @@ public class LoginStreakCommand implements CommandExecutor {
         this.plugin = plugin;
 
         plugin.getCommand("loginstreak").setExecutor(this);
+        plugin.getCommand("loginstreak").setTabCompleter(new LoginStreakTabCompleter());
     }
 
     @Override

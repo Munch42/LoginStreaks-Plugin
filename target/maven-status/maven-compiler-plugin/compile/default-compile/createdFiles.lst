@@ -6,4 +6,6 @@ me\munch42\loginstreak\commands\TopStreaksCommand.class
 me\munch42\loginstreak\commands\StreakCommand.class
 me\munch42\loginstreak\commands\TimeLeftCommand.class
 me\munch42\loginstreak\listeners\PlayerJoinListener.class
+me\munch42\loginstreak\tabcompleters\LoginStreakTabCompleter.class
 me\munch42\loginstreak\utils\ChatUtils.class
+me\munch42\loginstreak\tabcompleters\StreakTabCompleter.class

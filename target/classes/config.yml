@@ -24,11 +24,11 @@
 # /topstreaks. Views the top streaks.
 
 # LoginStreaks Permissions
-# /streak command
+# /streak command or /stk
 streakPerm: "loginstreaks.streak"
 # /topstreaks command
 streakLBPerm: "loginstreaks.streaklb"
-# /loginstreak base command
+# /loginstreak base command. Can be shortened to /ls [whatever other command here]
 loginstreakPerm: "loginstreaks.loginstreak"
 # /loginstreak reload command
 loginstreakReloadPerm: "loginstreaks.loginstreak.reload"
@@ -40,6 +40,8 @@ loginstreakSetStreakPerm: "loginstreaks.loginstreak.setstreak"
 loginstreakResetStreakPerm: "loginstreaks.loginstreak.resetstreak"
 # /timeleft command
 timeleftPerm: "loginstreaks.timeleft"
+# /streak claim command or /stk claim
+claimPerm: "loginstreaks.streak.claim"
 
 # Economy Features
 # An economy plugin such as EssentialsX is required to use LoginStreaks' built in economy features.
