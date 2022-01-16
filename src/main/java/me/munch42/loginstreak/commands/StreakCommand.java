@@ -10,6 +10,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.HashMap;
+
 public class StreakCommand implements CommandExecutor {
 
     private Main plugin;
@@ -42,37 +44,32 @@ public class StreakCommand implements CommandExecutor {
                             // Their inventory is empty
                             // TODO: Edit this to be configurable
                             sender.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "Your inventory is full. If you would still like to claim your reward, please re-run the command as '/streak claim force'");
+                            return false;
                         }
 
-                        // TODO: Also maybe make a function for sending these messages where you input the player, message, and the things you want to replace in each message.
+                        // Added a function for sending these messages where you input the player, message, and the things you want to replace in each message.
                         int daysTotal = plugin.getStreaksConfig().getInt("players." + p.getUniqueId() + ".totalStreakDays");
+                        HashMap<String, Object> placeholders = new HashMap<String, Object>();
+                        placeholders.put("%days%", daysTotal);
 
-                        String message = plugin.getConfig().getString("streakManualClaimMessage");
-                        message = message.replace("%days%", String.valueOf(daysTotal));
-                        message = ChatUtils.parseColourCodes(message);
-                        p.sendMessage(message);
+                        ChatUtils.sendConfigurableMessage(plugin, "streakManualClaimMessage", placeholders, p);
                     } else {
-                        String message = plugin.getConfig().getString("noPermsMessage");
-                        message = ChatUtils.parseColourCodes(message);
-                        sender.sendMessage(message);
+                        ChatUtils.sendConfigurableMessage(plugin, "noPermsMessage", p);
                         return true;
                     }
                     return true;
                 }
             } else {
                 int daysTotal = plugin.getStreaksConfig().getInt("players." + p.getUniqueId() + ".totalStreakDays");
+                HashMap<String, Object> placeholders = new HashMap<String, Object>();
+                placeholders.put("%days%", daysTotal);
+                placeholders.put("%player%", p.getDisplayName());
 
-                String message = plugin.getConfig().getString("streakMessage");
-                message = message.replace("%days%", String.valueOf(daysTotal));
-                message = message.replace("%player%", p.getDisplayName());
-                message = ChatUtils.parseColourCodes(message);
-                p.sendMessage(message);
+                ChatUtils.sendConfigurableMessage(plugin, "streakMessage", placeholders, p);
                 return true;
             }
         } else {
-            String message = plugin.getConfig().getString("noPermsMessage");
-            message = ChatUtils.parseColourCodes(message);
-            p.sendMessage(message);
+            ChatUtils.sendConfigurableMessage(plugin, "noPermsMessage", p);
         }
 
         return false;
