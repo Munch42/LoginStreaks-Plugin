@@ -78,6 +78,9 @@ noPermsMessage: "&4You do not have permission to use that command!"
 # Use %days% as a placeholder for the amount of streak days.
 # Use %player% as a placeholder for the player's name.
 streakMessage: "&2%player% &2you have logged in for %days% days in a row. Login tomorrow to increase your streak."
+# This is the message sent to the player when they successfully claim their daily manually.
+# Use %days% as a placeholder for the amount of streak days.
+streakManualClaimMessage: "&2You have successfully claimed your daily reward for day %days%!"
 
 # Permission rewards options
 # Weight option, if this is set to true, players will receive the highest weighted permission they have.

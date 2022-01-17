@@ -22,10 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Added a few messages for if an inventory is full or empty.">
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Added ChatUtils function to add configurable messages with and without placeholders.&#10;Converted all but one of the configurable messages in StreakCommand.java to the new function.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/StreakCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/StreakCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/utils/ChatUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/utils/ChatUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +48,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -199,7 +208,8 @@
       <workItem from="1631917120587" duration="1133000" />
       <workItem from="1642132029491" duration="68000" />
       <workItem from="1642201491019" duration="1168000" />
-      <workItem from="1642374070186" duration="1384000" />
+      <workItem from="1642374070186" duration="1457000" />
+      <workItem from="1642381306097" duration="943000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -446,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642202658661</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Added ChatUtils function to add configurable messages with and without placeholders.&#10;Converted all but one of the configurable messages in StreakCommand.java to the new function.">
+      <created>1642375519797</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1642375519797</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,7 +481,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added permission based rewards section to config.yml" />
     <MESSAGE value="Added untested permission rewards functionality." />
     <MESSAGE value="Permission rewards functionality added and almost complete." />
     <MESSAGE value="Permission Reward Weighting System added, untested" />
@@ -489,6 +505,7 @@
     <MESSAGE value="Release 3.1.0!&#10;Reworked and Added Auto-Backup System&#10;Fixed Issues with Config Not Generating on 1.17&#10;Tested on 1.17" />
     <MESSAGE value="Started work on adding manual claiming and inventory fullness detection.&#10;Added Autocomplete to /loginstreak and /streak command.&#10;Added Aliases of /ls and /stk to /loginstreak and /streak commands respectively." />
     <MESSAGE value="Added a few messages for if an inventory is full or empty." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a few messages for if an inventory is full or empty." />
+    <MESSAGE value="Added ChatUtils function to add configurable messages with and without placeholders.&#10;Converted all but one of the configurable messages in StreakCommand.java to the new function." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ChatUtils function to add configurable messages with and without placeholders.&#10;Converted all but one of the configurable messages in StreakCommand.java to the new function." />
   </component>
 </project>

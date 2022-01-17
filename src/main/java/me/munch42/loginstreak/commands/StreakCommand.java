@@ -36,16 +36,22 @@ public class StreakCommand implements CommandExecutor {
             if(args.length > 0) {
                 if(args[0].equalsIgnoreCase("claim")) {
                     if (sender.hasPermission(plugin.getConfig().getString("claimPerm"))) {
-
-                        // TODO: Claim their daily here!
                         // Perhaps add a thing so that they will be warned if they have a full inventory and if they do, they can still run it and claim it but they will have to maybe do like "/stk claim force"
 
                         if (p.getInventory().firstEmpty() == -1){
-                            // Their inventory is empty
-                            // TODO: Edit this to be configurable
-                            sender.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "Your inventory is full. If you would still like to claim your reward, please re-run the command as '/streak claim force'");
-                            return false;
+                            // Their inventory is full
+                            if(args.length > 1) {
+                                if (!args[1].equalsIgnoreCase("force")) {
+                                    ChatUtils.sendConfigurableMessage(plugin, "streakManualClaimFull", p);
+                                    return false;
+                                }
+                            } else {
+                                ChatUtils.sendConfigurableMessage(plugin, "streakManualClaimFull", p);
+                                return false;
+                            }
                         }
+
+                        // TODO: Claim their daily here!
 
                         // Added a function for sending these messages where you input the player, message, and the things you want to replace in each message.
                         int daysTotal = plugin.getStreaksConfig().getInt("players." + p.getUniqueId() + ".totalStreakDays");

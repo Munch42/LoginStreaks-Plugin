@@ -81,6 +81,8 @@ streakMessage: "&2%player% &2you have logged in for %days% days in a row. Login 
 # This is the message sent to the player when they successfully claim their daily manually.
 # Use %days% as a placeholder for the amount of streak days.
 streakManualClaimMessage: "&2You have successfully claimed your daily reward for day %days%!"
+# This is the message that is sent to the player if they manually try to claim their reward but their inventory is full.
+streakManualClaimFull: "&4&lYour inventory is full. If you would still like to claim your reward, please re-run the command as '/streak claim force'"
 
 # Permission rewards options
 # Weight option, if this is set to true, players will receive the highest weighted permission they have.
