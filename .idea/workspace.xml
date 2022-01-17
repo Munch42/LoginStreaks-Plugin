@@ -22,11 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Added ChatUtils function to add configurable messages with and without placeholders.&#10;Converted all but one of the configurable messages in StreakCommand.java to the new function.">
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Added All The Messages for the Streak Command&#10;All that is left to do is to implement the ability to claim their daily.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/StreakCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/StreakCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +209,8 @@
       <workItem from="1642132029491" duration="68000" />
       <workItem from="1642201491019" duration="1168000" />
       <workItem from="1642374070186" duration="1457000" />
-      <workItem from="1642381306097" duration="943000" />
+      <workItem from="1642381306097" duration="977000" />
+      <workItem from="1642389969103" duration="1708000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -463,7 +464,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642375519797</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Added All The Messages for the Streak Command&#10;All that is left to do is to implement the ability to claim their daily.">
+      <created>1642382277732</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1642382277732</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +489,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added untested permission rewards functionality." />
     <MESSAGE value="Permission rewards functionality added and almost complete." />
     <MESSAGE value="Permission Reward Weighting System added, untested" />
     <MESSAGE value="Permission Reward Weighting System added, tested and fixed" />
@@ -506,6 +513,7 @@
     <MESSAGE value="Started work on adding manual claiming and inventory fullness detection.&#10;Added Autocomplete to /loginstreak and /streak command.&#10;Added Aliases of /ls and /stk to /loginstreak and /streak commands respectively." />
     <MESSAGE value="Added a few messages for if an inventory is full or empty." />
     <MESSAGE value="Added ChatUtils function to add configurable messages with and without placeholders.&#10;Converted all but one of the configurable messages in StreakCommand.java to the new function." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ChatUtils function to add configurable messages with and without placeholders.&#10;Converted all but one of the configurable messages in StreakCommand.java to the new function." />
+    <MESSAGE value="Added All The Messages for the Streak Command&#10;All that is left to do is to implement the ability to claim their daily." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added All The Messages for the Streak Command&#10;All that is left to do is to implement the ability to claim their daily." />
   </component>
 </project>

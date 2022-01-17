@@ -1,15 +1,24 @@
 package me.munch42.loginstreak.commands;
 
 import me.munch42.loginstreak.Main;
+import me.munch42.loginstreak.listeners.PlayerJoinListener;
 import me.munch42.loginstreak.tabcompleters.LoginStreakTabCompleter;
 import me.munch42.loginstreak.tabcompleters.StreakTabCompleter;
 import me.munch42.loginstreak.utils.ChatUtils;
+import net.milkbowl.vault.chat.Chat;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventException;
+import org.bukkit.event.HandlerList;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.plugin.RegisteredListener;
 
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class StreakCommand implements CommandExecutor {
@@ -38,6 +47,17 @@ public class StreakCommand implements CommandExecutor {
                     if (sender.hasPermission(plugin.getConfig().getString("claimPerm"))) {
                         // Perhaps add a thing so that they will be warned if they have a full inventory and if they do, they can still run it and claim it but they will have to maybe do like "/stk claim force"
 
+                        // This means that they have already received their reward so we don't want it to say they claimed it again when they haven't.
+                        if (plugin.getStreaksConfig().getBoolean("players." + p.getUniqueId() + ".dayReward") == true) {
+                            int daysTotal = plugin.getStreaksConfig().getInt("players." + p.getUniqueId() + ".totalStreakDays");
+                            HashMap<String, Object> placeholders1 = new HashMap<String, Object>();
+                            placeholders1.put("%days%", daysTotal);
+
+                            ChatUtils.sendConfigurableMessage(plugin, "streakAlreadyClaimedMessage", placeholders1, p);
+
+                            return true;
+                        }
+
                         if (p.getInventory().firstEmpty() == -1){
                             // Their inventory is full
                             if(args.length > 1) {
@@ -51,7 +71,20 @@ public class StreakCommand implements CommandExecutor {
                             }
                         }
 
-                        // TODO: Claim their daily here!
+                        // Complete: Claim their daily here!
+                        // This seems to run the PlayerJoinEvent in the PlayerJoinListener as if a player had joined
+                        ArrayList<RegisteredListener> rls = HandlerList.getRegisteredListeners(plugin);
+                        for (RegisteredListener rl : rls) {
+                            if(rl.getListener() instanceof PlayerJoinListener){
+                                PlayerJoinEvent test = new PlayerJoinEvent(p, "Player Claimed Reward");
+
+                                try {
+                                    rl.callEvent(test);
+                                } catch (EventException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
 
                         // Added a function for sending these messages where you input the player, message, and the things you want to replace in each message.
                         int daysTotal = plugin.getStreaksConfig().getInt("players." + p.getUniqueId() + ".totalStreakDays");
