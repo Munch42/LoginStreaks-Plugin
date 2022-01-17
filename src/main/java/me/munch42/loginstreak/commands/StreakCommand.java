@@ -58,7 +58,7 @@ public class StreakCommand implements CommandExecutor {
                             return true;
                         }
 
-                        if (p.getInventory().firstEmpty() == -1){
+                        if (p.getInventory().firstEmpty() == -1 && plugin.getConfig().getBoolean("checkPlayerInventoryCapacity")){
                             // Their inventory is full
                             if(args.length > 1) {
                                 if (!args[1].equalsIgnoreCase("force")) {

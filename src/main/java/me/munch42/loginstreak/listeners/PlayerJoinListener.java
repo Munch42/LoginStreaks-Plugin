@@ -46,6 +46,12 @@ public class PlayerJoinListener implements Listener {
 
     @EventHandler
     private void onPlayerJoin(PlayerJoinEvent event){
+        // Use the join message to differentiate between the event created by the streak command and a normal player joining.
+        // So if this event is not from the command AND manual claiming is on, then we just return out of this.
+        if(!event.getJoinMessage().equalsIgnoreCase("Player Claimed Reward") && plugin.getConfig().getBoolean("manualStreakClaiming")){
+            return;
+        }
+
         // Save new player data on player join
         if(!plugin.getStreaksConfig().contains("players." + event.getPlayer().getUniqueId())){
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".name", event.getPlayer().getDisplayName());
@@ -203,6 +209,13 @@ public class PlayerJoinListener implements Listener {
         // Done: Or make it so that they get them all or add an option for either of these (Best option)
 
         if (plugin.getStreaksConfig().getBoolean("players." + p.getUniqueId() + ".dayReward") == true) {
+            return;
+        }
+
+        // Here we check if their inventory is full and if it is, then we return, leaving this event and remind the player that their inventory is full and that they should probably empty it.
+        if (p.getInventory().firstEmpty() == -1 && plugin.getConfig().getBoolean("checkPlayerInventoryCapacity")){
+            ChatUtils.sendConfigurableMessage(plugin, "fullInventoryOnJoinMessage", p);
+
             return;
         }
 

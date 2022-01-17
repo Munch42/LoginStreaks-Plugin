@@ -81,6 +81,24 @@ streakMessage: "&2%player% &2you have logged in for %days% days in a row. Login 
 # This is the message sent to the player when they successfully claim their daily manually.
 # Use %days% as a placeholder for the amount of streak days.
 streakManualClaimMessage: "&2You have successfully claimed your daily reward for day %days%!"
+# This is the message that is sent to the player if they manually try to claim their reward but their inventory is full.
+streakManualClaimFull: "&4&lYour inventory is full. If you would still like to claim your reward, please run the command as '/streak claim force'"
+# This is the message that is sent to the player if they try to manually claim their reward but they have already received that days reward.
+# Use %days% as a placeholder for the amount of streak days.
+streakAlreadyClaimedMessage: "&4You have already claimed your reward for day %days%. Please come back tomorrow to claim it again!"
+
+# This is the message sent to the player if their inventory is full when they join so they are not given the reward but are reminded to use the command to claim it instead.
+fullInventoryOnJoinMessage: "&4Your inventory was full so you did not receive your daily reward. If you wish to claim your reward, please use /streak claim to claim it."
+
+# This determines whether the plugin will check if the player's inventory is full before trying to give them a reward.
+# Set this to true, the default, to enable this feature
+# Set this to false to disable the feature.
+checkPlayerInventoryCapacity: true
+
+# Manual Streak Claiming Only
+# If this is set to false, the default, player's can manually collect their reward if they have a full inventory but otherwise, as soon as they join they will be rewarded.
+# If this is set to true, then the players will not receive a reward upon joining the server but rather they must use the /streak claim or /streak claim force (if their inventory is full) commands.
+manualStreakClaiming: false
 
 # Permission rewards options
 # Weight option, if this is set to true, players will receive the highest weighted permission they have.

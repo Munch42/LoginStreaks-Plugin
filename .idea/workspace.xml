@@ -22,11 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Added All The Messages for the Streak Command&#10;All that is left to do is to implement the ability to claim their daily.">
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Implemented manual claiming of the streak.&#10;Added Messages and detection for if inventory is full.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/StreakCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/StreakCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +211,8 @@
       <workItem from="1642201491019" duration="1168000" />
       <workItem from="1642374070186" duration="1457000" />
       <workItem from="1642381306097" duration="977000" />
-      <workItem from="1642389969103" duration="1708000" />
+      <workItem from="1642389969103" duration="1761000" />
+      <workItem from="1642395401041" duration="999000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -471,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642382277732</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Implemented manual claiming of the streak.&#10;Added Messages and detection for if inventory is full.">
+      <created>1642391726158</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1642391726158</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,7 +498,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Permission rewards functionality added and almost complete." />
     <MESSAGE value="Permission Reward Weighting System added, untested" />
     <MESSAGE value="Permission Reward Weighting System added, tested and fixed" />
     <MESSAGE value="Permission Reward Weighting System tested and fixed" />
@@ -514,6 +522,7 @@
     <MESSAGE value="Added a few messages for if an inventory is full or empty." />
     <MESSAGE value="Added ChatUtils function to add configurable messages with and without placeholders.&#10;Converted all but one of the configurable messages in StreakCommand.java to the new function." />
     <MESSAGE value="Added All The Messages for the Streak Command&#10;All that is left to do is to implement the ability to claim their daily." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added All The Messages for the Streak Command&#10;All that is left to do is to implement the ability to claim their daily." />
+    <MESSAGE value="Implemented manual claiming of the streak.&#10;Added Messages and detection for if inventory is full." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented manual claiming of the streak.&#10;Added Messages and detection for if inventory is full." />
   </component>
 </project>
