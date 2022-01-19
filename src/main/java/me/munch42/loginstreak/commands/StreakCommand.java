@@ -10,6 +10,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventException;
 import org.bukkit.event.HandlerList;
@@ -97,6 +98,28 @@ public class StreakCommand implements CommandExecutor {
                         return true;
                     }
                     return true;
+                } else {
+                    ConfigurationSection playerStreaks = plugin.getStreaksConfig().getConfigurationSection("players");
+
+                    // Loop through all the player's streaks and check to see if the name matches the name you want to find. If so, send their streak, if not send the message saying there was no one by that name.
+                    for(String key : playerStreaks.getKeys(false)) {
+                        if (args[0].equals(playerStreaks.getString(key + ".name"))){
+                            int streakDays = playerStreaks.getInt(key + ".totalStreakDays");
+                            HashMap<String, Object> placeholders = new HashMap<String, Object>();
+                            placeholders.put("%days%", streakDays);
+                            placeholders.put("%player%", playerStreaks.getString(key + ".name"));
+
+                            ChatUtils.sendConfigurableMessage(plugin, "otherPlayerStreakMessage", placeholders, p);
+
+                            return true;
+                        }
+                    }
+
+                    // This sends a message saying that no one exists with the input name.
+                    HashMap<String, Object> placeholders = new HashMap<String, Object>();
+                    placeholders.put("%player%", args[0]);
+
+                    ChatUtils.sendConfigurableMessage(plugin, "otherPlayerNoStreakMessage", placeholders, p);
                 }
             } else {
                 int daysTotal = plugin.getStreaksConfig().getInt("players." + p.getUniqueId() + ".totalStreakDays");

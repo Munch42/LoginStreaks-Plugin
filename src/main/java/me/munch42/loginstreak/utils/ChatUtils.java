@@ -30,6 +30,11 @@ public class ChatUtils {
     public static void sendConfigurableMessage (Main plugin, String configName, HashMap<String, Object> placeholders, Player p){
         String message = plugin.getConfig().getString(configName);
 
+        // If the message is disabled, we don't send anything.
+        if (message.equalsIgnoreCase("")){
+            return;
+        }
+
         for (Map.Entry<String, Object> entry : placeholders.entrySet()) {
             String placeholderText = entry.getKey();
             Object placeholderValue = entry.getValue();
@@ -47,4 +52,6 @@ public class ChatUtils {
         message = ChatUtils.parseColourCodes(message);
         p.sendMessage(message);
     }
+
+
 }
