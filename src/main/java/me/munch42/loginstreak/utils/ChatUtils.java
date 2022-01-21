@@ -49,6 +49,11 @@ public class ChatUtils {
     public static void sendConfigurableMessage (Main plugin, String configName, Player p){
         String message = plugin.getConfig().getString(configName);
 
+        // If the message is disabled, we don't send anything.
+        if (message.equalsIgnoreCase("")){
+            return;
+        }
+
         message = ChatUtils.parseColourCodes(message);
         p.sendMessage(message);
     }

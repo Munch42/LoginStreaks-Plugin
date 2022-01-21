@@ -64,16 +64,19 @@ public class StreakCommand implements CommandExecutor {
                             if(args.length > 1) {
                                 if (!args[1].equalsIgnoreCase("force")) {
                                     ChatUtils.sendConfigurableMessage(plugin, "streakManualClaimFull", p);
+                                    p.sendMessage("1");
                                     return false;
                                 }
                             } else {
                                 ChatUtils.sendConfigurableMessage(plugin, "streakManualClaimFull", p);
+                                p.sendMessage("2");
                                 return false;
                             }
                         }
 
                         // Complete: Claim their daily here!
                         // This seems to run the PlayerJoinEvent in the PlayerJoinListener as if a player had joined
+                        p.sendMessage("3");
                         ArrayList<RegisteredListener> rls = HandlerList.getRegisteredListeners(plugin);
                         for (RegisteredListener rl : rls) {
                             if(rl.getListener() instanceof PlayerJoinListener){
@@ -86,6 +89,7 @@ public class StreakCommand implements CommandExecutor {
                                 }
                             }
                         }
+                        p.sendMessage("4");
 
                         // Added a function for sending these messages where you input the player, message, and the things you want to replace in each message.
                         int daysTotal = plugin.getStreaksConfig().getInt("players." + p.getUniqueId() + ".totalStreakDays");
@@ -93,6 +97,7 @@ public class StreakCommand implements CommandExecutor {
                         placeholders.put("%days%", daysTotal);
 
                         ChatUtils.sendConfigurableMessage(plugin, "streakManualClaimMessage", placeholders, p);
+                        p.sendMessage("5");
                     } else {
                         ChatUtils.sendConfigurableMessage(plugin, "noPermsMessage", p);
                         return true;
@@ -104,6 +109,13 @@ public class StreakCommand implements CommandExecutor {
                     // Loop through all the player's streaks and check to see if the name matches the name you want to find. If so, send their streak, if not send the message saying there was no one by that name.
                     for(String key : playerStreaks.getKeys(false)) {
                         if (args[0].equals(playerStreaks.getString(key + ".name"))){
+                            if (!p.hasPermission(plugin.getConfig().getString("otherStreakPerm"))){
+                                // If they don't have the permission, then we return/break.
+                                ChatUtils.sendConfigurableMessage(plugin, "noPermsMessage", p);
+
+                                return false;
+                            }
+
                             int streakDays = playerStreaks.getInt(key + ".totalStreakDays");
                             HashMap<String, Object> placeholders = new HashMap<String, Object>();
                             placeholders.put("%days%", streakDays);
@@ -113,6 +125,14 @@ public class StreakCommand implements CommandExecutor {
 
                             return true;
                         }
+                    }
+
+                    // We also do it out here so that in the case that the name doesn't exist, they still get the no perm message and we don't tell them that the player doesn't exist.
+                    if (!p.hasPermission(plugin.getConfig().getString("otherStreakPerm"))){
+                        // If they don't have the permission, then we return/break.
+                        ChatUtils.sendConfigurableMessage(plugin, "noPermsMessage", p);
+
+                        return false;
                     }
 
                     // This sends a message saying that no one exists with the input name.

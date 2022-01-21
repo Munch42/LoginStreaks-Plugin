@@ -214,9 +214,12 @@ public class PlayerJoinListener implements Listener {
 
         // Here we check if their inventory is full and if it is, then we return, leaving this event and remind the player that their inventory is full and that they should probably empty it.
         if (p.getInventory().firstEmpty() == -1 && plugin.getConfig().getBoolean("checkPlayerInventoryCapacity")){
-            ChatUtils.sendConfigurableMessage(plugin, "fullInventoryOnJoinMessage", p);
+            // If the player used the command to claim their reward, then they they will already have had their inventory checked and may have forced it so we can bypass it here.
+            if (!event.getJoinMessage().equalsIgnoreCase("Player Claimed Reward")) {
+                ChatUtils.sendConfigurableMessage(plugin, "fullInventoryOnJoinMessage", p);
 
-            return;
+                return;
+            }
         }
 
         // Here we add to the backup count or backup the files if the threshold has been reached.

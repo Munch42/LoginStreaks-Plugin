@@ -42,6 +42,8 @@ loginstreakResetStreakPerm: "loginstreaks.loginstreak.resetstreak"
 timeleftPerm: "loginstreaks.timeleft"
 # /streak claim command or /stk claim
 claimPerm: "loginstreaks.streak.claim"
+# /streak (playername) command to get another player's streak permission
+otherStreakPerm: "loginstreaks.streak.other"
 
 # Economy Features
 # An economy plugin such as EssentialsX is required to use LoginStreaks' built in economy features.

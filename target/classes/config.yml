@@ -42,6 +42,8 @@ loginstreakResetStreakPerm: "loginstreaks.loginstreak.resetstreak"
 timeleftPerm: "loginstreaks.timeleft"
 # /streak claim command or /stk claim
 claimPerm: "loginstreaks.streak.claim"
+# /streak (playername) command to get another player's streak permission
+otherStreakPerm: "loginstreaks.streak.other"
 
 # Economy Features
 # An economy plugin such as EssentialsX is required to use LoginStreaks' built in economy features.
@@ -74,18 +76,25 @@ defaultStreakSystem: true
 # No Permissions Message this is shown when the player does not have permissions to use the command. Set to "" to disable.
 noPermsMessage: "&4You do not have permission to use that command!"
 
-# Streak Command Message. The message shown when a player types /streak.
+# Streak Command Message. The message shown when a player types /streak. Set to "" to disable.
 # Use %days% as a placeholder for the amount of streak days.
 # Use %player% as a placeholder for the player's name.
 streakMessage: "&2%player% &2you have logged in for %days% days in a row. Login tomorrow to increase your streak."
-# This is the message sent to the player when they successfully claim their daily manually.
+# This is the message sent to the player when they successfully claim their daily manually. Set to "" to disable.
 # Use %days% as a placeholder for the amount of streak days.
 streakManualClaimMessage: "&2You have successfully claimed your daily reward for day %days%!"
-# This is the message that is sent to the player if they manually try to claim their reward but their inventory is full.
+# This is the message that is sent to the player if they manually try to claim their reward but their inventory is full. Set to "" to disable.
 streakManualClaimFull: "&4&lYour inventory is full. If you would still like to claim your reward, please run the command as '/streak claim force'"
-# This is the message that is sent to the player if they try to manually claim their reward but they have already received that days reward.
+# This is the message that is sent to the player if they try to manually claim their reward but they have already received that days reward. Set to "" to disable.
 # Use %days% as a placeholder for the amount of streak days.
 streakAlreadyClaimedMessage: "&4You have already claimed your reward for day %days%. Please come back tomorrow to claim it again!"
+# This is the message that is sent to the player with another players streak info when they run /streak (name) to view another players streak. Set to "" to disable.
+# Use %days% as a placeholder for the amount of streak days.
+# Use %player% as a placeholder for the player's name.
+otherPlayerStreakMessage: "&2%player% &2has logged in for %days% days in a row."
+# This is the error message sent to the player when no player exists with a streak for the username they specified.
+# Use %player% as a placeholder for whatever the user input.
+otherPlayerNoStreakMessage: "&4No player exists with the name: %player%"
 
 # This is the message sent to the player if their inventory is full when they join so they are not given the reward but are reminded to use the command to claim it instead.
 fullInventoryOnJoinMessage: "&4Your inventory was full so you did not receive your daily reward. If you wish to claim your reward, please use /streak claim to claim it."
