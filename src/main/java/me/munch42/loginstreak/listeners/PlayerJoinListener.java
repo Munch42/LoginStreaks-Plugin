@@ -8,6 +8,7 @@ import org.apache.commons.lang.WordUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.Statistic;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -49,8 +50,16 @@ public class PlayerJoinListener implements Listener {
         // Use the join message to differentiate between the event created by the streak command and a normal player joining.
         // So if this event is not from the command AND manual claiming is on, then we just return out of this.
         if(!event.getJoinMessage().equalsIgnoreCase("Player Claimed Reward") && plugin.getConfig().getBoolean("manualStreakClaiming")){
+            // Send a reminder to the player to manually claim their streak if manual claiming is on.
+            int daysTotal = plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays");
+            HashMap<String, Object> placeholders = new HashMap<String, Object>();
+            placeholders.put("%days%", daysTotal);
+
+            ChatUtils.sendConfigurableMessage(plugin, "streakManualClaimReminder", placeholders, event.getPlayer());
             return;
         }
+
+        event.getPlayer().getStatistic(Statistic.PLAY_ONE_MINUTE);
 
         // Save new player data on player join
         if(!plugin.getStreaksConfig().contains("players." + event.getPlayer().getUniqueId())){

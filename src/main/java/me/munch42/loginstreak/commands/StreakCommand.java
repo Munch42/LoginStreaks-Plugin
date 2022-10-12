@@ -64,19 +64,19 @@ public class StreakCommand implements CommandExecutor {
                             if(args.length > 1) {
                                 if (!args[1].equalsIgnoreCase("force")) {
                                     ChatUtils.sendConfigurableMessage(plugin, "streakManualClaimFull", p);
-                                    p.sendMessage("1");
+                                    //p.sendMessage("1");
                                     return false;
                                 }
                             } else {
                                 ChatUtils.sendConfigurableMessage(plugin, "streakManualClaimFull", p);
-                                p.sendMessage("2");
+                                //p.sendMessage("2");
                                 return false;
                             }
                         }
 
                         // Complete: Claim their daily here!
                         // This seems to run the PlayerJoinEvent in the PlayerJoinListener as if a player had joined
-                        p.sendMessage("3");
+                        //p.sendMessage("3");
                         ArrayList<RegisteredListener> rls = HandlerList.getRegisteredListeners(plugin);
                         for (RegisteredListener rl : rls) {
                             if(rl.getListener() instanceof PlayerJoinListener){
@@ -89,7 +89,7 @@ public class StreakCommand implements CommandExecutor {
                                 }
                             }
                         }
-                        p.sendMessage("4");
+                        //p.sendMessage("4");
 
                         // Added a function for sending these messages where you input the player, message, and the things you want to replace in each message.
                         int daysTotal = plugin.getStreaksConfig().getInt("players." + p.getUniqueId() + ".totalStreakDays");
@@ -97,7 +97,7 @@ public class StreakCommand implements CommandExecutor {
                         placeholders.put("%days%", daysTotal);
 
                         ChatUtils.sendConfigurableMessage(plugin, "streakManualClaimMessage", placeholders, p);
-                        p.sendMessage("5");
+                        //p.sendMessage("5");
                     } else {
                         ChatUtils.sendConfigurableMessage(plugin, "noPermsMessage", p);
                         return true;

@@ -85,6 +85,8 @@ streakMessage: "&2%player% &2you have logged in for %days% days in a row. Login 
 streakManualClaimMessage: "&2You have successfully claimed your daily reward for day %days%!"
 # This is the message that is sent to the player if they manually try to claim their reward but their inventory is full. Set to "" to disable.
 streakManualClaimFull: "&4&lYour inventory is full. If you would still like to claim your reward, please run the command as '/streak claim force'"
+# This is the message that is sent to the player when they join and have a streak available but must claim it manually. Set to "" to disable.
+streakManualClaimReminder: "&2You can claim your streak for day %days%! Use '/streak claim' to claim it!"
 # This is the message that is sent to the player if they try to manually claim their reward but they have already received that days reward. Set to "" to disable.
 # Use %days% as a placeholder for the amount of streak days.
 streakAlreadyClaimedMessage: "&4You have already claimed your reward for day %days%. Please come back tomorrow to claim it again!"
