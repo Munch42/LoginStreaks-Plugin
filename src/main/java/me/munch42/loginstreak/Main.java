@@ -51,6 +51,8 @@ public final class Main extends JavaPlugin {
     public String placeholderColourCodes;
     public String topColourCodes;
 
+    ArrayList<String> usernames = new ArrayList<String>();
+
     @Override
     public void onEnable() {
         Metrics metrics = new Metrics(this);
@@ -98,10 +100,23 @@ public final class Main extends JavaPlugin {
 
         placeholderColourCodes = getConfig().getString("placeholderColourCodes");
         topColourCodes = getConfig().getString("streakTopEntriesColourCode");
+
+        // Add all Usernames into an arraylist, so we can tab complete all online and offline players in set streak command (If memory becomes an issue, check here first)
+        updateUsernameList();
     }
 
     @Override
     public void onDisable() {
+    }
+
+    private void updateUsernameList(){
+        ConfigurationSection streaks = getStreaksConfig().getConfigurationSection("players");
+
+        for(String key : streaks.getKeys(false)){
+            String name = plugin.getStreaksConfig().getString("players." + key + ".name");
+
+            usernames.add(name);
+        }
     }
 
     public void saveConfig(){
@@ -379,4 +394,6 @@ public final class Main extends JavaPlugin {
     public Main getPlugin(){
         return plugin;
     }
+
+    public ArrayList<String> getUsernames () { return usernames; }
 }

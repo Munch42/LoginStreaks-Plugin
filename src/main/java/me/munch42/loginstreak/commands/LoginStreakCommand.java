@@ -17,7 +17,7 @@ public class LoginStreakCommand implements CommandExecutor {
         this.plugin = plugin;
 
         plugin.getCommand("loginstreak").setExecutor(this);
-        plugin.getCommand("loginstreak").setTabCompleter(new LoginStreakTabCompleter());
+        plugin.getCommand("loginstreak").setTabCompleter(new LoginStreakTabCompleter(plugin));
     }
 
     @Override

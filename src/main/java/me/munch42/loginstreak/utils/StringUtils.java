@@ -15,4 +15,17 @@ public class StringUtils {
 
         return newArray;
     }
+
+    public static void printArray(String[] array, boolean numberItems){
+        int i = 0;
+
+        for (String x: array) {
+            if (numberItems) {
+                System.out.println(i + ": " + x);
+                i++;
+            } else {
+                System.out.println(x);
+            }
+        }
+    }
 }
