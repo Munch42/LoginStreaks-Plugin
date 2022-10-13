@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,11 @@ public class LoginStreakTabCompleter implements TabCompleter {
                 // This is usually the username
                 if (isSetStreak || isResetStreak){
                     // Add all the saved usernames to the loginstreak command list
-                    loginstreakCommandList.addAll(plugin.getUsernames());
+                    //loginstreakCommandList.addAll(plugin.getUsernames());
+
+                    for (Player p: plugin.getServer().getOnlinePlayers()){
+                        loginstreakCommandList.add(p.getDisplayName());
+                    }
                 }
                 break;
             case 3:

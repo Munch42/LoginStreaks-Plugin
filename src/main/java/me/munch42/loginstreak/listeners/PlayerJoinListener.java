@@ -59,14 +59,13 @@ public class PlayerJoinListener implements Listener {
             return;
         }
 
-        event.getPlayer().getStatistic(Statistic.PLAY_ONE_MINUTE);
-
         // Save new player data on player join
         if(!plugin.getStreaksConfig().contains("players." + event.getPlayer().getUniqueId())){
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".name", event.getPlayer().getDisplayName());
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".lastStreakTime", System.currentTimeMillis());
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".totalStreakDays", 1);
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".dayReward", false);
+
             plugin.saveConfig();
         }
 
@@ -75,6 +74,9 @@ public class PlayerJoinListener implements Listener {
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".name", event.getPlayer().getDisplayName());
             plugin.saveConfig();
         }
+
+        // Save current playtime on every join:
+        plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".playtime", event.getPlayer().getStatistic(Statistic.PLAY_ONE_MINUTE));
 
         // See if it is has been less than a day, more than a day, or 1 day since last login.
         long lastStreakTime = plugin.getStreaksConfig().getLong("players." + event.getPlayer().getUniqueId() + ".lastStreakTime");
@@ -166,6 +168,7 @@ public class PlayerJoinListener implements Listener {
             return;
         }
 
+
         if(giveReward){
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".totalStreakDays", totalDays + 1);
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".lastStreakTime", System.currentTimeMillis());
@@ -209,6 +212,7 @@ public class PlayerJoinListener implements Listener {
         String commandExplanation = "";
         boolean reset = false;
         boolean permRewardGiven = false;
+        boolean playtimeUsed = false;
 
         boolean useWeights = plugin.getConfig().getBoolean("weights");
         //      Permission, Weight
@@ -285,6 +289,10 @@ public class PlayerJoinListener implements Listener {
                                 plugin.saveConfig();
                             }
 
+                            if(checkPlaytimeUsed(permDayRewards, rewardKey)){
+                                break;
+                            }
+
                             if (rewardType.equals("MONEY")) {
                                 rewardMoney(moneyAmount, permDayRewards, rewardKey, daysNow, p);
                                 permRewardGiven = true;
@@ -358,6 +366,10 @@ public class PlayerJoinListener implements Listener {
                                 plugin.saveConfig();
                             }
 
+                            if(checkPlaytimeUsed(permissionSection, rewardKey)){
+                                break;
+                            }
+
                             if (rewardType.equals("MONEY")) {
                                 rewardMoney(moneyAmount, permissionSection, rewardKey, daysNow, p);
                                 permRewardGiven = true;
@@ -390,6 +402,10 @@ public class PlayerJoinListener implements Listener {
                             plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".totalStreakDays", 1);
                             plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".dayReward", false);
                             plugin.saveConfig();
+                        }
+
+                        if(checkPlaytimeUsed(permissionSection, rewardKey)){
+                            break;
                         }
 
                         if (rewardType.equals("MONEY")) {
@@ -431,6 +447,10 @@ public class PlayerJoinListener implements Listener {
                     plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".totalStreakDays", 1);
                     plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".dayReward", false);
                     plugin.saveConfig();
+                }
+
+                if(checkPlaytimeUsed(rewards, key)){
+                    break;
                 }
 
                 if(rewardType.equals("MONEY")) {
@@ -556,5 +576,18 @@ public class PlayerJoinListener implements Listener {
         plugin.getStreaksConfig().set("players." + p.getUniqueId() + ".dayReward", true);
         plugin.saveConfig();
         return true;
+    }
+
+    private boolean checkPlaytimeUsed(ConfigurationSection configSec, String rewardKey){
+        boolean playtimeUsed = false;
+
+        // If playtime used doesn't equal null then it is true since they use it.
+        playtimeUsed = configSec.getString(rewardKey + ".playtime") != null;
+
+        if(playtimeUsed) {
+            playtimeUsed = !configSec.getString(rewardKey + ".playtime").equalsIgnoreCase("");
+        }
+
+        return playtimeUsed;
     }
 }

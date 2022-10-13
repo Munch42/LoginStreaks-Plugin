@@ -102,14 +102,16 @@ public final class Main extends JavaPlugin {
         topColourCodes = getConfig().getString("streakTopEntriesColourCode");
 
         // Add all Usernames into an arraylist, so we can tab complete all online and offline players in set streak command (If memory becomes an issue, check here first)
-        updateUsernameList();
+        //updateUsernameList();
+
+
     }
 
     @Override
     public void onDisable() {
     }
 
-    private void updateUsernameList(){
+    /*private void updateUsernameList(){
         ConfigurationSection streaks = getStreaksConfig().getConfigurationSection("players");
 
         for(String key : streaks.getKeys(false)){
@@ -117,7 +119,7 @@ public final class Main extends JavaPlugin {
 
             usernames.add(name);
         }
-    }
+    }*/
 
     public void saveConfig(){
         try{
