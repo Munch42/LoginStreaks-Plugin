@@ -108,7 +108,7 @@ checkPlayerInventoryCapacity: true
 
 # Manual Streak Claiming Only
 # If this is set to false, the default, player's can manually collect their reward if they have a full inventory but otherwise, as soon as they join they will be rewarded.
-# If this is set to true, then the players will not receive a reward upon joining the server but rather they must use the /streak claim or /streak claim force (if their inventory is full) commands.
+# If this is set to true, then the players will not receive a reward upon joining the server but rather they must use the /streak claim or /streak claim force (if their inventory is full) commands. If they do not receive a reward on the day, it is automatically counted.
 manualStreakClaiming: false
 
 # Permission rewards options
@@ -123,6 +123,16 @@ weights: false
 # Default: true
 # If this is set to true, and you want to use playtime rewards, add the "playtime" section to your rewards below "rewardAmount" or "reset" if you are using it.
 playtimeRewards: true
+# This is the option of whether you want players to have to manually claim their rewards once they have reached the required playtime or if they will receive it immediately.
+# If this is set to true, players will receive a message reminding them to claim their reward when they have reached the required playtime.
+# If this is set to false, players will automatically be given the rewards once they reach the desired playtime.
+playtimeManualClaim: false
+# This is the message sent to the player reminding them to claim their reward when they reach the required playtime for it. Set to "" to disable.
+playtimeManualClaimReminder: "&2You have reached the required playtime to claim your reward for day %days%! Use '/streak claim' to claim it!"
+# This is the message shown to the player when they try to manually claim their streak early and they do not have the playtime required. Set to "" to disable.
+# Use %currentTime% for the current amount of playtime they have in minutes and hours and use %requiredTime% for how much time they need until they can claim the reward.
+playtimeManualClaimWarning: "&4You do not have the required playtime for today's reward. You have %currentTime% and need %requiredTime%! Try again later."
+
 
 # TopStreak Command Message. This will be the first message shown when a player types /topstreaks. ie. Set to "" to just send the standings.
 # <Your Message Here>

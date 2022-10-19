@@ -40,7 +40,7 @@ public class LoginStreakTabCompleter implements TabCompleter {
                     //loginstreakCommandList.addAll(plugin.getUsernames());
 
                     for (Player p: plugin.getServer().getOnlinePlayers()){
-                        loginstreakCommandList.add(p.getDisplayName());
+                        loginstreakCommandList.add(p.getName());
                     }
                 }
                 break;

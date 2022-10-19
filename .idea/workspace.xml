@@ -22,14 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Added manual claim reminder&#10;Started playtime claiming work">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/schedulers/PlayTimeScheduler.java" afterDir="false" />
+    <list default="true" id="e9d20a9d-585e-4007-805c-824d38755e61" name="Default Changelist" comment="Started work on playtime rewards&#10;Updated config for playtime rewards.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/StreakCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/commands/StreakCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/listeners/PlayerJoinListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/tabcompleters/LoginStreakTabCompleter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/munch42/loginstreak/tabcompleters/LoginStreakTabCompleter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +214,11 @@
       <workItem from="1642740703274" duration="4000" />
       <workItem from="1665542171955" duration="5026000" />
       <workItem from="1665547366706" duration="15000" />
-      <workItem from="1665633505498" duration="2550000" />
+      <workItem from="1665633505498" duration="2580000" />
+      <workItem from="1665706124782" duration="3622000" />
+      <workItem from="1665717786594" duration="1063000" />
+      <workItem from="1666148018782" duration="959000" />
+      <workItem from="1666150551374" duration="1638000" />
     </task>
     <task id="LOCAL-00001" summary="Added Rank Node">
       <created>1578354628795</created>
@@ -517,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665546535287</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Started work on playtime rewards&#10;Updated config for playtime rewards.">
+      <created>1665636080237</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1665636080237</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,7 +546,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reload Command Tested" />
     <MESSAGE value="Working on adding new streak calculation system" />
     <MESSAGE value="Added untested streak system" />
     <MESSAGE value="Streak System Tested" />
@@ -560,6 +570,7 @@
     <MESSAGE value="Finalized ability to manually claim streak especially if inv is full and otherwise.&#10;Updated overflow of configurableMessage function to also include the empty string handling.&#10;Added the ability to view another player's streak and added perm's for that.&#10;Fixed bug where you couldn't claim a reward despite using /streak claim force." />
     <MESSAGE value="Upgraded tab completion" />
     <MESSAGE value="Added manual claim reminder&#10;Started playtime claiming work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added manual claim reminder&#10;Started playtime claiming work" />
+    <MESSAGE value="Started work on playtime rewards&#10;Updated config for playtime rewards." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started work on playtime rewards&#10;Updated config for playtime rewards." />
   </component>
 </project>

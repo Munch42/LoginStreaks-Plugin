@@ -74,6 +74,14 @@ public class StreakCommand implements CommandExecutor {
                             }
                         }
 
+                        // We send the message before claiming so that on reset days, it still outputs the right day that you claimed.
+                        // Added a function for sending these messages where you input the player, message, and the things you want to replace in each message.
+                        int daysTotal = plugin.getStreaksConfig().getInt("players." + p.getUniqueId() + ".totalStreakDays");
+                        HashMap<String, Object> placeholders = new HashMap<String, Object>();
+                        placeholders.put("%days%", daysTotal);
+
+                        ChatUtils.sendConfigurableMessage(plugin, "streakManualClaimMessage", placeholders, p);
+
                         // Complete: Claim their daily here!
                         // This seems to run the PlayerJoinEvent in the PlayerJoinListener as if a player had joined
                         //p.sendMessage("3");
@@ -90,13 +98,6 @@ public class StreakCommand implements CommandExecutor {
                             }
                         }
                         //p.sendMessage("4");
-
-                        // Added a function for sending these messages where you input the player, message, and the things you want to replace in each message.
-                        int daysTotal = plugin.getStreaksConfig().getInt("players." + p.getUniqueId() + ".totalStreakDays");
-                        HashMap<String, Object> placeholders = new HashMap<String, Object>();
-                        placeholders.put("%days%", daysTotal);
-
-                        ChatUtils.sendConfigurableMessage(plugin, "streakManualClaimMessage", placeholders, p);
                         //p.sendMessage("5");
                     } else {
                         ChatUtils.sendConfigurableMessage(plugin, "noPermsMessage", p);

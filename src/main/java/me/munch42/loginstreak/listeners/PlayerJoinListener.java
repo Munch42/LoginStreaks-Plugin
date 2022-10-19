@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.sql.Array;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -47,17 +48,18 @@ public class PlayerJoinListener implements Listener {
 
     @EventHandler
     private void onPlayerJoin(PlayerJoinEvent event){
-        // Use the join message to differentiate between the event created by the streak command and a normal player joining.
-        // So if this event is not from the command AND manual claiming is on, then we just return out of this.
-        if(!event.getJoinMessage().equalsIgnoreCase("Player Claimed Reward") && plugin.getConfig().getBoolean("manualStreakClaiming")){
-            // Send a reminder to the player to manually claim their streak if manual claiming is on.
-            int daysTotal = plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays");
-            HashMap<String, Object> placeholders = new HashMap<String, Object>();
-            placeholders.put("%days%", daysTotal);
+        boolean manualPlaytimeClaim = false;
+        boolean manualClaiming = false;
 
-            ChatUtils.sendConfigurableMessage(plugin, "streakManualClaimReminder", placeholders, event.getPlayer());
-            return;
+        if(event.getJoinMessage().equalsIgnoreCase("Claiming for Playtime") && plugin.getConfig().getBoolean("playtimeManualClaim")){
+            // If this is true, we tell them when it has reached the required playtime when it realizes a node has the playtime section and the playtime has been met.
+            // This is just the reminder. When the play time scheduler sends the message to claim it for that player, it comes here, and we check if they need to manually claim it. If so, we tell them here.
+            manualPlaytimeClaim = true;
         }
+
+        // If we receive the call to run this from the play time scheduler meaning that someone can claim their reward based on their playtime, we then don't break out and run this as normal.
+        // This is only if auto claiming for this is enabled since otherwise they will manually have to claim it, and we can manually call to check playtime above.
+        boolean playtimeClaimEvent = event.getJoinMessage().equalsIgnoreCase("Claiming for Playtime") && !plugin.getConfig().getBoolean("playtimeManualClaim");
 
         // Save new player data on player join
         if(!plugin.getStreaksConfig().contains("players." + event.getPlayer().getUniqueId())){
@@ -78,6 +80,8 @@ public class PlayerJoinListener implements Listener {
         // Save current playtime on every join:
         plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".playtime", event.getPlayer().getStatistic(Statistic.PLAY_ONE_MINUTE));
 
+        plugin.saveConfig();
+
         // See if it is has been less than a day, more than a day, or 1 day since last login.
         long lastStreakTime = plugin.getStreaksConfig().getLong("players." + event.getPlayer().getUniqueId() + ".lastStreakTime");
         int totalDays = plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays");
@@ -97,9 +101,11 @@ public class PlayerJoinListener implements Listener {
         if(plugin.getConfig().getBoolean("defaultStreakSystem")) {
             if(System.currentTimeMillis() > lastStreakTime + oneDay && System.currentTimeMillis() < lastStreakTime + twoDays){
                 giveReward = true;
+                //System.out.println("True rewards");
             } else if(System.currentTimeMillis() > lastStreakTime + twoDays){
                 giveReward = false;
                 moreThanTwoDays = true;
+                //System.out.println("False rewards");
             }
         } else if(!plugin.getConfig().getBoolean("defaultStreakSystem")) {
             StringBuffer sBuffer = new StringBuffer(localDateLastStreak.toString());
@@ -174,11 +180,36 @@ public class PlayerJoinListener implements Listener {
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".lastStreakTime", System.currentTimeMillis());
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".dayReward", false);
             plugin.saveConfig();
+            //System.out.println("True rewards 2");
         } else if(moreThanTwoDays) {
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".totalStreakDays", 1);
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".lastStreakTime", System.currentTimeMillis());
             plugin.getStreaksConfig().set("players." + event.getPlayer().getUniqueId() + ".dayReward", false);
             plugin.saveConfig();
+            //System.out.println("False rewards 2");
+        }
+
+        // Moved from above to here so that we can remind the player to claim x day after updating to the new one.
+        // Use the join message to differentiate between the event created by the streak command and a normal player joining.
+        // So if this event is not from the command AND manual claiming is on, then we just return out of this.
+        if(!event.getJoinMessage().equalsIgnoreCase("Player Claimed Reward") && plugin.getConfig().getBoolean("manualStreakClaiming")){
+            if(!manualPlaytimeClaim){
+                // Send a reminder to the player to manually claim their streak if manual claiming is on.
+                int daysTotal = plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays");
+
+                // If there is no reward for the day they are on, just continue on and claim it for them. No reminder is sent.
+                if(getListOfAllRewardDaysForPlayer().contains(String.valueOf(daysTotal))) {
+                    HashMap<String, Object> placeholders = new HashMap<String, Object>();
+                    placeholders.put("%days%", daysTotal);
+
+                    ChatUtils.sendConfigurableMessage(plugin, "streakManualClaimReminder", placeholders, event.getPlayer());
+                    return;
+                }
+            }
+        }
+
+        if(plugin.getConfig().getBoolean("manualStreakClaiming")){
+            manualClaiming =  true;
         }
 
         int daysNow = plugin.getStreaksConfig().getInt("players." + event.getPlayer().getUniqueId() + ".totalStreakDays");
@@ -289,7 +320,7 @@ public class PlayerJoinListener implements Listener {
                                 plugin.saveConfig();
                             }
 
-                            if(checkPlaytimeUsed(permDayRewards, rewardKey)){
+                            if(checkPlaytimeUsed(p, permDayRewards, rewardKey, playtimeClaimEvent, manualClaiming)){
                                 break;
                             }
 
@@ -366,7 +397,7 @@ public class PlayerJoinListener implements Listener {
                                 plugin.saveConfig();
                             }
 
-                            if(checkPlaytimeUsed(permissionSection, rewardKey)){
+                            if(checkPlaytimeUsed(p, permissionSection, rewardKey, playtimeClaimEvent, manualClaiming)){
                                 break;
                             }
 
@@ -404,7 +435,7 @@ public class PlayerJoinListener implements Listener {
                             plugin.saveConfig();
                         }
 
-                        if(checkPlaytimeUsed(permissionSection, rewardKey)){
+                        if(checkPlaytimeUsed(p, permissionSection, rewardKey, playtimeClaimEvent, manualClaiming)){
                             break;
                         }
 
@@ -449,7 +480,7 @@ public class PlayerJoinListener implements Listener {
                     plugin.saveConfig();
                 }
 
-                if(checkPlaytimeUsed(rewards, key)){
+                if(checkPlaytimeUsed(p, rewards, key, playtimeClaimEvent, manualClaiming)){
                     break;
                 }
 
@@ -578,7 +609,7 @@ public class PlayerJoinListener implements Listener {
         return true;
     }
 
-    private boolean checkPlaytimeUsed(ConfigurationSection configSec, String rewardKey){
+    private boolean checkPlaytimeUsed(Player p, ConfigurationSection configSec, String rewardKey, boolean playtimeClaimEvent, boolean isManualClaim){
         boolean playtimeUsed = false;
 
         // If playtime used doesn't equal null then it is true since they use it.
@@ -588,6 +619,50 @@ public class PlayerJoinListener implements Listener {
             playtimeUsed = !configSec.getString(rewardKey + ".playtime").equalsIgnoreCase("");
         }
 
+        //System.out.println("Break: " + playtimeUsed);
+
+        // If this is the playtime claiming event, we don't want to break out, so we say that playtime is not used to avoid breaking out.
+        if (playtimeClaimEvent){
+            playtimeUsed = false;
+        }
+
+        // If we are manually claiming it, and we need to break since they don't have the playtime, we tell them.
+        if(isManualClaim && playtimeUsed){
+            HashMap<String, Object> placeholders = new HashMap<String, Object>();
+            // Current Time comes from the streak file with the player's UUID and then .playtime converted into hours + mins
+            float currentTime = plugin.getStreaksConfig().getInt("players." + p.getUniqueId() + ".playtime");
+
+            int curSecs = Math.round(currentTime / 20);
+            int curMins = (curSecs % 3600) / 60;
+            int curHours = curSecs / 3600;
+
+            String curTime = curHours + " hour(s) and " + curMins + " minute(s)";
+            System.out.println(curTime);
+
+            placeholders.put("%currentTime%", curTime);
+
+            // Required time comes from the rewardKey.playtime converted into hours + mins
+            String requiredTime = configSec.getString(rewardKey + ".playtime");
+            placeholders.put("%requiredTime%", requiredTime);
+
+
+            ChatUtils.sendConfigurableMessage(plugin, "playtimeManualClaimWarning", placeholders, p);
+        }
+
         return playtimeUsed;
+    }
+
+    private ArrayList<String> getListOfAllRewardDaysForPlayer(){
+        // Here we will get any days that the player gets rewards on including permission days.
+        ArrayList<String> rewardingDays = new ArrayList<>();
+
+        ConfigurationSection rewards = plugin.getConfig().getConfigurationSection("rewards");
+
+        // We add all the reward keys since every one is a day they could receive a reward.
+        rewardingDays.addAll(rewards.getKeys(false));
+
+        // TODO: Add the permission rewards for only the ones that apply to this player.
+
+        return rewardingDays;
     }
 }
